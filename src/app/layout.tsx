@@ -1,4 +1,8 @@
-import './globals.css'
+import Head from 'next/head'
+import './style.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +16,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div id="preloader">
+          <div className="loader"></div>
+        </div>
+
+        <Header />
+          {children}
+        <Footer />
+
+        <Script src="/js/jquery.min.js"  />
+
+        <Script src="/js/popper.min.js"  />
+
+        <Script src="/js/bootstrap.min.js"  />
+
+        <Script src="/js/alime.bundle.js"  />
+
+        <Script src="/js/default-assets/active.js"  />
+      </body>
     </html>
   )
 }
