@@ -1,8 +1,13 @@
 import { Inter } from 'next/font/google'
 import Hero, { HeroPropsType } from './components/Hero'
 import getPageBySlugService from './services/getPageBySlugService'
+import Gallery from './components/sections/Gallery'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const components = {
+  Gallery
+}
 
 const getData = async () => {
   const data = await getPageBySlugService('home')
@@ -25,12 +30,12 @@ const getData = async () => {
 
 export default async function Page() {
   const { heroData } = await getData()
-
+  const a = components['Gallery']
 
   return (
     <>
       <Hero {...heroData} />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <main>
         {JSON.stringify(heroData)}
       </main>
     </>

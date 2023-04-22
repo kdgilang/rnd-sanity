@@ -1,3 +1,5 @@
+"use client"
+
 export default function Search() {
   return (
     <div className="top-search-area">

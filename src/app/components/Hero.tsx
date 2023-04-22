@@ -9,8 +9,8 @@ const components = {
 export type HeroPropsType = BasePropsType & {
   title?: string
   content?: string
-  type: string
-  animations?: string
+  type: 'carousel'
+  animations: string
   items: Array<HeroItemModel>
 }
 
