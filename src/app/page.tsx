@@ -2,12 +2,9 @@ import { Inter } from 'next/font/google'
 import Hero, { HeroPropsType } from './components/Hero'
 import getPageBySlugService from './services/getPageBySlugService'
 import Gallery from './components/sections/Gallery'
+import Section from './components/Section'
 
 const inter = Inter({ subsets: ['latin'] })
-
-const components: any = {
-  gallery: Gallery
-}
 
 const getData = async () => {
   const data = await getPageBySlugService('home')
@@ -44,15 +41,7 @@ export default async function Page() {
       <h1 className="sr-only">{ title }</h1>
       <Hero {...heroData} />
       <main>
-        {
-          sections?.map((item: any) => {
-            if (!item.__component) return null
-
-            const Section = components[item.__component]
-
-            return <Section key={`section-${item.id}`} data={item} />
-          })
-        }
+        <Section items={sections} />
       </main>
     </>
   )
