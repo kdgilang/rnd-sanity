@@ -5,38 +5,54 @@ import Gallery from './components/sections/Gallery'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const components = {
-  Gallery
+const components: any = {
+  gallery: Gallery
 }
 
 const getData = async () => {
   const data = await getPageBySlugService('home')
-  const hero = data?.Hero?.[0]
+  const { sections, title, content } = data
+  const hero = data?.hero
   const heroData: HeroPropsType = {
-    type: hero?.__component?.replace('component.', ''),
-    animations: hero?.Animations,
-    items: hero?.Carousel_Items?.map((item: any) => ({ 
-      id: item.id,
-      title: item.Title,
-      content: item.Content,
-      mediaSrc: item.Image.url,
+    type: hero?.__component,
+    animations: hero?.animations,
+    items: hero?.carousel_items?.map((
+      {id, title, content, image}: any
+    ) => ({ 
+      id,
+      title,
+      content,
+      mediaSrc: image.url,
       buttonUrl: '#',
       buttonText: 'Test'
     }))
   }
 
-  return { heroData }
+  return { 
+    title,
+    content,
+    heroData,
+    sections
+  }
 }
 
 export default async function Page() {
-  const { heroData } = await getData()
-  const a = components['Gallery']
+  const { title, heroData, sections } = await getData()
 
   return (
     <>
+      <h1 className="sr-only">{ title }</h1>
       <Hero {...heroData} />
       <main>
-        {JSON.stringify(heroData)}
+        {
+          sections?.map((item: any) => {
+            if (!item.__component) return null
+
+            const Section = components[item.__component]
+
+            return <Section key={`section-${item.id}`} data={item} />
+          })
+        }
       </main>
     </>
   )

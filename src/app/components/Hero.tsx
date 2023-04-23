@@ -33,6 +33,11 @@ export class HeroItemModel {
 }
 
 export default function Hero({ className, type, items, animations }: HeroPropsType) {
+
+  if (!type) {
+    return null
+  }
+
   const Component = components[type]
   
   return (
