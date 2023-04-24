@@ -1,22 +1,24 @@
 import Image from "next/image";
+import { SettingsPropsType } from "../types/SettingsPropsType";
 
-export default function Footer() {
+export type FooterPropsType = SettingsPropsType & {
+
+}
+
+export default function Footer({ siteLogo, siteName, siteDescription }: FooterPropsType) {
+
   return (
-
     <footer className="footer-area">
       <div className="container">
         <div className="row">
           <div className="col-12">
             <div className="footer-content d-flex align-items-center justify-content-between">
-
               <div className="copywrite-text">
-                <p>Link back to Colorlib ca be removed. Template is licensed under CC BY 3.0.
-                  Copyright &copy;{(new Date().getFullYear())} All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                  Link back to Colorlib c be removed. Template is licensed under CC BY 3.0.</p>
+                <p>{ siteDescription }</p>
               </div>
               <div className="footer-logo">
                 <a href="#">
-                  <Image src="/vercel.svg" height={30} width={100} alt="" />
+                  <Image src={ siteLogo?.[0]?.url } height={30} width={100} alt={ siteName } />
                 </a>
               </div>
               <div className="social-info">
