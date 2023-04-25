@@ -34,7 +34,7 @@
             smartSpeed: 1000,
             autoplayTimeout: 10000,
             nav: true,
-            navText: [('<i class="ti-arrow-left"></i>'), ('<i class="ti-arrow-right"></i>')]
+            navText: [('<i class="arrow_left"></i>'), ('<i class="arrow_right"></i>')]
         })
 
         welcomeSlider.on('translate.owl.carousel', function () {

@@ -1,11 +1,17 @@
 import Image from "next/image";
 import { SettingsPropsType } from "../types/SettingsPropsType";
+import Link from "next/link";
 
 export type FooterPropsType = SettingsPropsType & {
 
 }
 
-export default function Footer({ siteLogo, siteName, siteDescription }: FooterPropsType) {
+export default function Footer({
+    siteLogo,
+    siteName,
+    siteDescription,
+    socialNetworks 
+  }: FooterPropsType) {
 
   return (
     <footer className="footer-area">
@@ -22,10 +28,11 @@ export default function Footer({ siteLogo, siteName, siteDescription }: FooterPr
                 </a>
               </div>
               <div className="social-info">
-                <a href="#"><i className="ti-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i className="ti-twitter-alt" aria-hidden="true"></i></a>
-                <a href="#"><i className="ti-linkedin" aria-hidden="true"></i></a>
-                <a href="#"><i className="ti-pinterest" aria-hidden="true"></i></a>
+                { socialNetworks?.map(item => (
+                  <Link key={`sn-${item.id}`} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`go to ${item.name}`}>
+                    <i className={item.icon_class_name} aria-hidden="true"></i>
+                  </Link>
+                )) }
               </div>
             </div>
           </div>

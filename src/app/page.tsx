@@ -33,6 +33,15 @@ const getData = async () => {
   }
 }
 
+export async function generateMetadata() {
+  const { title, settings, content } = await getData()
+
+  return {
+    title: `${settings.site_name} | ${title}`,
+    description: content,
+  };
+}
+
 export default async function Page() {
   const { title, heroData, sections } = await getData()
 

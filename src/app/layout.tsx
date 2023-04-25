@@ -5,11 +5,17 @@ import Script from 'next/script'
 import getSiteSettingsService from './services/getSiteSettingsService'
 
 const getData = async () => {
-  const {site_name, site_description, site_logo} = await getSiteSettingsService()
+  const {
+    site_name,
+    site_description,
+    site_logo,
+    social_networks,
+  } = await getSiteSettingsService()
   return {
     siteName: site_name,
     siteDescription: site_description,
-    siteLogo: site_logo 
+    siteLogo: site_logo,
+    socialNetworks: social_networks
   }
 }
 
