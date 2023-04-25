@@ -14,6 +14,12 @@ export type GalleryPropsType = BasePropsType & {
 export default function Gallery({ data, className }: GalleryPropsType) {
   const { galleries } = data
   let delay = 0
+  let categories: any[] = []
+  
+  galleries?.forEach((item) => {
+    categories.push(...item.categories?.map((cat: any) => cat))
+  })
+
   return (
     <div className={classNames(
       className || ""
@@ -23,8 +29,9 @@ export default function Gallery({ data, className }: GalleryPropsType) {
           <div className="alime-projects-menu">
             <div className="portfolio-menu text-center">
               <button className="btn active" data-filter="*">All</button>
-              <button className="btn" data-filter=".wedding">Wedding</button>
-              <button className="btn" data-filter=".birthday">Birthday</button>
+              { categories?.map(item => (
+                <button key={`cat-${item.id}`} className="btn" data-filter={`.${item?.slug?.toLowerCase()}`}>{ item.title }</button>
+              ))}
             </div>
           </div>
         </div>
