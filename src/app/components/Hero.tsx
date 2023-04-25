@@ -1,49 +1,39 @@
 import classNames from "../helpers/classNames"
-import { BasePropsType } from "../types/BasePropsType"
+import { BaseDataType, BasePropsType } from "../types/BasePropsType"
 import HeroCarousel from "./heroes/Carousel"
+import Image from "./heroes/Image"
 
-const components = {
-  carousel: HeroCarousel
+const components: any = {
+  'carousel': HeroCarousel,
+  'single-image': Image
+}
+
+type HeroDataType = BaseDataType & {
+  __component: string
+  animations: string
 }
 
 export type HeroPropsType = BasePropsType & {
-  title?: string
-  content?: string
-  type: 'carousel'
-  animations: string
-  items: Array<HeroItemModel>
+  data: HeroDataType
 }
 
-export class HeroItemModel {
-  id: number
-  title: string
-  content: string
-  mediaSrc: string
-  buttonUrl: string
-  buttonText: string
+export default function Hero({ className, data }: HeroPropsType) {
+  const { __component, ...heroData } = data
 
-  constructor() {
-    this.id = 0
-    this.title = ''
-    this.content = ''
-    this.mediaSrc = ''
-    this.buttonText = ''
-    this.buttonUrl = ''
-  }
-}
-
-export default function Hero({ className, type, items, animations }: HeroPropsType) {
-
-  if (!type) {
+  if (!__component) {
     return null
   }
 
-  const Component = components[type]
+  const Hero = components[__component]
+
+  if (!Hero) {
+    return null
+  }
   
   return (
     <div className={classNames(
       className || "")}>
-      <Component items={items} animations={animations} />
+      <Hero data={heroData} />
     </div>
   )
 }

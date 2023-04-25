@@ -22,6 +22,10 @@ export default function Section({ items, className }: SectionPropsType) {
         const { title, content, settings } = item
         const containerClassName = settings?.container === 'Contained' ? 'container' : 'container-fluid'
 
+        if (!Section) {
+          return null
+        }
+        
         return (
           <div
             key={`section-${item.id}`}

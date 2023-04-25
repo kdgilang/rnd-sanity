@@ -5,8 +5,8 @@ import Section from '@components/Section'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const getData = async () => {
-  const data = await getPageBySlugService('home')
+const getData = async (slug: string) => {
+  const data = await getPageBySlugService(slug)
   const { sections, title, content, settings, hero } = data
 
   return {
@@ -18,8 +18,8 @@ const getData = async () => {
   }
 }
 
-export async function generateMetadata() {
-  const { title, settings, content } = await getData()
+export async function generateMetadata({ params }: { params: { slug: string }}) {
+  const { title, settings, content } = await getData(params.slug)
 
   return {
     title: `${settings.site_name} | ${title}`,
@@ -27,9 +27,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Page() {
+export default async function Pages({ params }: { params: { slug: string }}) {
 
-  const { title, hero, sections } = await getData()
+  const { title, hero, sections } = await getData(params.slug)
 
   return (
     <main>
