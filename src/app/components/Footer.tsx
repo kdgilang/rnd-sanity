@@ -14,7 +14,7 @@ export default function Footer({
   }: FooterPropsType) {
 
   return (
-    <footer className="footer-area">
+    <footer className="footer-area bg-black">
       <div className="container">
         <div className="row">
           <div className="col-12">

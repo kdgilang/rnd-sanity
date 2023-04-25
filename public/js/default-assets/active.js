@@ -34,7 +34,7 @@
             smartSpeed: 1000,
             autoplayTimeout: 10000,
             nav: true,
-            navText: [('<i class="arrow_left"></i>'), ('<i class="arrow_right"></i>')]
+            navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
         })
 
         welcomeSlider.on('translate.owl.carousel', function () {
@@ -196,7 +196,7 @@
     if ($.fn.scrollUp) {
         alime_window.scrollUp({
             scrollSpeed: 1000,
-            scrollText: '<i class="arrow_carrot-up"</i>'
+            scrollText: '<i class="fa fa-angle-up"</i>'
         });
     }
 

@@ -55,7 +55,7 @@ export default function Header({ siteName, siteLogo }: HeaderPropsType) {
                       <li><a href="./contact.html">Contact</a></li>
                     </ul>
 
-                    <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="ti-search"></i></div>
+                    <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div>
                   </div>
                 </div>
               </nav>

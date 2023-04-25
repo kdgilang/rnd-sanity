@@ -32,13 +32,12 @@ Last Update: Feb 22, 2019
 --------------------------------------------- */
 /* Import Fonts & All CSS */
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700");
-@import url(css/bootstrap.min.css);
-@import url(css/animate.css);
-@import url(css/default-assets/classy-nav.css);
-@import url(css/owl.carousel.min.css);
-@import url(css/magnific-popup.css);
-@import url(css/font-awesome.min.css);
-@import url(css/style.css);
+@import url(assets/css/bootstrap.min.css);
+@import url(assets/css/animate.css);
+@import url(assets/css/default-assets/classy-nav.css);
+@import url(assets/css/owl.carousel.min.css);
+@import url(assets/css/magnific-popup.css);
+@import url(assets/css/font-awesome.min.css);
 /* :: 01.0 Reboot CSS */
 * {
   margin: 0;
@@ -111,6 +110,11 @@ ul {
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important; }
+
+.bg-black {
+  background-color: #000000;
+  color: #ddd;
+}
 
 .jarallax {
   position: relative;
@@ -264,33 +268,33 @@ input:required {
 .pt-50 {
   padding-top: 50px !important; }
 
-.section-padding-80 {
-  padding-top: 80px;
-  padding-bottom: 80px; }
-
-.section-padding-0-80 {
-  padding-top: 0;
-  padding-bottom: 80px; }
-
-.section-padding-80-0 {
-  padding-top: 80px;
-  padding-bottom: 0; }
-
-.section-padding-80-50 {
-  padding-top: 80px;
+.section-padding {
+  padding-top: 50px;
   padding-bottom: 50px; }
 
-.section-padding-100 {
-  padding-top: 100px;
-  padding-bottom: 100px; }
-
-.section-padding-0-100 {
+.section-padding-top {
   padding-top: 0;
-  padding-bottom: 100px; }
+  padding-bottom: 50px; }
 
-.section-padding-100-0 {
-  padding-top: 100px;
+.section-padding-bottom {
+  padding-top: 50px;
   padding-bottom: 0; }
+
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 70px;
+    padding-bottom: 70px; }
+  
+  .section-padding-bottom {
+    padding-bottom: 70px; 
+    padding-top: 0;;
+  }
+  
+  .section-padding-top {
+    padding-top: 70px;
+    padding-bottom: 0; }
+}
 
 /* :: 3.0 Preloader CSS */
 #preloader {
@@ -722,10 +726,11 @@ input:required {
   padding: 20px 0; }
   .footer-content .copywrite-text {
     position: relative;
+    color: #ccc;
     z-index: 1; }
     .footer-content .copywrite-text p {
-      margin-bottom: 0;
-      color: #252525; }
+      margin-bottom: 0; 
+      color: #ccc;}
       @media only screen and (max-width: 767px) {
         .footer-content .copywrite-text p {
           font-size: 12px; } }
@@ -739,7 +744,7 @@ input:required {
     .footer-content .footer-logo a img {
       max-width: 50px; } }
   .footer-content .social-info a {
-    color: #252525;
+    color: #ccc;
     font-size: 16px;
     margin-right: 20px; }
     .footer-content .social-info a:last-child {

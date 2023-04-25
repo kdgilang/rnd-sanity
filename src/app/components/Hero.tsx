@@ -41,7 +41,8 @@ export default function Hero({ className, type, items, animations }: HeroPropsTy
   const Component = components[type]
   
   return (
-    <div className={classNames(className || "")}>
+    <div className={classNames(
+      className || "")}>
       <Component items={items} animations={animations} />
     </div>
   )
