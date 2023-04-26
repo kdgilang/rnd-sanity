@@ -374,7 +374,6 @@ input:required {
   .section-heading h2 {
     font-size: 36px;
     text-transform: capitalize;
-    margin-bottom: 5px;
     display: block;
     line-height: 1.2; }
     @media only screen and (max-width: 767px) {
@@ -823,9 +822,9 @@ input:required {
   @media only screen and (max-width: 767px) {
     .about-us-content h3 {
       font-size: 24px; } }
-.about-us-content .line {
+.line {
   height: 3px;
-  width: 70px;
+  width: 65%;
   background-color: #fc6060;
   margin-bottom: 30px; }
 
@@ -1469,6 +1468,7 @@ input:required {
     position: relative;
     z-index: 1;
     margin-top: 30px; }
+    .team-content-area:hover .member-social-info .btn { border-color: white }
     .team-content-area .member-social-info a {
       color: #636363;
       font-size: 16px;

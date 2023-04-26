@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Search from './Search'
 import { SettingsPropsType } from '../types/SettingsPropsType'
+import Link from 'next/link'
 
 export type HeaderPropsType = SettingsPropsType & {
 
@@ -16,9 +17,9 @@ export default function Header({ siteName, siteLogo }: HeaderPropsType) {
             <div className="container">
               <nav className="classy-navbar justify-content-between" id="alimeNav">
 
-                <a className="nav-brand" href="./index.html">
+                <Link className="nav-brand" href="/" aria-label="go home">
                   <Image src={ siteLogo?.[0]?.url } height={30} width={100} alt={siteName} />
-                </a>
+                </Link>
 
                 <div className="classy-navbar-toggler">
                   <span className="navbarToggler"><span></span><span></span><span></span></span>
