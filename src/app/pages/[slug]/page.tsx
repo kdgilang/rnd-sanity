@@ -1,9 +1,6 @@
-import { Inter } from 'next/font/google'
 import Hero from '@components/Hero'
 import getPageBySlugService from '@services/getPageBySlugService'
 import Section from '@components/Section'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const getData = async (slug: string) => {
   const data = await getPageBySlugService(slug)

@@ -31,8 +31,13 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
 
   const handleLoadMore = async () => {
     const data = await getGalleriesService(2)
+
     if (data?.galleries) {
-      setGalleries(data.galleries)
+      setGalleries([])
+
+      setTimeout(() => {
+        setGalleries(data.galleries)
+      }, 200);
     }
   }
 

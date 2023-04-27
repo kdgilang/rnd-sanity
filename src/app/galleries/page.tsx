@@ -1,9 +1,6 @@
-import { Inter } from 'next/font/google'
 import Hero from '@components/Hero'
 import Gallery from '../components/sections/Gallery'
 import getGalleriesService from '../services/getGalleriesService'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const getData = async () => {
   const data = await getGalleriesService(1)

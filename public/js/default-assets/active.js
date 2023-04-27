@@ -99,7 +99,6 @@
     // *********************************
     // :: 5.0 Masonary Gallery Active Code
     // *********************************
-
     if ($.fn.imagesLoaded) {
         $('.alime-portfolio').imagesLoaded(function () {
             // filter items on button click
