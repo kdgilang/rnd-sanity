@@ -23,28 +23,46 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
 
   const [galleries, setGalleries] = useState(data?.galleries)
 
+  const [isFullyLoaded, setIsFullyLoaded] = useState(false)
+
+  const [galleriesLength, setGalleriesLength] = useState(0)
+
+  const [isBusy, setIsBusy] = useState(false)
+
   useEffect(() => {
-    galleries?.forEach(item => {
-      setCategories([...item.categories?.map((cat: any) => cat)])
-    })
+    setCategories(() => 
+      galleries?.map(item => 
+        item.categories?.map((cat: any) => cat)
+      ).flat()
+    )
   }, [galleries])
 
-  const handleLoadMore = async () => {
-    const data = await getGalleriesService(2)
-
-    if (data?.galleries) {
-      setGalleries([])
-
-      setTimeout(() => {
-        setGalleries(data.galleries)
-      }, 200);
+  useEffect(() => {
+    if (galleriesLength === galleries?.length) {
+      setIsFullyLoaded(true)
     }
+  }, [galleries, galleriesLength])
+
+  const handleLoadMore = async () => {
+    if (isBusy) return
+    setIsBusy(true)
+    const data = await getGalleriesService(2)
+    if (data?.galleries) {
+      setGalleriesLength(data.galleries?.length)
+      const slicesGalleries = data?.galleries?.slice(galleries?.length, data.galleries?.length)
+      setGalleries(prevGalleries => [
+        ...prevGalleries,
+        ...slicesGalleries
+      ])
+    }
+    setIsBusy(false)
   }
 
   return (
     <div className={classNames(
       className || ""
     )}>
+      {!isAjax &&
       <div className="row">
         <div className="col-12">
           <div className="alime-projects-menu">
@@ -56,9 +74,12 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
             </div>
           </div>
         </div>
-      </div>
+      </div> }
 
-      <div className="row alime-portfolio">
+      <div className={classNames(
+        "row",
+        isAjax ? "" : "alime-portfolio"
+      )}>
         {galleries?.map((item, i) => {
           delay = i * 150
           let slugs = item?.categories?.map((c: any) => c.slug.toLowerCase())
@@ -81,7 +102,8 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
 
       <div className="row">
         <div className="col-12 text-center wow fadeInUp" data-wow-delay={`${delay + 200}ms`}>
-          { isAjax ? <a href="#" className="btn alime-btn btn-2 mt-15" onClick={handleLoadMore}>Load More</a> :
+          { isBusy && <div className="loader mx-auto mb-4 wow fadeIn"></div> }
+          { isAjax ? (!isFullyLoaded && <button className="btn alime-btn btn-2 mt-15" onClick={handleLoadMore}>Load More</button>) :
             <Link href="/gallery" className="btn alime-btn btn-2 mt-15">View More</Link>
           }
         </div>
