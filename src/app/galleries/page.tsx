@@ -25,11 +25,16 @@ export default async function Page() {
     image: gallery?.images[0],
     __component: 'single-image',
   }
+
+  data?.galleries?.forEach((item: any) => {
+    item.path = `/galleries/${item.slug}`
+  })
+
   return (
     <main>
       <h1 className="sr-only">Galleries</h1>
       <Hero data={hero} />
-      <div className="container-fluid section-padding">
+      <div className="container section-padding">
         <Gallery data={data} isAjax={true} />
       </div>
     </main>

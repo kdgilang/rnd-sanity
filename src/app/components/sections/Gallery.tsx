@@ -91,9 +91,16 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
             )}
             data-wow-delay={`${delay}ms`}>
             <div className="single-portfolio-content">
-              <Image src={item?.images?.[0]?.formats?.medium?.url} width={200} height={100} alt={item.title} />
+              <Image src={item?.images?.[0]?.formats?.thumbnail?.url} width={200} height={100} alt={item.title} />
               <div className="hover-content">
-                <a href={item?.images?.[0]?.url} className="portfolio-img">+</a>
+                <Link
+                  href={isAjax ? item.path : item?.images?.[0]?.url}
+                  className={classNames(
+                    isAjax ? "" : "portfolio-img"
+                  )}
+                >
+                  { isAjax ? <span className="fa fa-link"></span> : '+' }
+                </Link>
               </div>
             </div>
           </div>
@@ -104,7 +111,7 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
         <div className="col-12 text-center wow fadeInUp" data-wow-delay={`${delay + 200}ms`}>
           { isBusy && <div className="loader mx-auto mb-4 wow fadeIn"></div> }
           { isAjax ? (!isFullyLoaded && <button className="btn alime-btn btn-2 mt-15" onClick={handleLoadMore}>Load More</button>) :
-            <Link href="/gallery" className="btn alime-btn btn-2 mt-15">View More</Link>
+            <Link href="/galleries" className="btn alime-btn btn-2 mt-15">View More</Link>
           }
         </div>
       </div>

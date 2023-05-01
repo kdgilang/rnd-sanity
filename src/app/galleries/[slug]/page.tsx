@@ -1,9 +1,9 @@
 import Hero from '@components/Hero'
-import getPageBySlugService from '@services/getPageBySlugService'
 import Section from '@components/Section'
+import getGalleryBySlugService from '@src/app/services/getGalleryBySlugService'
 
 const getData = async (slug: string) => {
-  const data = await getPageBySlugService(slug)
+  const data = await getGalleryBySlugService(slug)
 
   return data
 }
@@ -19,13 +19,20 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
 
 export default async function Page({ params }: { params: { slug: string }}) {
 
-  const { title, hero, sections } = await getData(params.slug)
+  const { title, body, images } = await getData(params.slug)
+
+  const hero = {
+    __component: 'single-image',
+    title,
+    image: images?.[0],
+    content: '',
+  }
 
   return (
     <main>
       { title && <h1 className="sr-only">{ title }</h1> }
       <Hero data={hero} />
-      <Section items={sections} />
+      { body && <div className="body" dangerouslySetInnerHTML={{ __html: body }}></div> }
     </main>
   )
 }

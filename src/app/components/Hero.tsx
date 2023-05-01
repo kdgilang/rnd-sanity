@@ -10,7 +10,6 @@ const components: any = {
 
 type HeroDataType = BaseDataType & {
   __component: string
-  animations: string
 }
 
 export type HeroPropsType = BasePropsType & {
