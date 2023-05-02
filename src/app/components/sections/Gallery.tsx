@@ -50,6 +50,7 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
     if (data?.galleries) {
       setGalleriesLength(data.galleries?.length)
       const slicesGalleries = data?.galleries?.slice(galleries?.length, data.galleries?.length)
+
       setGalleries(prevGalleries => [
         ...prevGalleries,
         ...slicesGalleries
@@ -80,30 +81,32 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
         "row",
         isAjax ? "" : "alime-portfolio"
       )}>
-        {galleries?.map((item, i) => {
+        { galleries?.map((item, i) => {
           delay = i * 150
-          let slugs = item?.categories?.map((c: any) => c.slug.toLowerCase())
-          return <div
+
+          let slugs = [];
+
+          if (isAjax) {
+            slugs = item?.categories?.map((c: any) => c.slug.toLowerCase())
+          }
+
+          return <Link
+            href={isAjax ? item?.path : item?.images?.[0]?.url}
             key={`gallery-${item.id}`}
             className={classNames(
               "col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp",
-              slugs?.join(',')
+              isAjax ?  "" : `${slugs?.join(',')} portfolio-img`
             )}
             data-wow-delay={`${delay}ms`}>
             <div className="single-portfolio-content">
               <Image src={item?.images?.[0]?.formats?.thumbnail?.url} width={200} height={100} alt={item.title} />
               <div className="hover-content">
-                <Link
-                  href={isAjax ? item.path : item?.images?.[0]?.url}
-                  className={classNames(
-                    isAjax ? "" : "portfolio-img"
-                  )}
-                >
+                <div>
                   { isAjax ? <span className="fa fa-link"></span> : '+' }
-                </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         })}
       </div>
 

@@ -20,11 +20,6 @@ export async function generateMetadata() {
 export default async function Page() {
   const data = await getData()
   const gallery = data?.galleries?.[0]
-  const hero = {
-    ...gallery,
-    image: gallery?.images[0],
-    __component: 'single-image',
-  }
 
   data?.galleries?.forEach((item: any) => {
     item.path = `/galleries/${item.slug}`
@@ -32,9 +27,12 @@ export default async function Page() {
 
   return (
     <main>
-      <h1 className="sr-only">Galleries</h1>
-      <Hero data={hero} />
+      <div className="container pt-50"></div>
       <div className="container section-padding">
+        <div className="d-inline-block text-left">
+          <h2>Galleries</h2>
+          <div className="line wow fadeInUp" data-wow-delay="200ms"></div>
+        </div>
         <Gallery data={data} isAjax={true} />
       </div>
     </main>

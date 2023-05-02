@@ -115,6 +115,9 @@ ul {
   background-color: #000000;
   color: #ddd;
 }
+main {
+  min-height: 100vh;
+}
 
 .jarallax {
   position: relative;
@@ -1576,7 +1579,7 @@ input:required {
     opacity: 0;
     visibility: hidden;
     z-index: 10; }
-    .single-portfolio-content .hover-content a {
+    .single-portfolio-content .hover-content div {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -1591,9 +1594,8 @@ input:required {
       text-align: center;
       line-height: 52px;
       font-size: 30px;
-      color: #ffffff; }
-      .single-portfolio-content .hover-content a:hover, .single-portfolio-content .hover-content a:focus {
-        background-color: #000000; }
+      color: #ffffff; 
+      transition: all 0.3s ease;}
   .single-portfolio-content:hover img, .single-portfolio-content:focus img {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
@@ -1601,7 +1603,7 @@ input:required {
   .single-portfolio-content:hover .hover-content, .single-portfolio-content:focus .hover-content {
     opacity: 1;
     visibility: visible; }
-    .single-portfolio-content:hover .hover-content a, .single-portfolio-content:focus .hover-content a {
+    .single-portfolio-content:hover .hover-content div, .single-portfolio-content:focus .hover-content div {
       margin-top: -26px; }
 
 /* :: 16.0 Contact CSS */
