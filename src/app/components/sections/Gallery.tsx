@@ -19,6 +19,8 @@ export type GalleryPropsType = BasePropsType & {
 export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
   let delay = 0
 
+  const loadPerPage = 10
+
   const [categories, setCategories] = useState<any[]>([])
 
   const [galleries, setGalleries] = useState(data?.galleries)
@@ -38,7 +40,7 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
   }, [galleries])
 
   useEffect(() => {
-    if (galleriesLength === galleries?.length) {
+    if (galleriesLength === galleries?.length || galleriesLength < loadPerPage) {
       setIsFullyLoaded(true)
     }
   }, [galleries, galleriesLength])
@@ -46,7 +48,7 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
   const handleLoadMore = async () => {
     if (isBusy) return
     setIsBusy(true)
-    const data = await getGalleriesService(2)
+    const data = await getGalleriesService(10)
     if (data?.galleries) {
       setGalleriesLength(data.galleries?.length)
       const slicesGalleries = data?.galleries?.slice(galleries?.length, data.galleries?.length)
@@ -91,8 +93,8 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
           }
 
           return <Link
-            href={isAjax ? item?.path : item?.images?.[0]?.url}
             key={`gallery-${item.id}`}
+            href={isAjax ? `/galleries/${item.slug}`: item?.images?.[0]?.url}
             className={classNames(
               "col-12 col-sm-6 col-lg-3 single_gallery_item mb-30 wow fadeInUp",
               isAjax ?  "" : `${slugs?.join(',')} portfolio-img`

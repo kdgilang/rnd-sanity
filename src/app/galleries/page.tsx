@@ -3,7 +3,7 @@ import Gallery from '../components/sections/Gallery'
 import getGalleriesService from '../services/getGalleriesService'
 
 const getData = async () => {
-  const data = await getGalleriesService(1)
+  const data = await getGalleriesService(10)
 
   return data
 }
@@ -20,10 +20,6 @@ export async function generateMetadata() {
 export default async function Page() {
   const data = await getData()
   const gallery = data?.galleries?.[0]
-
-  data?.galleries?.forEach((item: any) => {
-    item.path = `/galleries/${item.slug}`
-  })
 
   return (
     <main>
