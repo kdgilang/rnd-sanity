@@ -1,6 +1,7 @@
 import classNames from "../helpers/classNames"
 import { BaseDataType, BasePropsType } from "../types/BasePropsType"
 import SectionHeading from "./SectionHeading"
+import Accordion from "./sections/Accordion"
 import Carousel from "./sections/Carousel"
 import Embed from "./sections/Embed"
 import Gallery from "./sections/Gallery"
@@ -10,6 +11,7 @@ import Team from "./sections/Team"
 import Video from "./sections/Video"
 
 const components: any = {
+  accordion: Accordion,
   gallery: Gallery,
   embed: Embed,
   video: Video,
@@ -34,6 +36,7 @@ export default function Section({ items, className }: SectionPropsType) {
         const { title, content, settings } = item
         let containerClassName = settings?.container === 'Contained' ? 'container' : 'container-fluid'
         const disableTitle = ['video', 'single-image', 'featured-carousel']
+        const disablePadding = ['single-image']
 
         if (!Section) {
           return null
@@ -47,7 +50,8 @@ export default function Section({ items, className }: SectionPropsType) {
           <div
             key={`section-${item.id}`}
             className={classNames(
-              "section-padding text-center",
+              disablePadding.indexOf(type) < 0 ? "section-padding" : "",
+              "text-center",
               `section-${type}`,
               i % 2 === 0 ? "bg-gray" : "",
               className || ""

@@ -49,7 +49,7 @@ export default async function RootLayout({
         <Header {...data} />
           {children}
 
-        <div className="container-fluid">
+        <div className="container-fluid section-padding">
           <SectionHeading title="Follow our instagram" isCenter={true} />
           <Embed data={embedData}/>
         </div>

@@ -19,8 +19,8 @@ export default function SingleImage({ data, className }: ImagePropsType) {
     )}
     style={{backgroundImage: `url(${image?.url})`}}>
       <div className="container h-100">
-          <div className="row h-100 align-items-center">
-              <div className="col-12">
+          <div className="row h-100 align-items-center justify-content-center">
+              <div className="col-xs-12 col-md-7">
                   <div className="single-image-content text-center">
                     <h2 className="page-title">{ title }</h2>
                     <p>{ content }</p>
