@@ -1,11 +1,11 @@
 import classNames from "../helpers/classNames"
 import { BaseDataType, BasePropsType } from "../types/BasePropsType"
 import HeroCarousel from "./heroes/Carousel"
-import Image from "./heroes/Image"
+import SingleImage from "./heroes/Image"
 
 const components: any = {
   'carousel': HeroCarousel,
-  'single-image': Image
+  'single-image': SingleImage
 }
 
 type HeroDataType = BaseDataType & {

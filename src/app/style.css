@@ -372,9 +372,9 @@ input:required {
     box-shadow: 0 2.5em 0 0; } }
 /* :: 4.0 Heading CSS */
 .section-heading {
+  margin-bottom: 40px;
   position: relative;
-  z-index: 1;
-  margin-bottom: 50px; }
+  z-index: 1; }
   .section-heading h2 {
     font-size: 36px;
     text-transform: capitalize;
@@ -384,10 +384,15 @@ input:required {
       .section-heading h2 {
         font-size: 24px; } }
   .section-heading p {
-    margin-bottom: 0; }
+    margin-top: 15px; }
   .section-heading.white p,
   .section-heading.white h2 {
     color: #ffffff; }
+
+.single-image-content {
+  background-color: rgba(255,255,255, 0.8);
+  padding: 40px;
+}
 
 /* :: 5.0 Backtotop CSS */
 #scrollUp {
@@ -829,8 +834,7 @@ input:required {
 .line {
   height: 3px;
   width: 65%;
-  background-color: var(--primary-color);
-  margin-bottom: 30px; }
+  background-color: var(--primary-color); }
 
 .about-video-area {
   position: relative;
@@ -971,6 +975,9 @@ input:required {
       .breadcrumb-area .page-title {
         font-size: 24px; } }
 
+        .breadcrumb-area .single-image-content .page-title { color: #333 }
+        .breadcrumb-area .single-image-content p { color: #333; margin-bottom: 0; }
+
 .breadcrumb-content {
   position: relative;
   z-index: 1;
@@ -1046,6 +1053,10 @@ input:required {
 .blog-details-text {
   position: relative;
   z-index: 1; }
+  .blog-details-text a {text-decoration: underline;}
+  .blog-details-text ul li {list-style: disc;}
+  .blog-details-text ol li {list-style: decimal;}
+  .blog-details-text ul, .blog-details-text ol { padding-left: 15px;}
   .blog-details-text .row {
     margin-right: -5px;
     margin-left: -5px; }
@@ -1056,29 +1067,29 @@ input:required {
     font-size: 18px;
     margin-bottom: 20px; }
 
-.alime-blockquote {
+blockquote {
   position: relative;
   z-index: 1;
   margin-bottom: 30px;
   margin-top: 30px;
   border-left: 3px solid var(--primary-color);
   padding-left: 30px; }
-  .alime-blockquote h4 {
+  blockquote h4 {
     margin-bottom: 15px;
     font-size: 24px;
     color: #161715;
     line-height: 1.5;
     font-weight: 400; }
     @media only screen and (max-width: 767px) {
-      .alime-blockquote h4 {
+      blockquote h4 {
         font-size: 18px; } }
-  .alime-blockquote h6 {
+  blockquote h6 {
     font-size: 18px;
     color: var(--primary-color);
     text-transform: uppercase;
     margin-bottom: 0; }
     @media only screen and (max-width: 767px) {
-      .alime-blockquote h6 {
+      blockquote h6 {
         font-size: 14px; } }
 
 .post-author-area {
@@ -1097,7 +1108,6 @@ input:required {
       width: 100%;
       margin-bottom: 30px; } }
   .post-author-area .popular-tags li {
-    display: inline-block;
     float: left;
     margin: 3px; }
   @media only screen and (max-width: 767px) {

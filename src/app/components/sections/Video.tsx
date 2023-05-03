@@ -1,6 +1,7 @@
 import classNames from "@src/app/helpers/classNames";
 import { BasePropsType } from "@src/app/types/BasePropsType";
 import Image from "next/image";
+import Link from "next/link";
 
 type EmbedDataType = {
   title: string
@@ -35,9 +36,9 @@ export default function Video({ data, className }: EmbedPropsType) {
         <div className="about-video-area wow fadeInUp" data-wow-delay="100ms">
           <Image src={image?.formats?.medium?.url} height={100} width={150} alt={title} />
           <div className="video-icon">
-            <a href={embed_url} style={{ lineHeight: 1 }} className="video-play-btn" aria-label="play the video">
+            <Link href={embed_url} style={{ lineHeight: 1 }} className="video-play-btn" aria-label="play the video">
               <i className="fa fa-play" style={{ lineHeight: '50px', fontSize: '22px'}} aria-hidden="true"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

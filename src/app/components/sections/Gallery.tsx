@@ -88,7 +88,7 @@ export default function Gallery({ data, className, isAjax }: GalleryPropsType) {
 
           let slugs = [];
 
-          if (isAjax) {
+          if (!isAjax) {
             slugs = item?.categories?.map((c: any) => c.slug.toLowerCase())
           }
 

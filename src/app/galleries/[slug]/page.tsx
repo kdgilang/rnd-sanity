@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string }}) {
     <main>
       { title && <h1 className="sr-only">{ title }</h1> }
       <Hero data={hero} />
-      { body && <div className="body" dangerouslySetInnerHTML={{ __html: body }}></div> }
+      { body && <div className="container section-padding blog-details-text" dangerouslySetInnerHTML={{ __html: body }}></div> }
     </main>
   )
 }

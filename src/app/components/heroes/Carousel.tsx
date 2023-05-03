@@ -15,7 +15,7 @@ export type CarouselPropsType = BasePropsType & {
 export default function Carousel({ data, className }: CarouselPropsType) {
   const { animations, carousel_items } = data
   return (
-    <section className={classNames(
+    <div className={classNames(
       "welcome-area",
       className || ""
     )}>
@@ -42,6 +42,6 @@ export default function Carousel({ data, className }: CarouselPropsType) {
           ))
         }
       </div>
-    </section>
+    </div>
   )
 }

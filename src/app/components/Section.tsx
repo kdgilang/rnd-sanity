@@ -1,7 +1,10 @@
 import classNames from "../helpers/classNames"
 import { BaseDataType, BasePropsType } from "../types/BasePropsType"
+import SectionHeading from "./SectionHeading"
+import Carousel from "./sections/Carousel"
 import Embed from "./sections/Embed"
 import Gallery from "./sections/Gallery"
+import SingleImage from "./sections/Image"
 import Service from "./sections/Service"
 import Team from "./sections/Team"
 import Video from "./sections/Video"
@@ -11,7 +14,9 @@ const components: any = {
   embed: Embed,
   video: Video,
   team: Team,
-  service: Service
+  service: Service,
+  'single-image': SingleImage,
+  'featured-carousel': Carousel
 }
 
 export type SectionPropsType = BasePropsType & {
@@ -27,11 +32,15 @@ export default function Section({ items, className }: SectionPropsType) {
         const type = item.__component
         const Section = components[type]
         const { title, content, settings } = item
-        const containerClassName = settings?.container === 'Contained' ? 'container' : 'container-fluid'
-        const disableTitle = ['video']
+        let containerClassName = settings?.container === 'Contained' ? 'container' : 'container-fluid'
+        const disableTitle = ['video', 'single-image', 'featured-carousel']
 
         if (!Section) {
           return null
+        }
+
+        if (type === 'single-image') {
+          containerClassName = ""
         }
         
         return (
@@ -47,15 +56,7 @@ export default function Section({ items, className }: SectionPropsType) {
               {( disableTitle.indexOf(type) < 0 && (title || content)) &&
                 <div className="row">
                   <div className="col-12">
-                    <div className="section-heading">
-                      { title && 
-                        <div className="d-inline-block">
-                          <h2>{title}</h2>
-                          <div className="line wow fadeInUp mx-auto" data-wow-delay="200ms"></div>
-                        </div>
-                      }
-                      {content && <p>{content}</p>}
-                    </div>
+                    <SectionHeading title={title} content={content} isCenter={true} />
                   </div>
                 </div>
               }

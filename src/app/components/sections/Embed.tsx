@@ -5,7 +5,8 @@ type EmbedDataType = {
   embed_code: string
 }
 
-export type EmbedPropsType = BasePropsType & {
+export type EmbedPropsType = {
+  className?: string
   data: EmbedDataType
 }
 

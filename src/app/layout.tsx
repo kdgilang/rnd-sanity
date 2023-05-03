@@ -5,6 +5,8 @@ import Footer from './components/Footer'
 import Script from 'next/script'
 import getSiteSettingsService from './services/getSiteSettingsService'
 import { writeFile} from 'fs'
+import SectionHeading from './components/SectionHeading'
+import Embed from './components/sections/Embed'
 
 const getData = async () => {
   const {
@@ -12,14 +14,16 @@ const getData = async () => {
     site_description,
     site_logo,
     social_networks,
-    primary_color
+    primary_color,
+    instagram_embed_code
   } = await getSiteSettingsService()
   return {
     siteName: site_name,
     siteDescription: site_description,
     siteLogo: site_logo,
     socialNetworks: social_networks,
-    primaryColor: primary_color
+    primaryColor: primary_color,
+    instagramEmbedCode: instagram_embed_code
   }
 }
 
@@ -29,8 +33,11 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const data = await getData()
-  const { primaryColor } = data
+  const { primaryColor, instagramEmbedCode } = data
   // initThemeColor({ primaryColor })
+  const embedData = {
+    embed_code: instagramEmbedCode
+  }
 
   return (
     <html lang="en">
@@ -41,6 +48,11 @@ export default async function RootLayout({
 
         <Header {...data} />
           {children}
+
+        <div className="container-fluid">
+          <SectionHeading title="Follow our instagram" isCenter={true} />
+          <Embed data={embedData}/>
+        </div>
         <Footer {...data} />
 
         <Script src="/js/jquery.min.js"  />

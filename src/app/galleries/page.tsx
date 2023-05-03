@@ -1,6 +1,7 @@
 import Hero from '@components/Hero'
 import Gallery from '../components/sections/Gallery'
 import getGalleriesService from '../services/getGalleriesService'
+import SectionHeading from '../components/SectionHeading'
 
 const getData = async () => {
   const data = await getGalleriesService(10)
@@ -25,10 +26,7 @@ export default async function Page() {
     <main>
       <div className="container pt-50"></div>
       <div className="container section-padding">
-        <div className="d-inline-block text-left">
-          <h2>Galleries</h2>
-          <div className="line wow fadeInUp" data-wow-delay="200ms"></div>
-        </div>
+        <SectionHeading title="Galleries" isCenter={false} />
         <Gallery data={data} isAjax={true} />
       </div>
     </main>
