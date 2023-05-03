@@ -24,7 +24,7 @@ export default function Video({ data, className }: EmbedPropsType) {
     )}>
       <div className="col-12 col-lg-6">
         <div className="about-us-content">
-          <div className="d-inline-block">
+          <div className="d-inline-block mb-4">
             <h2 className="wow fadeInUp" data-wow-delay="100ms">{ title }</h2>
             <div className="line wow fadeInUp" data-wow-delay="200ms"></div>
           </div>

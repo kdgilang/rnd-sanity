@@ -25,17 +25,20 @@
 
     if ($.fn.owlCarousel) {
         var welcomeSlider = $('.welcome-slides');
-        var animate = welcomeSlider.data('animations')
-        welcomeSlider.owlCarousel({
-            items: 1,
-            animateOut: animate === 'fade' ? 'fadeOut' : false,
-            loop: true,
-            autoplay: true,
-            smartSpeed: 1000,
-            autoplayTimeout: 10000,
-            nav: true,
-            navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
-        })
+
+        welcomeSlider.each(function() {
+            var animate = $(this).data('animations');
+            $(this).owlCarousel({
+                items: 1,
+                animateOut: animate === 'fade' ? 'fadeOut' : false,
+                loop: true,
+                autoplay: true,
+                smartSpeed: 1000,
+                autoplayTimeout: 10000,
+                nav: true,
+                navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
+            })
+        });
 
         welcomeSlider.on('translate.owl.carousel', function () {
             var layer = $("[data-animation]");

@@ -22,17 +22,6 @@ export default function Carousel({ data, className }: CarouselPropsType) {
       "text-left row align-items-center",
       className || ""
     )}>
-
-    <div className="col-12 col-lg-6">
-        <div className="about-us-content">
-          <div className="d-inline-block">
-            <h2 className="wow fadeInUp" data-wow-delay="100ms">{ title }</h2>
-            <div className="line wow fadeInUp" data-wow-delay="200ms"></div>
-          </div>
-          <p className="wow fadeInUp" data-wow-delay="300ms">{ content }</p>
-          <Link className="btn alime-btn btn-2 mt-15 wow fadeInUp" data-wow-delay="500ms" href={link?.url}>{ link?.label }</Link>
-        </div>
-      </div>
       <div className="col-12 col-lg-6">
         <div className="about-video-area wow fadeInUp" data-wow-delay="100ms">
           <div className="welcome-slides owl-carousel" data-animations={animations}>
@@ -42,6 +31,16 @@ export default function Carousel({ data, className }: CarouselPropsType) {
             ))
           }
           </div>
+        </div>
+      </div>
+      <div className="col-12 col-lg-6">
+        <div className="about-us-content">
+          <div className="d-inline-block mb-4">
+            <h2 className="wow fadeInUp" data-wow-delay="100ms">{ title }</h2>
+            <div className="line wow fadeInUp" data-wow-delay="200ms"></div>
+          </div>
+          <p className="wow fadeInUp" data-wow-delay="300ms">{ content }</p>
+          <Link className="btn alime-btn btn-2 mt-15 wow fadeInUp" data-wow-delay="500ms" href={link?.url}>{ link?.label }</Link>
         </div>
       </div>
     </div>

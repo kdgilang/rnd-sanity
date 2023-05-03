@@ -709,15 +709,15 @@ input:required {
     z-index: 1; }
     .single-welcome-slide .welcome-text h2 {
       font-weight: 700;
-      font-size: 82px;
+      font-size: 62px;
       display: block;
-      margin-bottom: 0;
+      margin-bottom: 10px;
       background: -webkit-linear-gradient(#ff9696, #ffe89e);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent; }
       @media only screen and (max-width: 767px) {
         .single-welcome-slide .welcome-text h2 {
-          font-size: 42px; } }
+          font-size: 32px; } }
     .single-welcome-slide .welcome-text p {
       color: #ffffff;
       margin-bottom: 50px;
@@ -843,8 +843,7 @@ input:required {
   .about-video-area img {
     -webkit-box-shadow: 3px 0 24px rgba(0, 0, 0, 0.15);
     box-shadow: 3px 0 24px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    border-radius: 10px; }
+    width: 100%;}
   .about-video-area .video-icon a {
     position: absolute;
     top: 50%;
