@@ -7,6 +7,7 @@ import getSiteSettingsService from './services/getSiteSettingsService'
 import { writeFile} from 'fs'
 import SectionHeading from './components/SectionHeading'
 import Embed from './components/sections/Embed'
+import Loading from './components/Loading'
 
 const getData = async () => {
   const {
@@ -42,17 +43,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div id="preloader">
-          <div className="loader"></div>
-        </div>
+        <Loading />
 
         <Header {...data} />
           {children}
 
-        <div className="container-fluid section-padding">
-          <SectionHeading title="Follow our instagram" isCenter={true} />
-          <Embed data={embedData}/>
-        </div>
+          <div className="container-fluid py-4" style={{ background: '#9ca0ac' }}>
+            <Embed data={embedData}/>
+          </div>
         <Footer {...data} />
 
         <Script src="/js/jquery.min.js"  />

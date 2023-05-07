@@ -117,7 +117,7 @@ ul {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 .jarallax {
@@ -641,12 +641,14 @@ input:required {
   position: relative;
   z-index: 1; }
 
-.welcome-slides {
+.owl-carousel {
   position: relative;
   z-index: 1;
   overflow: hidden; }
-  .welcome-slides .owl-prev,
-  .welcome-slides .owl-next {
+  .owl-carousel .owl-prev .fa,
+  .owl-carousel .owl-next .fa { line-height: 66px;}
+  .owl-carousel .owl-prev,
+  .owl-carousel .owl-next {
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
@@ -655,38 +657,38 @@ input:required {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
     position: absolute;
+    line-height: 1;
     top: 50%;
     left: 70px;
     margin-top: -33px;
     z-index: 10;
     text-align: center;
-    line-height: 70px;
     color: #ffffff;
     font-size: 30px; }
-    .welcome-slides .owl-prev:hover, .welcome-slides .owl-prev:focus,
-    .welcome-slides .owl-next:hover,
-    .welcome-slides .owl-next:focus {
+    .owl-carousel .owl-prev:hover, .owl-carousel .owl-prev:focus,
+    .owl-carousel .owl-next:hover,
+    .owl-carousel .owl-next:focus {
       background-color: var(--primary-color); }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .welcome-slides .owl-prev,
-      .welcome-slides .owl-next {
+      .owl-carousel .owl-prev,
+      .owl-carousel .owl-next {
         left: 30px; } }
     @media only screen and (max-width: 767px) {
-      .welcome-slides .owl-prev,
-      .welcome-slides .owl-next {
+      .owl-carousel .owl-prev,
+      .owl-carousel .owl-next {
         width: 40px;
         left: 15px;
         height: 40px;
         font-size: 18px;
         line-height: 44px; } }
-  .welcome-slides .owl-next {
+  .owl-carousel .owl-next {
     left: auto;
     right: 70px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .welcome-slides .owl-next {
+      .owl-carousel .owl-next {
         right: 30px; } }
     @media only screen and (max-width: 767px) {
-      .welcome-slides .owl-next {
+      .owl-carousel .owl-next {
         right: 15px; } }
 
 .single-welcome-slide {

@@ -1,5 +1,6 @@
 import Hero from '@components/Hero'
 import Section from '@components/Section'
+import Carousel from '@src/app/components/sections/Carousel'
 import getGalleryBySlugService from '@src/app/services/getGalleryBySlugService'
 
 const getData = async (slug: string) => {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
 
 export default async function Page({ params }: { params: { slug: string }}) {
 
-  const { title, body, images } = await getData(params.slug)
+  const { title, body, images, content } = await getData(params.slug)
 
   const hero = {
     __component: 'single-image',
@@ -28,11 +29,19 @@ export default async function Page({ params }: { params: { slug: string }}) {
     content: '',
   }
 
+  const carousel = {
+    images,
+    itemsToShow: 3
+  }
+
   return (
     <main>
       { title && <h1 className="sr-only">{ title }</h1> }
       <Hero data={hero} />
-      { body && <div className="container section-padding blog-details-text" dangerouslySetInnerHTML={{ __html: body }}></div> }
+      <div className="container section-padding blog-details-text">
+        <Carousel data={carousel} className="mb-5" />
+        <div dangerouslySetInnerHTML={{ __html: body }}></div>
+      </div>
     </main>
   )
 }

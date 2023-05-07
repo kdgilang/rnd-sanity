@@ -25,6 +25,7 @@
 
     if ($.fn.owlCarousel) {
         var welcomeSlider = $('.welcome-slides');
+        var fCarousel = $('.f-carousel');
 
         welcomeSlider.each(function() {
             var animate = $(this).data('animations');
@@ -37,14 +38,37 @@
                 autoplayTimeout: 10000,
                 nav: true,
                 navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
-            })
-        });
+            });
 
-        welcomeSlider.on('translate.owl.carousel', function () {
-            var layer = $("[data-animation]");
-            layer.each(function () {
-                var anim_name = $(this).data('animation');
-                $(this).removeClass('animated ' + anim_name).css('opacity', '0');
+            $(this).on('translate.owl.carousel', function () {
+                var layer = $("[data-animation]");
+                layer.each(function () {
+                    var anim_name = $(this).data('animation');
+                    $(this).removeClass('animated ' + anim_name).css('opacity', '0');
+                });
+            });
+        });
+        
+        fCarousel.each(function() {
+            var animate = $(this).data('animations');
+            var  itemsToShow = $(this).data('items-to-show');
+            $(this).owlCarousel({
+                items: itemsToShow ? itemsToShow : 1,
+                animateOut: animate === 'fade' ? 'fadeOut' : false,
+                loop: true,
+                autoplay: true,
+                smartSpeed: 1000,
+                autoplayTimeout: 10000,
+                nav: true,
+                navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
+            });
+            
+            $(this).on('translate.owl.carousel', function () {
+                var layer = $("[data-animation]");
+                layer.each(function () {
+                    var anim_name = $(this).data('animation');
+                    $(this).removeClass('animated ' + anim_name).css('opacity', '0');
+                });
             });
         });
 
