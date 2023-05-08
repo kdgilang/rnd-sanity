@@ -629,9 +629,9 @@ input:required {
   -o-transition-duration: 500ms;
   transition-duration: 500ms;
   height: 70px;
-  background-color: rgba(0, 0, 0, 0.2); }
+  background-color: #000000; }
   .main-header-area.sticky {
-    background-color: #000000; }
+    background-color: rgba(0, 0, 0, 0.55); }
 
 .classy-navbar-toggler .navbarToggler span {
   background-color: #ffffff; }

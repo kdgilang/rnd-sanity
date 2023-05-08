@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Search from './Search'
+import ModalSearch from './ModalSearch'
 import { SettingsPropsType } from '../types/SettingsPropsType'
 import Link from 'next/link'
 
@@ -10,7 +10,7 @@ export type HeaderPropsType = SettingsPropsType & {
 export default function Header({ siteName, siteLogo }: HeaderPropsType) {
   return (
     <>
-      <Search />
+      <ModalSearch />
       <header className="header-area">
         <div className="main-header-area">
           <div className="classy-nav-container breakpoint-off">
