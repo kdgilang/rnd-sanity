@@ -1,16 +1,20 @@
+'use client'
+
 import Image from 'next/image'
 import ModalSearch from './ModalSearch'
 import { SettingsPropsType } from '../types/SettingsPropsType'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export type HeaderPropsType = SettingsPropsType & {
 
 }
 
-export default function Header({ siteName, siteLogo }: HeaderPropsType) {
+export default function Header({ site_name, site_logo }: HeaderPropsType) {
+  const pathName = usePathname()
   return (
     <>
-      <ModalSearch />
+      { pathName !== '/search' && <ModalSearch /> }
       <header className="header-area">
         <div className="main-header-area">
           <div className="classy-nav-container breakpoint-off">
@@ -18,7 +22,7 @@ export default function Header({ siteName, siteLogo }: HeaderPropsType) {
               <nav className="classy-navbar justify-content-between" id="alimeNav">
 
                 <Link className="nav-brand" href="/" aria-label="go home">
-                  <Image src={ siteLogo?.[0]?.url } height={30} width={100} alt={siteName} />
+                  <Image src={ site_logo?.[0]?.url } height={30} width={100} alt={site_name} />
                 </Link>
 
                 <div className="classy-navbar-toggler">
@@ -56,7 +60,7 @@ export default function Header({ siteName, siteLogo }: HeaderPropsType) {
                       <li><a href="./contact.html">Contact</a></li>
                     </ul>
 
-                    <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div>
+                    { pathName !== '/search' && <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }
                   </div>
                 </div>
               </nav>

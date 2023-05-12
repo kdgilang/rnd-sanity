@@ -10,22 +10,7 @@ import Embed from './components/sections/Embed'
 import Loading from './components/Loading'
 
 const getData = async () => {
-  const {
-    site_name,
-    site_description,
-    site_logo,
-    social_networks,
-    primary_color,
-    instagram_embed_code
-  } = await getSiteSettingsService()
-  return {
-    siteName: site_name,
-    siteDescription: site_description,
-    siteLogo: site_logo,
-    socialNetworks: social_networks,
-    primaryColor: primary_color,
-    instagramEmbedCode: instagram_embed_code
-  }
+  return getSiteSettingsService()
 }
 
 export default async function RootLayout({
@@ -34,10 +19,10 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const data = await getData()
-  const { primaryColor, instagramEmbedCode } = data
+  const { primary_color, instagram_embed_code } = data
   // initThemeColor({ primaryColor })
   const embedData = {
-    embed_code: instagramEmbedCode
+    embed_code: instagram_embed_code
   }
 
   return (

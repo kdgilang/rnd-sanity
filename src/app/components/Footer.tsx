@@ -7,10 +7,10 @@ export type FooterPropsType = SettingsPropsType & {
 }
 
 export default function Footer({
-    siteLogo,
-    siteName,
-    siteDescription,
-    socialNetworks 
+    site_ogo,
+    site_name,
+    site_description,
+    social_networks 
   }: FooterPropsType) {
 
   return (
@@ -20,15 +20,15 @@ export default function Footer({
           <div className="col-12">
             <div className="footer-content d-flex align-items-center justify-content-between">
               <div className="copywrite-text">
-                <p>{ siteDescription }</p>
+                <p>{ site_description }</p>
               </div>
               <div className="footer-logo">
                 <a href="#">
-                  <Image src={ siteLogo?.[0]?.url } height={30} width={100} alt={ siteName } />
+                  <Image src={ site_ogo?.[0]?.url } height={30} width={100} alt={ site_name } />
                 </a>
               </div>
               <div className="social-info">
-                { socialNetworks?.map(item => (
+                { social_networks?.map(item => (
                   <Link key={`sn-${item.id}`} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`go to ${item.name}`}>
                     <i className={item.icon_class_name} aria-hidden="true"></i>
                   </Link>
