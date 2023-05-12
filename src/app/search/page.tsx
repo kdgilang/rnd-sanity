@@ -6,7 +6,7 @@ export default function PageNotFound({ searchParams }) {
     <>
       <div className="container py-5">
         <div className="section-padding">
-          <h1 className="heading mb-4">Search result for: {searchParams?.keyword}</h1>
+          <h1 className="heading mb-4">Search{searchParams?.keyword ? ` "${searchParams?.keyword}"` : ""}</h1>
           <div className="row">
             <div className="col-xl-6">
               <div className="card mb-3">
