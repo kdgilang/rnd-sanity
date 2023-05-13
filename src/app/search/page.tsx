@@ -37,21 +37,24 @@ export default async function PageNotFound({ searchParams }) {
             <Suspense fallback={<p>Loading...</p>}>
               {data?.map(item => {
                 const dataString = new Date(item.createdAt).toLocaleDateString('en-US')
+                const url = `${item?.type === 'page' ? "" : "/galleries"}/${item?.slug}`
                 return <div key={item.id} className="col-12 col-xl-6">
-                  <div className="card mb-3">
+                  <Link href={url} className="card mb-3">
                     <div className="row no-gutters">
                       <div className="col-md-4">
-                      <Image src="" className="card-img" alt="" />
+                      <Image src={item?.image?.formats?.medium?.url} className="card-img" alt={item.title} width={200} height={150} />
                       </div>
                       <div className="col-md-8">
                         <div className="card-body">
-                          <h5 className="card-title">{ item.title }</h5>
-                          <p className="card-text">{ item.content }</p>
-                          <p className="card-text"><small className="text-muted">{ dataString }</small></p>
+                          <h5 className="mb-2">
+                            { item.title }
+                          </h5>
+                          <span class="badge bg-primary mr-2 display-inline-block">{ item.type }</span>
+                          <small className="text-muted">{ dataString }</small>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               })}
             </Suspense>

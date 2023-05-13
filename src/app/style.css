@@ -116,6 +116,15 @@ ul {
   color: #ddd;
 }
 
+.bg-primary {
+  background-color: var(--primary-color);
+  color: #efefef;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
 main {
   min-height: 50vh;
 }
