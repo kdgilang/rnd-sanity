@@ -7,7 +7,7 @@ export default async function CardList({ data }) {
 
   return (
     <div className="row">
-      {data?.map(item => {
+      { data?.map(item => {
         const dataString = new Date(item.createdAt).toLocaleDateString('en-US')
         const url = `${item?.type === 'page' ? "" : "/galleries"}/${item?.slug}`
         return <div key={item.id} className="col-12 col-xl-6">

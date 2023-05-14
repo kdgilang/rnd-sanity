@@ -24,9 +24,10 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
 
 async function Result({ keyword }) {
   const data = await getData(keyword)
-  
   return (
-    <CardList data={data} />
+    <>
+    { data?.length ? <CardList data={data} /> : <p>No items found.</p>}
+    </>
   )
 }
 
@@ -53,8 +54,8 @@ export default async function Page({ searchParams }) {
 function Loading() {
   return (
     <div className="row">
-      {Array.from({length: 6}).map(item => {
-        return <div key={`skeleton-search-${item}`} className="col-12 col-xl-6">
+      {Array.from({length: 6}).map((item, i) => {
+        return <div key={`skeleton-search-${i}`} className="col-12 col-xl-6">
           <div className="card mb-3">
             <div className="row no-gutters">
               <div className="col-md-4">

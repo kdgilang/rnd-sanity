@@ -5,13 +5,15 @@ import ModalSearch from './ModalSearch'
 import { SettingsPropsType } from '../types/SettingsPropsType'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import classNames from '../helpers/classNames'
 
 export type HeaderPropsType = SettingsPropsType & {
-
+  menus: any[]
 }
 
-export default function Header({ site_name, site_logo }: HeaderPropsType) {
+export default function Header({ site_name, site_logo, menus }: HeaderPropsType) {
   const pathName = usePathname()
+
   return (
     <>
       { pathName !== '/search' && <ModalSearch /> }
@@ -35,29 +37,16 @@ export default function Header({ site_name, site_logo }: HeaderPropsType) {
                   </div>
                   <div className="classynav">
                     <ul id="nav">
-                      <li className="active"><a href="./index.html">Home</a></li>
-                      <li><a href="#">Pages</a>
-                        <ul className="dropdown">
-                          <li><a href="./index.html">- Home</a></li>
-                          <li><a href="./about.html">- About</a></li>
-                          <li><a href="./gallery.html">- Gallery</a></li>
-                          <li><a href="./blog.html">- Blog</a></li>
-                          <li><a href="./single-blog.html">- Blog Details</a></li>
-                          <li><a href="./contact.html">- Contact</a></li>
-                          <li><a href="#">- Dropdown</a>
-                            <ul className="dropdown">
-                              <li><a href="#">- Dropdown Item</a></li>
-                              <li><a href="#">- Dropdown Item</a></li>
-                              <li><a href="#">- Dropdown Item</a></li>
-                              <li><a href="#">- Dropdown Item</a></li>
-                            </ul>
+                      {
+                        menus?.map(item => (
+                          <li key={`menu-${item.id}`}
+                              className={classNames(
+                                pathName.replace('/', '') === item.slug ? "active" : ""
+                              )}>
+                            <Link href={ item?.slug }>{ item?.title }</Link>
                           </li>
-                        </ul>
-                      </li>
-                      <li><a href="./about.html">About</a></li>
-                      <li><a href="./gallery.html">Gallery</a></li>
-                      <li><a href="./blog.html">Blog</a></li>
-                      <li><a href="./contact.html">Contact</a></li>
+                        ))
+                      }
                     </ul>
 
                     { pathName !== '/search' && <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }

@@ -7,7 +7,7 @@ export type FooterPropsType = SettingsPropsType & {
 }
 
 export default function Footer({
-    site_ogo,
+    site_logo,
     site_name,
     site_description,
     social_networks 
@@ -24,7 +24,7 @@ export default function Footer({
               </div>
               <div className="footer-logo">
                 <a href="#">
-                  <Image src={ site_ogo?.[0]?.url } height={30} width={100} alt={ site_name } />
+                  <Image src={ site_logo?.[0]?.url } height={30} width={100} alt={ site_name } />
                 </a>
               </div>
               <div className="social-info">

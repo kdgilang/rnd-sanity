@@ -2,20 +2,25 @@ import Hero from '@components/Hero'
 import getPageBySlugService from '@services/getPageBySlugService'
 import Section from '@components/Section'
 import getSiteSettingsService from '@services/getSiteSettingsService'
+import { notFound } from 'next/navigation'
 
 const getData = async (slug: string) => {
-  const data = await getPageBySlugService(slug)
-  const { sections, title, content, hero, createdAt } = data
-
-  if (hero.__component === 'single-image') {
-    hero.date = new Date(createdAt).toLocaleDateString()
-  }
-
-  return {
-    hero,
-    title,
-    content,
-    sections
+  try {
+    const data = await getPageBySlugService(slug)
+    const { sections, title, content, hero, createdAt } = data
+  
+    if (hero.__component === 'single-image') {
+      hero.date = new Date(createdAt).toLocaleDateString()
+    }
+  
+    return {
+      hero,
+      title,
+      content,
+      sections
+    } 
+  } catch(err) {
+    notFound()
   }
 }
 
