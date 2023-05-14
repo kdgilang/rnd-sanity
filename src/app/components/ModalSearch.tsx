@@ -1,13 +1,13 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 
 export default function ModalSearch() {
   const router = useRouter()
   const [keyword, setKeyword] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<EventTarget>) => {
     e.preventDefault()
     router.push(`/search?keyword=${keyword}`)
   }

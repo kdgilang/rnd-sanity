@@ -2,12 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { BasePropsType } from "../types/BasePropsType";
 
-export default async function CardList({ data }) {
+type CardListType = BasePropsType & {
+  data: any[]
+}
+
+export default function CardList({ data }: CardListType) {
 
   return (
     <div className="row">
-      { data?.map(item => {
+      { data?.map((item: any) => {
         const dataString = new Date(item.createdAt).toLocaleDateString('en-US')
         const url = `${item?.type === 'page' ? "" : "/galleries"}/${item?.slug}`
         return <div key={item.id} className="col-12 col-xl-6">

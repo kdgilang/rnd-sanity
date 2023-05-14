@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 import classNames from '../helpers/classNames'
 
 export type HeaderPropsType = SettingsPropsType & {
-  menus: any[]
+
 }
 
 export default function Header({ site_name, site_logo, menus }: HeaderPropsType) {

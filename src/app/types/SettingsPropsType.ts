@@ -1,8 +1,10 @@
 import { BasePropsType } from "./BasePropsType"
 
 export type SettingsPropsType = BasePropsType & {
-  siteName: string
-  siteDescription: string
-  siteLogo: any[]
-  socialNetworks: any[]
+  site_name: string
+  site_description: string
+  site_logo: any[]
+  social_networks: any[],
+  menus: any[],
+  home_page: any
 }

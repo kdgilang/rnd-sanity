@@ -32,7 +32,9 @@ export default async function Page({ params }: { params: { slug: string }}) {
   }
 
   const carousel = {
-    images,
+    title: '',
+    content: '',
+    images: images as any[],
     itemsToShow: 3
   }
 

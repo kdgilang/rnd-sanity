@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import Search from "../components/Search";
+import SearchForm from "@components/SearchForm";
 import getSearchService from "../services/getSearchService";
 import getSiteSettingsService from "../services/getSiteSettingsService";
-import dynamic from 'next/dynamic'
-import CardList from "../components/CardList";
-import Skeleton from "../components/Skeleton";
+import CardList from "@components/CardList";
+import Skeleton from "@components/Skeleton";
+import { BasePropsType } from "../types/BasePropsType";
 
 
 const getData = async (keyword: string) => {
@@ -22,8 +22,13 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
   };
 }
 
-async function Result({ keyword }) {
+type ResultType = BasePropsType & {
+  keyword: string
+}
+
+async function Result({ keyword }: ResultType) {
   const data = await getData(keyword)
+  
   return (
     <>
     { data?.length ? <CardList data={data} /> : <p>No items found.</p>}
@@ -31,19 +36,20 @@ async function Result({ keyword }) {
   )
 }
 
-export default async function Page({ searchParams }) {
+export default async function Page({ searchParams }: any) {
 
   return (
     <div className="container py-5">
       <div className="section-padding">
         <div className="row mb-5 justify-content-center">
           <div className="col-xs-8 col-md-6">
-            <Search />
+            <SearchForm />
           </div>
         </div>
         <h1 className="heading mb-5">Search{searchParams?.keyword ? ` "${searchParams?.keyword}"` : ""}</h1>
 
         <Suspense fallback={<Loading />}>
+          {/* @ts-ignore */}
           <Result keyword={ searchParams?.keyword } />
         </Suspense>
       </div>

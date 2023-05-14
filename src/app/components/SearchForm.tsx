@@ -1,15 +1,15 @@
 'use client'
 
 import { useRouter, useSearchParams } from "next/navigation"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 
-export default function Search() {
+export default function SearchForm() {
   const router = useRouter()
   const params = useSearchParams()
   
-  const [keyword, setKeyword] = useState(params.get('keyword'))
+  const [keyword, setKeyword] = useState(params.get('keyword') || '')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<EventTarget>) => {
     e.preventDefault()
     router.push(`/search?keyword=${keyword}`)
   }
@@ -27,7 +27,7 @@ export default function Search() {
           onChange={ (e) => setKeyword(e.target.value) }
           value={keyword} />
         <div className="input-group-append">
-          <button className="btn btn-outline-secondary" type="submit">Search</button>
+          <button className="btn btn-outline-secondary bg-primary" type="submit">Search</button>
         </div>
       </div>
     </form>

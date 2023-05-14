@@ -2,10 +2,10 @@ import Link from "next/link";
 import getSiteSettingsService from "./services/getSiteSettingsService";
 
 export async function generateMetadata() {
-  const settings = getSiteSettingsService()
+  const settings = await getSiteSettingsService()
 
   return {
-    title: `${settings.site_name} | 404`,
+    title: `${settings?.site_name} | 404`,
     description: "page not found.",
   };
 }

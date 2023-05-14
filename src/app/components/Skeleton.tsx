@@ -1,7 +1,7 @@
-import { BasePropsType } from '@src/types/basePropsType'
 import BaseSkeleton from 'react-loading-skeleton'
 import classNames from '@src/app/helpers/classNames'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { BasePropsType } from '../types/BasePropsType'
 
 type SkeletonPropsType = BasePropsType & {
   containerClassName?: string

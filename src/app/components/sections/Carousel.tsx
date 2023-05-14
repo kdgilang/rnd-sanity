@@ -5,9 +5,9 @@ import Link from "next/link"
 
 
 type CarouselDataType = BaseDataType & {
-  animations: string
+  animations?: string
   images: any[]
-  link: any
+  link?: any
   itemsToShow?: number
 }
 
@@ -18,6 +18,7 @@ export type CarouselPropsType = BasePropsType & {
 
 export default function Carousel({ data, className }: CarouselPropsType) {
   const { animations, images, title, content, link, itemsToShow } = data
+
   return (
     <div className={classNames(
       "text-left row align-items-center",

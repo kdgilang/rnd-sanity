@@ -34,8 +34,8 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
   };
 }
 
-export default async function Page({ params }: { c: { slug: string }}) {
-  const { title, hero, sections, date } = await getData(params.slug)
+export default async function Page({ params }: { params: { slug: string }}) {
+  const { title, hero, sections } = await getData(params.slug)
 
   return (
     <main>
