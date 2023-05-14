@@ -21,9 +21,6 @@ export default async function RootLayout({
   const data = await getData()
   const { primary_color, instagram_embed_code } = data
   // initThemeColor({ primaryColor })
-  const embedData = {
-    embed_code: instagram_embed_code
-  }
 
   return (
     <html lang="en">
@@ -33,9 +30,9 @@ export default async function RootLayout({
         <Header {...data} />
           {children}
 
-          <div className="container-fluid py-4" style={{ background: '#9ca0ac' }}>
-            <Embed data={embedData}/>
-          </div>
+          { instagram_embed_code && <div className="container-fluid py-4" style={{ background: '#9ca0ac' }}>
+            <Embed data={{ embed_code: instagram_embed_code }}/>
+          </div> }
         <Footer {...data} />
 
         <Script src="/js/jquery.min.js"  />

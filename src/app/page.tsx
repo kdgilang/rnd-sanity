@@ -1,22 +1,23 @@
 import Hero from '@components/Hero'
 import getPageBySlugService from '@services/getPageBySlugService'
 import Section from '@components/Section'
+import getSiteSettingsService from './services/getSiteSettingsService'
 
 const getData = async () => {
   const data = await getPageBySlugService('home')
-  const { sections, title, content, settings, hero } = data
+  const { sections, title, content, hero } = data
 
   return {
     hero,
     title,
     content,
-    sections,
-    settings
+    sections
   }
 }
 
 export async function generateMetadata() {
-  const { title, settings, content } = await getData()
+  const settings = await getSiteSettingsService()
+  const { title, content } = await getData()
 
   return {
     title: `${settings.site_name} | ${title}`,

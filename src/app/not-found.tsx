@@ -1,4 +1,14 @@
 import Link from "next/link";
+import getSiteSettingsService from "./services/getSiteSettingsService";
+
+export async function generateMetadata() {
+  const settings = getSiteSettingsService()
+
+  return {
+    title: `${settings.site_name} | 404`,
+    description: "page not found.",
+  };
+}
 
 export default function PageNotFound() {
   return (

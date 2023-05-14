@@ -3,6 +3,7 @@ import { BaseDataType, BasePropsType } from "@src/app/types/BasePropsType"
 
 type ImageDataType = BaseDataType & {
   image: any
+  date: string
 }
 
 export type ImagePropsType = BasePropsType & {
@@ -11,7 +12,7 @@ export type ImagePropsType = BasePropsType & {
 
 
 export default function SingleImage({ data, className }: ImagePropsType) {
-  const { image, title, content } = data
+  const { image, title, date } = data
   return (
     <div className={classNames(
       "breadcrumb-area bg-img bg-overlay jarallax",
@@ -24,7 +25,7 @@ export default function SingleImage({ data, className }: ImagePropsType) {
               <div className="col-12">
                   <div className="breadcrumb-content text-center">
                       <h2 className="page-title">{ title }</h2>
-                      <p style={{ color: '#ccc' }}>{ content }</p>
+                      <p style={{ color: '#ccc' }}>{ date }</p>
                   </div>
               </div>
           </div>

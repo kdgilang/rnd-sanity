@@ -2,6 +2,7 @@ import Hero from '@components/Hero'
 import Section from '@components/Section'
 import Carousel from '@src/app/components/sections/Carousel'
 import getGalleryBySlugService from '@src/app/services/getGalleryBySlugService'
+import getSiteSettingsService from '@src/app/services/getSiteSettingsService'
 
 const getData = async (slug: string) => {
   const data = await getGalleryBySlugService(slug)
@@ -10,7 +11,8 @@ const getData = async (slug: string) => {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string }}) {
-  const { title, settings, content } = await getData(params.slug)
+  const settings = await getSiteSettingsService()
+  const { title, content } = await getData(params.slug)
 
   return {
     title: `${settings.site_name} | ${title}`,

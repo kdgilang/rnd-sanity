@@ -5,6 +5,7 @@ import Accordion from "./sections/Accordion"
 import Carousel from "./sections/Carousel"
 import Embed from "./sections/Embed"
 import Gallery from "./sections/Gallery"
+import GalleryList from "./sections/GalleryList"
 import SingleImage from "./sections/Image"
 import Service from "./sections/Service"
 import Team from "./sections/Team"
@@ -18,7 +19,8 @@ const components: any = {
   team: Team,
   service: Service,
   'single-image': SingleImage,
-  'featured-carousel': Carousel
+  'featured-carousel': Carousel,
+  'gallery-list': GalleryList
 }
 
 export type SectionPropsType = BasePropsType & {

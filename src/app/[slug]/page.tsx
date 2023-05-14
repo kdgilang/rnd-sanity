@@ -1,15 +1,27 @@
 import Hero from '@components/Hero'
 import getPageBySlugService from '@services/getPageBySlugService'
 import Section from '@components/Section'
+import getSiteSettingsService from '@services/getSiteSettingsService'
 
 const getData = async (slug: string) => {
   const data = await getPageBySlugService(slug)
+  const { sections, title, content, hero, createdAt } = data
 
-  return data
+  if (hero.__component === 'single-image') {
+    hero.date = new Date(createdAt).toLocaleDateString()
+  }
+
+  return {
+    hero,
+    title,
+    content,
+    sections
+  }
 }
 
 export async function generateMetadata({ params }: { params: { slug: string }}) {
-  const { title, settings, content } = await getData(params.slug)
+  const settings = await getSiteSettingsService()
+  const { title, content } = await getData(params.slug)
 
   return {
     title: `${settings.site_name} | ${title}`,
@@ -17,9 +29,8 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
   };
 }
 
-export default async function Page({ params }: { params: { slug: string }}) {
-
-  const { title, hero, sections } = await getData(params.slug)
+export default async function Page({ params }: { c: { slug: string }}) {
+  const { title, hero, sections, date } = await getData(params.slug)
 
   return (
     <main>
