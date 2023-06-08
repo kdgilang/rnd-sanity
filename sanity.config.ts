@@ -9,6 +9,7 @@ import { CustomLogo } from '@sanity/plugins/customization/Logo'
 import { navStructure } from '@sanity/navStructure'
 import { logoPlugin } from '@sanity/plugins/customization/Logo'
 import {defaultDocumentNode} from '@sanity/defaultDocumentNode'
+import {colorInput} from '@sanity/color-input'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from '@sanity/env'
@@ -34,6 +35,7 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
     logoPlugin(),
+    colorInput()
   ],
 })
 

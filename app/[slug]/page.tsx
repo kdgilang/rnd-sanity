@@ -9,7 +9,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import { client } from "@sanity/lib/client";
 
-const query = groq`*[_type == "flexiblePages" && slug.current == $slug][0]{
+import { getPreviewToken } from '@sanity/lib/serverPreview'
+import { PreviewSuspense } from '@components/PreviewSuspense'
+import PreviewPage from '@components/PreviewPage'
+
+const query = groq`*[_type == "flexibleContent" && slug.current == $slug][0]{
   _id,
   title,
   description
@@ -25,15 +29,12 @@ const getData = async (slug: string) => {
     // }
     const queryParams = { slug };
 
-    const page = await client.fetch(query, queryParams);
-    console.log(page, queryParams);
+    const content = await client.fetch(query, queryParams);
   
     return {
       hero: {},
       title: {},
-      content: {
-        data: page
-      },
+      content,
       sections: {}
     } 
   } catch(err) {
@@ -53,14 +54,32 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
 
 export default async function Page({ params }: { params: { slug: string }}) {
   const { title, hero, sections, content } = await getData(params.slug)
+  const token = getPreviewToken()
 
-  return (
+  if (!content && !token) {
+    notFound()
+  }
+
+  return token ? (
+    <>
+      <PreviewSuspense
+        fallback="Loading..."
+      >
+        <main>
+          {/* { title && <h1 className="sr-only">{ title }</h1> } */}
+          {/* <Hero data={hero} /> */}
+          {/* <Section items={sections} /> */}
+          <PreviewPage query={query} params={params} />
+        </main>
+      </PreviewSuspense>
+    </>
+  ) : (
     <main>
-            <h1>{content.data?.title}</h1>
-      <p>{content.data?.description}</p>
+      <h1>{content?.title}</h1>
+      <p>{content?.description}</p>
       {/* { title && <h1 className="sr-only">{ title }</h1> } */}
-      {/* <Hero data={hero} />
-      <Section items={sections} /> */}
+      {/* <Hero data={hero} /> */}
+      {/* <Section items={sections} /> */}
     </main>
-  )
+  );
 }

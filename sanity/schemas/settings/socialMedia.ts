@@ -1,17 +1,26 @@
-export default {
-  name: 'socialMediaSettings',
+const socialMedia = {
+  name: 'socialMediaSetting',
   type: 'document',
-  title: 'Social Media Settings',
+  title: 'Social Media',
   fields: [
     {
-      name: 'facebookUrl',
-      type: 'url',
-      title: 'Facebook Url'
+      name: 'facebook',
+      type: 'object',
+      title: 'Facebook',
+      fields: [
+        {
+          name: 'facebookUrl',
+          type: 'url',
+          title: 'Facebook Url'
+        }
+      ]
     },
     {
-      name: 'twitterUrl',
-      type: 'url',
+      name: 'twitter',
+      type: 'string',
       title: 'Twitter Url'
     }
   ]
 }
+
+export default socialMedia

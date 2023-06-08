@@ -1,7 +1,7 @@
-export default {
-  name: 'siteSettings',
+const siteSetting = {
+  name: 'siteSetting',
   type: 'document',
-  title: 'Site Settings',
+  title: 'Site',
   fields: [
     {
       name: 'siteLogo',
@@ -15,3 +15,5 @@ export default {
     }
   ]
 }
+
+export default siteSetting

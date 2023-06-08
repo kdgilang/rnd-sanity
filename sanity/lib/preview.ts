@@ -1,5 +1,3 @@
-// ./src/lib/sanity.preview.ts
-
 import {definePreview} from 'next-sanity/preview'
 import { dataset, projectId } from '../env'
 

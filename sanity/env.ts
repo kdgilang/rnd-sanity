@@ -11,6 +11,13 @@ export const projectId = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
 )
 
+export const baseUrl = assertValue(
+  process.env.NEXT_PUBLIC_BASE_URL,
+  'Missing environment variable: NEXT_PUBLIC_BASE_URL'
+)
+
+export const previewSecretId: `${string}.${string}` = 'preview.secret'
+
 export const useCdn = false
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
