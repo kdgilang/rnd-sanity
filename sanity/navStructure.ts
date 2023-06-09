@@ -1,6 +1,11 @@
 // ./deskStructure.js
 
-import { IoIosSettings, IoIosGitNetwork, IoMdGlobe } from "react-icons/io";
+import {
+  IoIosSettings,
+  IoIosGitNetwork,
+  IoMdGlobe,
+  IoIosMenu,
+} from "react-icons/io";
 
 export const navStructure = (S: any) =>
   S.list()
@@ -21,6 +26,10 @@ export const navStructure = (S: any) =>
                 .icon(IoMdGlobe)
                 .child(S.document().schemaType('siteSetting').documentId('siteSetting')),
               S.listItem()
+                .title('Route')
+                .icon(IoIosMenu)
+                .child(S.document().schemaType('routeSetting').documentId('routeSetting')),
+              S.listItem()
                 .title('Social Media')
                 .icon(IoIosGitNetwork)
                 .child(S.document().schemaType('socialMediaSetting').documentId('socialMediaSetting')),
@@ -28,6 +37,10 @@ export const navStructure = (S: any) =>
         ),
       // We also need to remove the new singletons from the main list
       ...S.documentTypeListItems().filter(
-        (listItem: any) => !['siteSetting', 'socialMediaSetting'].includes(listItem.getId())
+        (listItem: any) => ![
+          'siteSetting',
+          'routeSetting',
+          'socialMediaSetting',
+        ].includes(listItem.getId())
       ),
     ])

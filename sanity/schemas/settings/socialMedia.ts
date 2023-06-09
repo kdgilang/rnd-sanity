@@ -1,25 +1,6 @@
 import { Rule } from "sanity"
 import iconField from "../fields/icon"
 
-// const socialField = () => ({
-//   name: 'social',
-//   type: 'object',
-//   fieldsets: [
-//     { name }
-//   ],
-//   options:{
-//     collapsible: true
-//   },
-//   fields: [
-//     iconField(),
-//     {
-//       name: 'uri',
-//       type: 'url',
-//       title: `Url`,
-//     }
-//   ]
-// })
-
 const socialMedia = {
   name: 'socialMediaSetting',
   type: 'document',
@@ -48,7 +29,12 @@ const socialMedia = {
         }
       ],
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title'
+    }
+  }
 }
 
 export default socialMedia

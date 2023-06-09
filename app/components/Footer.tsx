@@ -5,9 +5,9 @@ import IconBuilder from "@sanity/lib/icon";
 import SettingsModel from "@sanity/models/SettingsModel";
 
 export default function Footer({ settings }: { settings: SettingsModel }) {
-  const { site, socialMedia } = settings
+  const { siteSetting, socialMediaSetting } = settings
 
-  const logo = urlForImage(site?.logo)
+  const logo = urlForImage(siteSetting?.logo)
 
   return (
     <footer className="footer-area bg-black">
@@ -16,15 +16,15 @@ export default function Footer({ settings }: { settings: SettingsModel }) {
           <div className="col-12">
             <div className="footer-content d-flex align-items-center justify-content-between">
               <div className="copywrite-text">
-                <p>{ site?.description }</p>
+                <p>{ siteSetting?.description }</p>
               </div>
               <div className="footer-logo">
                 <a href="#">
-                  <Image src={ logo.url() } height={100} width={100} alt={ site?.name } />
+                  <Image src={ logo.url() } height={100} width={100} alt={ siteSetting?.name } />
                 </a>
               </div>
               <div className="social-info">
-                { socialMedia?.socialItems?.map(item => {
+                { socialMediaSetting?.socialItems?.map(item => {
                   const Icon = IconBuilder(item.icon.name)
                   return (
                   <Link

@@ -9,32 +9,31 @@ import SectionHeading from './components/SectionHeading'
 import Embed from './components/sections/Embed'
 import Loading from './components/Loading'
 import getSocialMediaSettingService from './services/getSocialMediaSettingService'
+import getRouteSettingService from './services/getRouteSettingService'
 
 
-const getData = async () => {
-  const [site, socialMedia] = await Promise.all([
-    getSiteSettingService(),
-    getSocialMediaSettingService()
-  ])
-
-  return {
-    site,
-    socialMedia
-  }
-}
 
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const { site, socialMedia } = await getData()
+  const [
+    siteSetting,
+    routeSetting,
+    socialMediaSetting
+  ] = await Promise.all([
+    getSiteSettingService(),
+    getRouteSettingService(),
+    getSocialMediaSettingService(),
+  ])
   // const { primary_color, instagram_embed_code } = data
   // initThemeColor({ primaryColor })
 
   const settings = {
-    site,
-    socialMedia
+    siteSetting,
+    socialMediaSetting,
+    routeSetting
   }
 
   return (

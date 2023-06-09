@@ -12,6 +12,7 @@ import { bannerComponent } from './schemas/components/banner'
 import { teamComponent } from './schemas/components/team'
 import { mediaTileComponent } from './schemas/components/mediaTile'
 import { categoryTaxonomy } from './schemas/taxonomies/category'
+import routeSetting from './schemas/settings/route'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,6 +21,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     categoryTaxonomy,
     siteSetting,
     socialMediaSetting,
+    routeSetting,
     embedComponent,
     carouselItem,
     carouselComponent,

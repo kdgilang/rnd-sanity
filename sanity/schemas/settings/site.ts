@@ -22,7 +22,7 @@ const siteSetting = {
       type: 'text',
       title: 'Site Description'
     }
-  ]
+  ],
 }
 
 export default siteSetting

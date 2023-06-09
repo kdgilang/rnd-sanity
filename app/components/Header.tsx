@@ -14,7 +14,7 @@ export type HeaderPropsType = {
 
 export default function Header({ settings }: HeaderPropsType) {
   const pathName = usePathname()
-  const { site } = settings
+  const { siteSetting, routeSetting } = settings
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function Header({ settings }: HeaderPropsType) {
               <nav className="classy-navbar justify-content-between" id="alimeNav">
 
                 <Link className="nav-brand" href="/" aria-label="go home">
-                  <Image src={ urlForImage(site.logo).url() } height={30} width={100} alt={site.name} />
+                  <Image src={ urlForImage(siteSetting.logo).url() } height={30} width={100} alt={siteSetting.name} />
                 </Link>
 
                 <div className="classy-navbar-toggler">
@@ -39,16 +39,16 @@ export default function Header({ settings }: HeaderPropsType) {
                   </div>
                   <div className="classynav">
                     <ul id="nav">
-                      {/* {
-                        menus?.map(item => (
-                          <li key={`menu-${item.id}`}
+                      {
+                        routeSetting?.menu?.map(item => (
+                          <li key={`menu-${item?._key}`}
                               className={classNames(
-                                pathName.replace('/', '') === item.slug ? "active" : ""
+                                pathName?.replace('/', '') === item.slug.current ? "active" : ""
                               )}>
-                            <Link href={ item?.slug }>{ item?.title }</Link>
+                            <Link href={ item.slug.current }>{ item.menuName }</Link>
                           </li>
                         ))
-                      } */}
+                      }
                     </ul>
 
                     { pathName !== '/search' && <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }

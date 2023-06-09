@@ -1,7 +1,7 @@
 import { IoIosPaper } from "react-icons/io";
 import slugField from "../fields/slug";
-import { Rule } from "sanity";
 import metaFields from "../fields/meta";
+import menuNameField from "../fields/menuName";
 
 const flexible = {
   icon: IoIosPaper,
@@ -10,6 +10,7 @@ const flexible = {
   title: 'Flexible',
   fields: [
     ...metaFields(),
+    menuNameField(),
     slugField(),
     {
       name: 'sections',
