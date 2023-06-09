@@ -1,6 +1,6 @@
 import { Rule } from "sanity";
 
-const slugField = {
+const slugField = () => ({
   title: 'Slug',
   name: 'slug',
   type: 'slug',
@@ -13,6 +13,6 @@ const slugField = {
                           .replace(/\s+/g, '-')
                           .slice(0, 200)
   }
-}
+})
   
 export default slugField;

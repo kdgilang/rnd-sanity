@@ -4,7 +4,10 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['scbufdfxcrgxyzojwvpv.supabase.co']
+    domains: [
+      'cdn.sanity.io',
+      'scbufdfxcrgxyzojwvpv.supabase.co'
+    ]
   },
 }
 

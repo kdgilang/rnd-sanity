@@ -1,8 +1,20 @@
-const accordionComponent = {
+import { ImMenu } from 'react-icons/im'
+import { Rule } from 'sanity'
+
+export const accordionComponent = {
+  icon: ImMenu,
   name: 'accordionComponent',
-  type: 'array',
-  title: 'Section',
-  of: [{ type: 'accordionItem' }]
+  type: 'document',
+  title: 'Accordion',
+  fields: [
+    {
+      name: 'accordionItems',
+      type: 'array',
+      title: 'Accordion Items',
+      of: [{ type: 'accordionItem' }],
+      validation: (Rule: Rule) => Rule.required()
+    }
+  ]
 }
 
 export const accordionItem = {
@@ -23,5 +35,3 @@ export const accordionItem = {
     },
   ]
 }
-
-export default accordionComponent
