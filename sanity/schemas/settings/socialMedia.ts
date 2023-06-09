@@ -26,7 +26,7 @@ const socialMedia = {
   title: 'Social Media',
   fields: [
     {
-      name: 'socials',
+      name: 'socialItems',
       type: 'array',
       of: [
         {

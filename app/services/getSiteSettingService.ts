@@ -1,5 +1,3 @@
-import { GET_SETTINGS_API_URL } from "../consts/apiPath";
-import fetchData from "../providers/cmsProvider";
 import { groq } from 'next-sanity';
 import { client } from "@sanity/lib/client";
 import SisteSettingModel from "@sanity/models/SiteSettingModel";

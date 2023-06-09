@@ -1,14 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import SisteSettingModel from "@sanity/models/SiteSettingModel";
 import { urlForImage } from "@sanity/lib/image";
+import IconBuilder from "@sanity/lib/icon";
+import SettingsModel from "@sanity/models/SettingsModel";
 
-export type FooterData = {
-  site: SisteSettingModel
-}
-
-export default function Footer({ data }: { data: FooterData }) {
-  const { site } = data
+export default function Footer({ settings }: { settings: SettingsModel }) {
+  const { site, socialMedia } = settings
 
   const logo = urlForImage(site?.logo)
 
@@ -27,11 +24,19 @@ export default function Footer({ data }: { data: FooterData }) {
                 </a>
               </div>
               <div className="social-info">
-                {/* { social_networks?.map(item => (
-                  <Link key={`sn-${item.id}`} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`go to ${item.name}`}>
-                    <i className={item.icon_class_name} aria-hidden="true"></i>
-                  </Link>
-                )) } */}
+                { socialMedia?.socialItems?.map(item => {
+                  const Icon = IconBuilder(item.icon.name)
+                  return (
+                  <Link
+                    key={`sn-${item._key}`}
+                    href={item.uri}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{fontSize: '20px'}}
+                    aria-label={`go to ${item.name}'s ${item.name}`}>
+                    <Icon />
+                  </Link>)
+              }) }
               </div>
             </div>
           </div>

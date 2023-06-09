@@ -1,7 +1,7 @@
 import Hero from 'app/components/Hero'
 import getPageBySlugService from 'app/services/getPageBySlugService'
 import Section from 'app/components/Section'
-import getSiteSettingsService from './services/getSiteSettingsService'
+import getSiteSettingsService from './services/getSiteSettingService'
 import { groq } from 'next-sanity'
 import type { SanityDocument } from "@sanity/client";
 import { client } from "@sanity/lib/client";

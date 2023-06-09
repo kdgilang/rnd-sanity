@@ -12,6 +12,10 @@ const iconField = (props?: TitleProps) => {
     name: 'icon',
     type: 'iconPicker',
     title: 'Icon',
+    options: {
+      outputFormat: 'react',
+      providers: ["fa", "im", "io"],
+    },
     ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null)
   }
 }

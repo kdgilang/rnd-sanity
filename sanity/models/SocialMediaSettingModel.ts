@@ -1,14 +1,13 @@
 import BaseModel from "./BaseModel"
-import ImageModel from "./ImageModel"
   
 export class SocailMediaSettingModel extends BaseModel {
-    socials: SocialMediaModel[]
+  socialItems: SocialMediaModel[]
   
-    constructor() {
-      super()
-      this.socials = new Array<SocialMediaModel>()
-    }
+  constructor() {
+    super()
+    this.socialItems = new Array<SocialMediaModel>()
   }
+}
 
 export class SocialMediaModel {
   _type: string

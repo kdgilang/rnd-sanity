@@ -2,17 +2,19 @@
 
 import Image from 'next/image'
 import ModalSearch from './ModalSearch'
-import { SettingsPropsType } from '../types/SettingsPropsType'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import classNames from '../helpers/classNames'
+import SettingsModel from '@sanity/models/SettingsModel'
+import { urlForImage } from '@sanity/lib/image'
 
-export type HeaderPropsType = SettingsPropsType & {
-
+export type HeaderPropsType = {
+  settings: SettingsModel
 }
 
-export default function Header({ site_name, site_logo, menus }: HeaderPropsType) {
+export default function Header({ settings }: HeaderPropsType) {
   const pathName = usePathname()
+  const { site } = settings
 
   return (
     <>
@@ -24,7 +26,7 @@ export default function Header({ site_name, site_logo, menus }: HeaderPropsType)
               <nav className="classy-navbar justify-content-between" id="alimeNav">
 
                 <Link className="nav-brand" href="/" aria-label="go home">
-                  <Image src={ site_logo?.[0]?.url } height={30} width={100} alt={site_name} />
+                  <Image src={ urlForImage(site.logo).url() } height={30} width={100} alt={site.name} />
                 </Link>
 
                 <div className="classy-navbar-toggler">
@@ -37,7 +39,7 @@ export default function Header({ site_name, site_logo, menus }: HeaderPropsType)
                   </div>
                   <div className="classynav">
                     <ul id="nav">
-                      {
+                      {/* {
                         menus?.map(item => (
                           <li key={`menu-${item.id}`}
                               className={classNames(
@@ -46,7 +48,7 @@ export default function Header({ site_name, site_logo, menus }: HeaderPropsType)
                             <Link href={ item?.slug }>{ item?.title }</Link>
                           </li>
                         ))
-                      }
+                      } */}
                     </ul>
 
                     { pathName !== '/search' && <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }

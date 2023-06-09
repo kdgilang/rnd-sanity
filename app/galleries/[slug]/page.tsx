@@ -2,7 +2,7 @@ import Hero from 'app/components/Hero'
 import Section from 'app/components/Section'
 import Carousel from 'app/components/sections/Carousel'
 import getGalleryBySlugService from 'app/services/getGalleryBySlugService'
-import getSiteSettingsService from 'app/services/getSiteSettingsService'
+import getSiteSettingsService from '@src/services/getSiteSettingService'
 
 const getData = async (slug: string) => {
   const data = await getGalleryBySlugService(slug)

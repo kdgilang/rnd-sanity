@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getSiteSettingsService from "./services/getSiteSettingsService";
+import getSiteSettingsService from "./services/getSiteSettingService";
 
 export async function generateMetadata() {
   const settings = await getSiteSettingsService()

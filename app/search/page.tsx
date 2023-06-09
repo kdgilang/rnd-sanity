@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import SearchForm from "app/components/SearchForm";
 import getSearchService from "../services/getSearchService";
-import getSiteSettingsService from "../services/getSiteSettingsService";
+import getSiteSettingsService from "../services/getSiteSettingService";
 import CardList from "app/components/CardList";
 import Skeleton from "app/components/Skeleton";
 import { BasePropsType } from "../types/BasePropsType";

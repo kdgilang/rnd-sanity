@@ -1,20 +1,25 @@
 import './variable.css'
 import './style.css'
 import Header from './components/Header'
-import Footer, { FooterData } from './components/Footer'
+import Footer from './components/Footer'
 import Script from 'next/script'
-import getSiteSettingsService from './services/getSiteSettingsService'
+import getSiteSettingService from './services/getSiteSettingService'
 import { writeFile} from 'fs'
 import SectionHeading from './components/SectionHeading'
 import Embed from './components/sections/Embed'
 import Loading from './components/Loading'
+import getSocialMediaSettingService from './services/getSocialMediaSettingService'
 
 
 const getData = async () => {
-  const site = await getSiteSettingsService()
+  const [site, socialMedia] = await Promise.all([
+    getSiteSettingService(),
+    getSocialMediaSettingService()
+  ])
 
   return {
-    site
+    site,
+    socialMedia
   }
 }
 
@@ -23,24 +28,27 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const { site } = await getData()
+  const { site, socialMedia } = await getData()
   // const { primary_color, instagram_embed_code } = data
   // initThemeColor({ primaryColor })
-  const footerData: FooterData = {
-    site
+
+  const settings = {
+    site,
+    socialMedia
   }
+
   return (
     <html lang="en">
       <body>
         <Loading />
 
-        {/* <Header {...data} /> */}
+        <Header settings={settings} />
           {children}
 
           {/* { instagram_embed_code && <div className="container-fluid py-4" style={{ background: '#9ca0ac' }}>
             <Embed data={{ embed_code: instagram_embed_code }}/>
           </div> } */}
-        <Footer data={footerData} />
+        <Footer settings={settings} />
 
         <Script src="/js/jquery.min.js"  />
 
