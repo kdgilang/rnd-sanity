@@ -41,7 +41,7 @@ export default function Header({ settings }: HeaderPropsType) {
                     <ul id="nav">
                       {
                         routeSetting?.menu?.map(item => (
-                          <li key={`menu-${item?._key}`}
+                          <li key={`menu-${item?._id}`}
                               className={classNames(
                                 pathName?.replace('/', '') === item.slug.current ? "active" : ""
                               )}>

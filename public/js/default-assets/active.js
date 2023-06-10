@@ -95,33 +95,33 @@
     // :: 4.0 Instragram Slides Active Code
     // ************************************
 
-    if ($.fn.owlCarousel) {
-        var instagramFeedSlider = $('.instragram-feed-area');
-        instagramFeedSlider.owlCarousel({
-            items: 6,
-            loop: true,
-            autoplay: true,
-            smartSpeed: 1000,
-            autoplayTimeout: 3000,
-            responsive: {
-                0: {
-                    items: 2
-                },
-                576: {
-                    items: 3
-                },
-                768: {
-                    items: 4
-                },
-                992: {
-                    items: 5
-                },
-                1200: {
-                    items: 6
-                }
-            }
-        })
-    }
+    // if ($.fn.owlCarousel) {
+    //     var instagramFeedSlider = $('.instragram-feed-area');
+    //     instagramFeedSlider.owlCarousel({
+    //         items: 6,
+    //         loop: true,
+    //         autoplay: true,
+    //         smartSpeed: 1000,
+    //         autoplayTimeout: 3000,
+    //         responsive: {
+    //             0: {
+    //                 items: 2
+    //             },
+    //             576: {
+    //                 items: 3
+    //             },
+    //             768: {
+    //                 items: 4
+    //             },
+    //             992: {
+    //                 items: 5
+    //             },
+    //             1200: {
+    //                 items: 6
+    //             }
+    //         }
+    //     })
+    // }
 
     // *********************************
     // :: 5.0 Masonary Gallery Active Code

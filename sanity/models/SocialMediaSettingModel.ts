@@ -1,6 +1,6 @@
-import BaseModel from "./BaseModel"
+import { BaseDocumentModel } from "./BaseModel"
   
-export class SocailMediaSettingModel extends BaseModel {
+export class SocailMediaSettingModel extends BaseDocumentModel {
   socialItems: SocialMediaModel[]
   
   constructor() {

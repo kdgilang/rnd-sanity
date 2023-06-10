@@ -27,6 +27,7 @@ export default async function RootLayout({
     getRouteSettingService(),
     getSocialMediaSettingService(),
   ])
+
   // const { primary_color, instagram_embed_code } = data
   // initThemeColor({ primaryColor })
 
@@ -42,11 +43,12 @@ export default async function RootLayout({
         <Loading />
 
         <Header settings={settings} />
-          {children}
-
-          {/* { instagram_embed_code && <div className="container-fluid py-4" style={{ background: '#9ca0ac' }}>
-            <Embed data={{ embed_code: instagram_embed_code }}/>
-          </div> } */}
+          <main style={{ marginTop: 70 }}>
+            {children}
+            {/* { instagram_embed_code && <div className="container-fluid py-4" style={{ background: '#9ca0ac' }}>
+              <Embed data={{ embed_code: instagram_embed_code }}/>
+            </div> } */}
+          </main>
         <Footer settings={settings} />
 
         <Script src="/js/jquery.min.js"  />

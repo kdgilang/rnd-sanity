@@ -4,7 +4,7 @@ import RouteSettingModel from '@sanity/models/RouteSettingModel';
 
 const query = groq`*[_type == "routeSetting"][0]{
   homePage->{ menuName, slug, _type },
-  menu[]->{ menuName, slug, _type, _key }
+  menu[]->{ menuName, slug, _type, _id }
 }`;
 
 export default async function getRouteSettingService(): Promise<RouteSettingModel> {

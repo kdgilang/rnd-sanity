@@ -1,6 +1,6 @@
 import type { SanityDocument } from "@sanity/client";
 
-class BaseModel implements SanityDocument {
+export class BaseDocumentModel implements SanityDocument {
   _id: string
   _rev: string
   _type: string
@@ -16,4 +16,24 @@ class BaseModel implements SanityDocument {
   }
 }
 
-export default BaseModel
+export class BaseListModel {
+  _key: string
+  _type: string
+
+  constructor() {
+    this._key = ''
+    this._type = ''
+  }
+}
+
+export class BaseRefModel {
+  _ref: string
+  _type: string
+  _weak: boolean
+
+  constructor() {
+    this._ref = ''
+    this._type = ''
+    this._weak = false
+  }
+}

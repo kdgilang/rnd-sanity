@@ -1,5 +1,5 @@
 import Hero from 'app/components/Hero'
-import getPageBySlugService from 'app/services/getPageBySlugService'
+import getPageBySlugService from '@src/services/getOneFlexibleService'
 import Section from 'app/components/Section'
 import getSiteSettingsService from '@src/services/getSiteSettingService'
 import { notFound } from 'next/navigation'

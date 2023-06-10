@@ -1,7 +1,7 @@
-import BaseModel from "./BaseModel"
+import { BaseDocumentModel } from "./BaseModel"
 import ImageModel from "./ImageModel"
 
-class SisteSettingModel extends BaseModel {
+class SisteSettingModel extends BaseDocumentModel {
   description: string
   logo: ImageModel
   name: string

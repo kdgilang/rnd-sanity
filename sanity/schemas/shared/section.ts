@@ -1,67 +1,61 @@
 import { Rule } from "sanity";
-import spacings from "../variables/spacings";
+import { margins, paddings } from "../variables/spacings";
 import containers from "../variables/containers";
 import columns from "../variables/columns";
+import titleField from "../fields/title";
 
 const sectionField = {
   name: 'section',
   type: 'object',
   title: 'Section',
   fields: [
+    titleField(),
     {
-      name: 'title',
+      name: 'marginY',
       type: 'string',
-      title: 'Title',
+      title: 'Vertical Margin',
+      validation: (Rule: Rule) => Rule.required(),
+      options: {
+        list: margins.map(({title, value}) => ({title, value})),
+        layout: 'select',
+      },
     },
     {
-      name: 'spacing',
+      name: 'paddingY',
       type: 'string',
-      title: 'Spacing',
+      title: 'Vertical Padding',
+      validation: (Rule: Rule) => Rule.required(),
       options: {
-        list: spacings.map(({title, value}) => ({title, value})),
+        list: paddings.map(({title, value}) => ({title, value})),
         layout: 'select',
-        default: spacings[0]
       },
     },
     {
       name: 'container',
       type: 'string',
       title: 'Container',
+      validation: (Rule: Rule) => Rule.required(),
       options: {
         list: containers.map(({title, value}) => ({title, value})),
         layout: 'select',
-        default: containers[0]
       },
     },
     {
-      name: 'components',
+      name: 'component',
       type: 'reference',
-      title: 'Components',
+      title: 'Component',
       layout: 'grid',
-      weak: true,
+      // weak: true,
+      validation: (Rule: Rule) => Rule.required(),
       to: [
-        {
-          type: 'accordionComponent',
-        },
-        {
-          type: 'carouselComponent',
-        },
-        {
-          type: 'embedComponent',
-        },
-        {
-          type: 'cardComponent',
-        },
-        {
-          type: 'bannerComponent',
-        },
-        {
-          type: 'teamComponent',
-        },
-        {
-          type: 'mediaTileComponent',
-        }
-      ]
+        { type: 'accordionComponent', },
+        { type: 'carouselComponent', },
+        { type: 'embedComponent', },
+        { type: 'cardComponent', },
+        { type: 'bannerComponent', },
+        { type: 'teamComponent', },
+        { type: 'mediaTileComponent', },
+      ],
       // components: {
       //   preview: {
       //     select: {
@@ -89,7 +83,19 @@ const sectionField = {
       type: 'color',
       title: 'Color',
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'component._type'
+    },
+    prepare(selection: any) {
+      const {title} = selection
+
+      return {
+        title: title?.replace('Component', '')
+      }
+    }
+  }
 }
 
 export default sectionField;

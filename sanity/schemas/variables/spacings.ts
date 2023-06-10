@@ -1,4 +1,9 @@
-export const spacings = [
+export const margins = [
+  {
+    title: 'None',
+    value: 'my-0',
+    default: true
+  },
   {
     title: 'Small',
     value: 'my-2'
@@ -17,4 +22,26 @@ export const spacings = [
   },
 ]
 
-export default spacings
+export const paddings = [
+  {
+    title: 'None',
+    value: 'py-0',
+    default: true
+  },
+  {
+    title: 'Small',
+    value: 'py-2'
+  },
+  {
+    title: 'Medium',
+    value: 'py-3'
+  },
+  {
+    title: 'Large',
+    value: 'py-4'
+  },
+  {
+    title: 'Extra Large',
+    value: 'py-5'
+  },
+]
