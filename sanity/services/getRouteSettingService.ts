@@ -8,7 +8,10 @@ const query = groq`*[_type == "routeSetting"][0]{
 }`;
 
 export default async function getRouteSettingService(): Promise<RouteSettingModel> {
-  const res = client.fetch(query);
+  const res = client.fetch(query, {
+    cache: 'force-cache',
+    next: { revalidate: 60 }
+  });
 
   return res;
 }

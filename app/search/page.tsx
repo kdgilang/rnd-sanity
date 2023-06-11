@@ -1,40 +1,38 @@
 import { Suspense } from "react";
 import SearchForm from "app/components/SearchForm";
-import getSearchService from "../../sanity/services/getSearchService";
-import getSiteSettingsService from "../../sanity/services/getSiteSettingService";
 import CardList from "app/components/CardList";
 import Skeleton from "app/components/Skeleton";
 import { BasePropsType } from "../types/BasePropsType";
 
 
 const getData = async (keyword: string) => {
-  const data = await getSearchService(keyword)
+//   const data = await getSearchService(keyword)
 
-  return data
+//   return data
 }
 
-export async function generateMetadata({ params }: { params: { slug: string }}) {
-  const { site_name } = await getSiteSettingsService()
+// export async function generateMetadata({ params }: { params: { slug: string }}) {
+//   const { site_name } = await getSiteSettingsService()
 
-  return {
-    title: `${ site_name } | Search`,
-    description: `Search page of ${ site_name }`,
-  };
-}
+//   return {
+//     title: `${ site_name } | Search`,
+//     description: `Search page of ${ site_name }`,
+//   };
+// }
 
 type ResultType = BasePropsType & {
   keyword: string
 }
 
-async function Result({ keyword }: ResultType) {
-  const data = await getData(keyword)
+// async function Result({ keyword }: ResultType) {
+//   const data = await getData(keyword)
   
-  return (
-    <>
-    { data?.length ? <CardList data={data} /> : <p>No items found.</p>}
-    </>
-  )
-}
+//   return (
+//     <>
+//     { data?.length ? <CardList data={data} /> : <p>No items found.</p>}
+//     </>
+//   )
+// }
 
 export default async function Page({ searchParams }: any) {
 
@@ -50,7 +48,7 @@ export default async function Page({ searchParams }: any) {
 
         <Suspense fallback={<Loading />}>
           {/* @ts-ignore */}
-          <Result keyword={ searchParams?.keyword } />
+          {/* <Result keyword={ searchParams?.keyword } /> */}
         </Suspense>
       </div>
     </div>

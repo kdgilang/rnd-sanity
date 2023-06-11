@@ -5,5 +5,8 @@ import { SocailMediaSettingModel } from '@sanity/models/SocialMediaSettingModel'
 const query = groq`*[_type == "socialMediaSetting"][0]`;
 
 export default async function getSocialMediaSettingService(): Promise<SocailMediaSettingModel>  {
-  return client.fetch(query);
+  return client.fetch(query, {
+    cache: 'force-cache',
+    next: { revalidate: 60 }
+  });
 }

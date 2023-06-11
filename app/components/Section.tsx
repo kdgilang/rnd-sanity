@@ -1,27 +1,23 @@
 import SectionModel from "@sanity/models/SectionModel"
 import classNames from "../helpers/classNames"
-import { BaseDataType, BasePropsType } from "../types/BasePropsType"
+import { BasePropsType } from "../types/BasePropsType"
 import SectionHeading from "./SectionHeading"
 import Accordion from "./sections/Accordion"
-import Carousel from "./sections/Carousel"
-import Embed from "./sections/Embed"
-// import Gallery from "./sections/Gallery"
-// import GalleryList from "./sections/GalleryList"
 import Banner from "./sections/Banner"
-import Service from "./sections/Service"
-import Team from "./sections/Team"
-import Video from "./sections/Video"
+// import Carousel from "./sections/Carousel"
+// import Embed from "./sections/Embed"
+// import Service from "./sections/Service"
+// import Team from "./sections/Team"
+// import Video from "./sections/Video"
 
 const Components: any = {
-  accordion: Accordion,
-  // gallery: Gallery,
-  embed: Embed,
-  video: Video,
-  team: Team,
-  service: Service,
+  accordionComponent: Accordion,
   bannerComponent: Banner,
-  'featured-carousel': Carousel,
-  // 'gallery-list': GalleryList
+  // embed: Embed,
+  // video: Video,
+  // team: Team,
+  // service: Service,
+  // 'featured-carousel': Carousel,
 }
 
 export type SectionPropsType = BasePropsType & {
@@ -38,7 +34,7 @@ export default function Section({ sections, className }: SectionPropsType) {
 
         const Component = Components[component._type]
 
-        if (!Section) {
+        if (!Component) {
           return null
         }
         

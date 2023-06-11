@@ -55,7 +55,11 @@ export default function Header({ settings }: HeaderPropsType) {
                       }
                     </ul>
 
-                    { pathName !== '/search' && <div className="search-icon d-none d-lg-inline" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }
+                    { pathName !== '/search' &&
+                      <div className="search-icon d-none d-lg-inline ml-4" data-toggle="modal" data-target="#searchModal">
+                        <i className="fa fa-search"></i>
+                      </div>
+                    }
                   </div>
                 </div>
               </nav>

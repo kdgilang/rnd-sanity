@@ -11,13 +11,7 @@ import Loading from './components/Loading'
 import getSocialMediaSettingService from '../sanity/services/getSocialMediaSettingService'
 import getRouteSettingService from '../sanity/services/getRouteSettingService'
 
-
-
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const getData = async () => {
   const [
     siteSetting,
     routeSetting,
@@ -27,6 +21,25 @@ export default async function RootLayout({
     getRouteSettingService(),
     getSocialMediaSettingService(),
   ])
+
+  return {
+    siteSetting,
+    routeSetting,
+    socialMediaSetting
+  }
+}
+
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const {
+    siteSetting,
+    routeSetting,
+    socialMediaSetting
+   } = await getData()
 
   // const { primary_color, instagram_embed_code } = data
   // initThemeColor({ primaryColor })
@@ -75,5 +88,5 @@ const initThemeColor = ({ primaryColor }: ColorsType) => {
     --primary-color: ${primaryColor};
   }
   `
-  writeFile(`./src/app/variable.css`, data, () => {})
+  writeFile(`./app/variable.css`, data, () => {})
 }

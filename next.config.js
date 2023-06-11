@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   experimental: {
     appDir: true,
   },
@@ -8,7 +9,7 @@ const nextConfig = {
       'cdn.sanity.io',
       'scbufdfxcrgxyzojwvpv.supabase.co'
     ]
-  },
+  }
 }
 
 module.exports = nextConfig

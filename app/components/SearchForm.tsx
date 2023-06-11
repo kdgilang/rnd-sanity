@@ -7,7 +7,7 @@ export default function SearchForm() {
   const router = useRouter()
   const params = useSearchParams()
   
-  const [keyword, setKeyword] = useState(params.get('keyword') || '')
+  const [keyword, setKeyword] = useState(params?.get('keyword') || '')
 
   const handleSubmit = (e: FormEvent<EventTarget>) => {
     e.preventDefault()

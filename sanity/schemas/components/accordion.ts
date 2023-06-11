@@ -14,7 +14,20 @@ export const accordionComponent = {
       of: [{ type: 'accordionItem' }],
       validation: (Rule: Rule) => Rule.required()
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'accordionItems.0.title',
+      subtitle: '_type'
+    },
+    prepare(selection: any) {
+      const {title, subtitle} = selection
+
+      return {
+        title: `${title} - ${subtitle?.replace('Component', '')}`
+      }
+    }
+  }
 }
 
 export const accordionItem = {

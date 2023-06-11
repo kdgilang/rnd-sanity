@@ -1,13 +1,11 @@
-import Hero from 'app/components/Hero'
-import getPageBySlugService from '@sanity/services/getOneFlexibleService'
-import Section from 'app/components/Section'
-import getSiteSettingsService from '../sanity/services/getSiteSettingService'
-import { getPreviewToken } from '@sanity/lib/serverPreview'
 import { notFound } from 'next/navigation'
+import Section from 'app/components/Section'
+import getRouteSettingService from '@services/getRouteSettingService'
+import getOneFlexibleService from '@services/getOneFlexibleService'
+import getSiteSettingsService from '@services/getSiteSettingService'
+import { getPreviewToken } from '@sanity/lib/serverPreview'
 import { PreviewSuspense } from '@components/PreviewSuspense'
 import PreviewPage from '@components/PreviewPage'
-import getRouteSettingService from '../sanity/services/getRouteSettingService'
-import getOneFlexibleService from '@sanity/services/getOneFlexibleService'
 import Loading from './components/Loading'
 
 
@@ -56,8 +54,6 @@ export default async function Page() {
     </>
   ) : (
     <div>
-      {/* <h1>{content?.title}</h1>
-      <p>{content?.description}</p> */}
       { content?.title && <h1 className="sr-only">{ content?.title }</h1> }
       <Section sections={content.sections} />
     </div>
