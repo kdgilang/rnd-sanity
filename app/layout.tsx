@@ -3,13 +3,13 @@ import './style.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Script from 'next/script'
-import getSiteSettingService from './services/getSiteSettingService'
+import getSiteSettingService from '../sanity/services/getSiteSettingService'
 import { writeFile} from 'fs'
 import SectionHeading from './components/SectionHeading'
 import Embed from './components/sections/Embed'
 import Loading from './components/Loading'
-import getSocialMediaSettingService from './services/getSocialMediaSettingService'
-import getRouteSettingService from './services/getRouteSettingService'
+import getSocialMediaSettingService from '../sanity/services/getSocialMediaSettingService'
+import getRouteSettingService from '../sanity/services/getRouteSettingService'
 
 
 

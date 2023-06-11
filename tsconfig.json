@@ -23,7 +23,7 @@
     "paths": {
       "@src/*": ["app/*"],
       "@components/*": ["app/components/*"],
-      "@services/*": ["app/services/*"],
+      "@services/*": ["sanity/services/*"],
       "@sanity/*": ["sanity/*"]
     }
   },

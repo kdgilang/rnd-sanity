@@ -1,7 +1,6 @@
 import { Rule } from "sanity";
 import { margins, paddings } from "../variables/spacings";
 import containers from "../variables/containers";
-import columns from "../variables/columns";
 import titleField from "../fields/title";
 
 const sectionField = {

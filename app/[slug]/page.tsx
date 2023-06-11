@@ -1,7 +1,7 @@
 import Hero from 'app/components/Hero'
-import getPageBySlugService from '@src/services/getOneFlexibleService'
+import getPageBySlugService from '@sanity/services/getOneFlexibleService'
 import Section from 'app/components/Section'
-import getSiteSettingsService from '@src/services/getSiteSettingService'
+import getSiteSettingsService from '@sanity/services/getSiteSettingService'
 import { notFound } from 'next/navigation'
 
 import { SanityDocument } from "@sanity/client";

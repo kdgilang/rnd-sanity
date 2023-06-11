@@ -29,13 +29,17 @@ export default function Header({ settings }: HeaderPropsType) {
                   <Image src={ urlForImage(siteSetting.logo).url() } height={30} width={100} alt={siteSetting.name} />
                 </Link>
 
-                <div className="classy-navbar-toggler">
+                <div className="classy-navbar-toggler d-flex d-lg-none align-items-center">
                   <span className="navbarToggler"><span></span><span></span><span></span></span>
+                  { pathName !== '/search' && <div className="search-icon ml-5" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }
                 </div>
 
                 <div className="classy-menu">
                   <div className="classycloseIcon">
-                    <div className="cross-wrap"><span className="top"></span><span className="bottom"></span></div>
+                    <div className="cross-wrap">
+                      <span className="top bg-white"></span>
+                      <span className="bottom bg-white"></span>
+                    </div>
                   </div>
                   <div className="classynav">
                     <ul id="nav">
@@ -51,7 +55,7 @@ export default function Header({ settings }: HeaderPropsType) {
                       }
                     </ul>
 
-                    { pathName !== '/search' && <div className="search-icon" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }
+                    { pathName !== '/search' && <div className="search-icon d-none d-lg-inline" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }
                   </div>
                 </div>
               </nav>

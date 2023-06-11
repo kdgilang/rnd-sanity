@@ -5,8 +5,8 @@ import SectionHeading from "./SectionHeading"
 import Accordion from "./sections/Accordion"
 import Carousel from "./sections/Carousel"
 import Embed from "./sections/Embed"
-import Gallery from "./sections/Gallery"
-import GalleryList from "./sections/GalleryList"
+// import Gallery from "./sections/Gallery"
+// import GalleryList from "./sections/GalleryList"
 import Banner from "./sections/Banner"
 import Service from "./sections/Service"
 import Team from "./sections/Team"
@@ -14,14 +14,14 @@ import Video from "./sections/Video"
 
 const Components: any = {
   accordion: Accordion,
-  gallery: Gallery,
+  // gallery: Gallery,
   embed: Embed,
   video: Video,
   team: Team,
   service: Service,
   bannerComponent: Banner,
   'featured-carousel': Carousel,
-  'gallery-list': GalleryList
+  // 'gallery-list': GalleryList
 }
 
 export type SectionPropsType = BasePropsType & {

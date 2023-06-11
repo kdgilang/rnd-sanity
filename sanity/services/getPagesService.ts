@@ -1,5 +1,5 @@
-import { GET_PAGES_API_URL } from "../consts/apiPath";
-import fetchData from "../providers/cmsProvider";
+import { GET_PAGES_API_URL } from "../../app/consts/apiPath";
+import fetchData from "../../app/providers/cmsProvider";
 
 export default async function getPagesService() {
   return fetchData({
