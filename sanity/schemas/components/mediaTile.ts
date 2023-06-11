@@ -14,7 +14,11 @@ export const mediaTileComponent = {
       title: 'Body',
       of: [{ type: 'block' }]
     },
-    imageField(),
-    videoField()
+    imageField({
+      mandatory: true
+    }),
+    videoField({
+      mandatory: false
+    })
   ]
 }

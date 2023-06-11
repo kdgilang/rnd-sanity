@@ -1,56 +1,56 @@
+import { urlForImage } from "@sanity/lib/image"
 import classNames from "app/helpers/classNames"
 import { BaseDataType, BasePropsType } from "app/types/BasePropsType"
-import Image from "next/image"
 import Link from "next/link"
 
-
 type CarouselDataType = BaseDataType & {
-  animations?: string
-  images: any[]
-  link?: any
-  itemsToShow?: number
+  animations: string
+  carousel_items: any[]
 }
 
 export type CarouselPropsType = BasePropsType & {
-  data: CarouselDataType
+  data: any
 }
 
-
 export default function Carousel({ data, className }: CarouselPropsType) {
-  const { animations, images, title, content, link, itemsToShow } = data
-
+  const { align, size, animation, carouselItems } = data
   return (
     <div className={classNames(
-      "text-left row align-items-center",
+      "welcome-area",
       className || ""
     )}>
-      <div className={classNames(
-        "col-12",
-        (title || content || link) ? "col-lg-6" : ""
-      )}>
-        <div className="about-video-area wow fadeInUp" data-wow-delay="100ms">
-          <div
-            className="f-carousel owl-carousel"
-            data-animations={animations}
-            data-items-to-show={itemsToShow}>
-          {
-            images?.map(item => (
-              <Image key={`image-${item.id}`} src={item?.formats?.medium?.url} height={100} width={150} alt={title || "featured carousel's image"} />
-            ))
-          }
-          </div>
-        </div>
+      <div className="welcome-slides owl-carousel" data-type={animation}>
+        {
+          carouselItems?.map((item: any) => (
+            <div
+              key={`item-${item._key}`}
+              className={classNames(
+                size,
+                "single-welcome-slide bg-img bg-overlay jarallax"
+              )}
+              style={{ backgroundImage: `url(${urlForImage(item?.image).url()})` }}>
+              <div className="container h-100">
+                <div className={classNames(
+                  align,
+                  "row h-100 align-items-center"
+                )}>
+                  <div className="col-12 col-lg-8 col-xl-6">
+                    <div className="welcome-text">
+                      <h2 data-animation="fadeInDown" data-duration="300ms" data-delay="900ms">{ item.title }</h2>
+                      <p data-animation="fadeInDown" data-duration="300ms" data-delay="500ms">{ item.description }</p>
+                      { item?.cta &&
+                        <div className="hero-btn-group" data-duration="300ms" data-animation="fadeInDown" data-delay="100ms">
+                          <Link href={item?.cta?.uri} className="btn alime-btn mb-3 mb-sm-0 mr-4">{ item?.cta?.label }</Link>
+                        </div>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
       </div>
-      { (title || content || link) && <div className="col-12 col-lg-6">
-        <div className="about-us-content">
-          { title && <div className="d-inline-block mb-4">
-            <h2 className="wow fadeInUp" data-wow-delay="100ms">{ title }</h2>
-            <div className="line wow fadeInUp" data-wow-delay="200ms"></div>
-          </div> }
-          { content && <p className="wow fadeInUp" data-wow-delay="300ms">{ content }</p> }
-          { link && <Link className="btn alime-btn btn-2 mt-15 wow fadeInUp" data-wow-delay="500ms" href={link?.url}>{ link?.label }</Link> }
-        </div>
-      </div> }
     </div>
   )
 }

@@ -12,5 +12,3 @@ export const aligns = [
     value: 'justify-content-end text-right'
   },
 ]
-
-export default aligns

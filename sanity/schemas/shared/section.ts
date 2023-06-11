@@ -1,6 +1,6 @@
 import { Rule } from "sanity";
 import { margins, paddings } from "../variables/spacings";
-import containers from "../variables/containers";
+import {containerSizes} from "../variables/sizes";
 import titleField from "../fields/title";
 
 const sectionField = {
@@ -35,7 +35,7 @@ const sectionField = {
       title: 'Container',
       validation: (Rule: Rule) => Rule.required(),
       options: {
-        list: containers.map(({title, value}) => ({title, value})),
+        list: containerSizes.map(({title, value}) => ({title, value})),
         layout: 'select',
       },
     },
@@ -52,7 +52,6 @@ const sectionField = {
         { type: 'embedComponent', },
         { type: 'cardComponent', },
         { type: 'bannerComponent', },
-        { type: 'teamComponent', },
         { type: 'mediaTileComponent', },
       ],
       // components: {

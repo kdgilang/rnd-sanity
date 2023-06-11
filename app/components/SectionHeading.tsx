@@ -20,7 +20,7 @@ export default function SectionHeading({ title, content, isCenter, className }: 
             <div className={classNames(
               "line wow fadeInUp",
               isCenter ? "mx-auto" : "",
-            )} data-wow-delay="300ms"></div>
+            )} data-wow-delay="230ms"></div>
           </div>
         }
         {content && <p>{content}</p>}

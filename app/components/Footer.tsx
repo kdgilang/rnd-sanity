@@ -32,7 +32,7 @@ export default function Footer({ settings }: { settings: SettingsModel }) {
                     href={item.uri}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{fontSize: '20px'}}
+                    style={{fontSize: 24}}
                     aria-label={`go to ${item.name}'s ${item.name}`}>
                     <Icon />
                   </Link>)

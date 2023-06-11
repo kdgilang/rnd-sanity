@@ -25,10 +25,9 @@
 
     if ($.fn.owlCarousel) {
         var welcomeSlider = $('.welcome-slides');
-        var fCarousel = $('.f-carousel');
 
         welcomeSlider.each(function() {
-            var animate = $(this).data('animations');
+            var animate = $(this).data('type');
             $(this).owlCarousel({
                 items: 1,
                 animateOut: animate === 'fade' ? 'fadeOut' : false,
@@ -40,29 +39,6 @@
                 navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
             });
 
-            $(this).on('translate.owl.carousel', function () {
-                var layer = $("[data-animation]");
-                layer.each(function () {
-                    var anim_name = $(this).data('animation');
-                    $(this).removeClass('animated ' + anim_name).css('opacity', '0');
-                });
-            });
-        });
-        
-        fCarousel.each(function() {
-            var animate = $(this).data('animations');
-            var  itemsToShow = $(this).data('items-to-show');
-            $(this).owlCarousel({
-                items: itemsToShow ? itemsToShow : 1,
-                animateOut: animate === 'fade' ? 'fadeOut' : false,
-                loop: true,
-                autoplay: true,
-                smartSpeed: 1000,
-                autoplayTimeout: 10000,
-                nav: true,
-                navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
-            });
-            
             $(this).on('translate.owl.carousel', function () {
                 var layer = $("[data-animation]");
                 layer.each(function () {
@@ -89,6 +65,23 @@
                 $(this).addClass('animated ' + anim_name).css('opacity', '1');
             });
         });
+
+        $('.card-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive:{
+                0:{
+                    items: 1
+                },
+                600:{
+                    items: 3
+                },
+                1000:{
+                    items: 4
+                }
+            }
+        })
     }
 
     // ************************************

@@ -627,7 +627,7 @@ input:required {
   height: 70px;
   background-color: #000000; }
   .main-header-area.sticky {
-    background-color: rgba(0, 0, 0, 0.55); }
+    background-color: rgba(0, 0, 0, 0.75); }
 
 .classy-navbar-toggler .navbarToggler span {
   background-color: #ffffff; }
@@ -641,10 +641,11 @@ input:required {
   position: relative;
   z-index: 1;
   overflow: hidden; }
-  .owl-carousel .owl-prev .fa,
-  .owl-carousel .owl-next .fa { line-height: 66px;}
   .owl-carousel .owl-prev,
   .owl-carousel .owl-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
@@ -691,17 +692,13 @@ input:required {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 880px;
+  height: 600px;
   background-color: var(--primary-color); }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .single-welcome-slide {
-      height: 750px; } }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .single-welcome-slide {
-      height: 750px; } }
+  .single-welcome-slide.large { height: 100vh ;}
+
   @media only screen and (max-width: 767px) {
     .single-welcome-slide {
-      height: 600px; } }
+      height: 500px; } }
   .single-welcome-slide .welcome-text {
     position: relative;
     z-index: 1; }

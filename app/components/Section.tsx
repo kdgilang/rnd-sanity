@@ -2,22 +2,23 @@ import SectionModel from "@sanity/models/SectionModel"
 import classNames from "../helpers/classNames"
 import { BasePropsType } from "../types/BasePropsType"
 import SectionHeading from "./SectionHeading"
-import Accordion from "./sections/Accordion"
-import Banner from "./sections/Banner"
-// import Carousel from "./sections/Carousel"
-// import Embed from "./sections/Embed"
+import accordionComponent from "./sections/Accordion"
+import bannerComponent from "./sections/Banner"
+import carouselComponent from "./sections/Carousel"
+import embedComponent from "./sections/Embed"
+import mediaTileComponent from "./sections/MediaTile"
+import cardComponent from "./sections/MediaTile"
 // import Service from "./sections/Service"
 // import Team from "./sections/Team"
-// import Video from "./sections/Video"
 
 const Components: any = {
-  accordionComponent: Accordion,
-  bannerComponent: Banner,
-  // embed: Embed,
-  // video: Video,
+  accordionComponent,
+  bannerComponent,
+  carouselComponent,
+  embedComponent,
+  cardComponent,
+  mediaTileComponent,
   // team: Team,
-  // service: Service,
-  // 'featured-carousel': Carousel,
 }
 
 export type SectionPropsType = BasePropsType & {

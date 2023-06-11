@@ -2,7 +2,7 @@ import classNames from "app/helpers/classNames";
 import { BasePropsType } from "app/types/BasePropsType";
 
 type EmbedDataType = {
-  embed_code: string
+  code: string
 }
 
 export type EmbedPropsType = {
@@ -11,11 +11,12 @@ export type EmbedPropsType = {
 }
 
 export default function Embed({ data , className }: EmbedPropsType) {
-  const { embed_code } = data
+  const { code } = data
+
   return (
-    <div className={classNames(
+    code ? <div className={classNames(
       className || ""
-    )} dangerouslySetInnerHTML={{ __html: embed_code }}>
-    </div>
+    )} dangerouslySetInnerHTML={{ __html: code }}>
+    </div> : null
   )
 }

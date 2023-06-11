@@ -16,5 +16,3 @@ export const columns = [
     value: '4'
   },
 ]
-
-export default columns

@@ -1,6 +1,6 @@
 import { Rule } from "sanity"
 import BasePropsModel from "../BasePropsModel"
-import aligns from "../variables/aligns"
+import {aligns} from "../variables/aligns"
 
 class TitleProps extends BasePropsModel { }
 
