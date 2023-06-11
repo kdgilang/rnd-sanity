@@ -42,7 +42,6 @@ export default function Section({ sections, className }: SectionPropsType) {
           <div
             key={`section-${item._key}`}
             className={classNames(
-              "text-center",
               item?.container,
               "px-0",
               marginY,

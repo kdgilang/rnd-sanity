@@ -493,18 +493,13 @@ input:required {
       cursor: pointer; }
 
 .top-search-area .modal {
-  background-color: rgba(0, 0, 0, 0.7); }
-.top-search-area .modal-content .modal-body {
-  padding: 50px; }
+  background-color: rgba(0, 0, 0, 0.85); }
   .top-search-area .modal-content .modal-body button.close-btn {
     position: absolute;
     top: 15px;
     right: 15px;
     z-index: 10;
     font-size: 14px; }
-    .top-search-area .modal-content .modal-body button.close-btn.btn {
-      padding: 0;
-      background-color: transparent; }
 .top-search-area form {
   width: 100%;
   position: relative;
@@ -513,6 +508,7 @@ input:required {
     width: 100%;
     height: 50px;
     border: none;
+    background-color: #ddd;
     -webkit-box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.08);
     box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.08);
     border-radius: 6px;

@@ -9,6 +9,7 @@ import MuiAccordionSummary, {
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { BaseDataType, BasePropsType } from 'app/types/BasePropsType';
+import {PortableText} from '@portabletext/react';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -48,12 +49,12 @@ type AccordionDataType = BaseDataType & {
 }
 
 export type AccordionPropsType = BasePropsType & {
-  data: AccordionDataType
+  data: any
 }
 
 export default function CustomAccordion({ data }: AccordionPropsType) {
   const [expanded, setExpanded] = React.useState<string | false>('panel1');
-  const { accordion_items } = data
+  const { accordionItems } = data
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -61,23 +62,23 @@ export default function CustomAccordion({ data }: AccordionPropsType) {
     };
 
   return (
-    <div>
-      { accordion_items?.map(item => (
+    <>
+      { accordionItems?.map((item: any) => (
         <Accordion
-          key={`accordion-item-${item.id}`}
-          expanded={expanded === `panel-${item.id}`}
-          onChange={handleChange(`panel-${item.id}`)}>
+          key={`accordion-item-${item?._key}`}
+          expanded={expanded === `panel-${item?._key}`}
+          onChange={handleChange(`panel-${item?._key}`)}>
           <AccordionSummary
             style={{ padding: '8px 20px' }}
-            aria-controls={`panel-${item.id}d-content`}
-            id={`panel-${item.id}-header`}>
-            <Typography fontSize={20}>{ item.title }</Typography>
+            aria-controls={`panel-${item?._key}d-content`}
+            id={`panel-${item?._key}-header`}>
+            <Typography fontSize={20}>{ item?.title }</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
+            <PortableText value={ item?.body }  />
           </AccordionDetails>
         </Accordion>
       )) }
-    </div>
+    </>
   );
 }

@@ -16,11 +16,11 @@ export default function SectionHeading({ title, content, isCenter, className }: 
       )}>
         { title && 
           <div className="d-inline-block">
-            <h2>{title}</h2>
+            <h2 className="wow fadeInUp" data-wow-delay="100ms">{title}</h2>
             <div className={classNames(
               "line wow fadeInUp",
               isCenter ? "mx-auto" : "",
-            )} data-wow-delay="200ms"></div>
+            )} data-wow-delay="300ms"></div>
           </div>
         }
         {content && <p>{content}</p>}

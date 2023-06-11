@@ -18,7 +18,6 @@ export default function ModalSearch() {
           <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
                   <div className="modal-body">
-                    <button type="button" className="btn close-btn" data-dismiss="modal"><i className="ti-close"></i></button>
                     <form onSubmit={(e) => handleSubmit(e)} method="get">
                       <input
                         type="search"
