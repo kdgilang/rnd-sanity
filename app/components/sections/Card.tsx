@@ -15,13 +15,16 @@ export default function Cards({ data, className }: CardPropsType) {
     return(
       <div className={classNames(
         "card-carousel owl-carousel owl-theme",
+        "d-flex align-items-center justify-content-center",
         className || ""
       )}>
         { cards?.map((item: any, i: number) => {
           item.delay = (i+1) * 180
           
           if(item._type === 'teamComponent') {
-            return <CardTeam key={item._id} data={item} />
+            return <div key={item._id} className="p-2">
+              <CardTeam data={item} />
+            </div>
           } 
           return <Card key={item._id} data={item} />
         }) }
