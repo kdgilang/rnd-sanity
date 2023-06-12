@@ -3,6 +3,7 @@ import metaFields from "../fields/meta";
 import slugField from "../fields/slug";
 import menuNameField from "../fields/menuName";
 import bodyField from "../fields/body";
+import categodyField from "../fields/category";
 
 const article = {
   icon: IoIosPaper,
@@ -13,6 +14,7 @@ const article = {
     ...metaFields(),
     slugField(),
     menuNameField(),
+    categodyField(),
     bodyField({
       mandatory: true
     })

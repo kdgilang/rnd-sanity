@@ -1,5 +1,5 @@
 import classNames from "../helpers/classNames"
-import { BaseDataType, BasePropsType } from "../types/BasePropsType"
+import { BasePropsType } from "../types/BasePropsType"
 
 export type SectionHeadingPropsType = BasePropsType & {
   isCenter: boolean

@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { BasePropsType } from "../types/BasePropsType";
 
-type CardListType = BasePropsType & {
+type ListTileType = BasePropsType & {
   data: any[]
 }
 
-export default function CardList({ data }: CardListType) {
+export default function ListTile({ data }: ListTileType) {
 
   return (
     <div className="row">

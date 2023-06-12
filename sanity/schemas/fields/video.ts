@@ -9,7 +9,7 @@ const videoField = (props?: VideoProps) => {
   } = props || new VideoProps()
   
   return {
-    name: 'video_url',
+    name: 'videoUrl',
     type: 'url',
     title: 'Video Url',
     ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null)

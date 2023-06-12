@@ -131,10 +131,10 @@
             });
             // init Isotope
             var $grid = $('.alime-portfolio').isotope({
-                itemSelector: '.single_gallery_item',
+                itemSelector: '.alime-portfolio__item',
                 percentPosition: true,
                 masonry: {
-                    columnWidth: '.single_gallery_item'
+                    columnWidth: '.alime-portfolio__item'
                 }
             });
         });

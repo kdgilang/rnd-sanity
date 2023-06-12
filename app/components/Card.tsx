@@ -22,7 +22,7 @@ export default function Card({ data }: any) {
   return (
     <div
       className={classNames(
-        "single_gallery_item wow fadeInUp",
+        "wow fadeInUp",
         Icon ? "text-center" : ""
       )}
       data-wow-delay={`${delay}ms`}>

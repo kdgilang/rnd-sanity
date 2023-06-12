@@ -8,7 +8,7 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import { BaseDataType, BasePropsType } from 'app/types/BasePropsType';
+import { BasePropsType } from 'app/types/BasePropsType';
 import {PortableText} from '@portabletext/react';
 
 const Accordion = styled((props: AccordionProps) => (
@@ -43,10 +43,6 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
-
-type AccordionDataType = BaseDataType & {
-  accordion_items: any[]
-}
 
 export type AccordionPropsType = BasePropsType & {
   data: any

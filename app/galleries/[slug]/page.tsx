@@ -1,5 +1,4 @@
-import Hero from 'app/components/Hero'
-import Section from 'app/components/Section'
+import Section from '@src/components/layouts/Section'
 import Carousel from 'app/components/sections/Carousel'
 
 const getData = async (slug: string) => {

@@ -1,12 +1,7 @@
 import { urlForImage } from "@sanity/lib/image"
 import classNames from "app/helpers/classNames"
-import { BaseDataType, BasePropsType } from "app/types/BasePropsType"
+import { BasePropsType } from "app/types/BasePropsType"
 import Link from "next/link"
-
-type CarouselDataType = BaseDataType & {
-  animations: string
-  carousel_items: any[]
-}
 
 export type CarouselPropsType = BasePropsType & {
   data: any

@@ -13,7 +13,14 @@ const categodyField = (props?: CategodyProps) => {
     name: 'categories',
     title: 'Categories',
     type: 'array',
-    of: [{ type: 'categoryTaxonomy' }],
+    of: [
+      {
+        type: 'reference',
+        to: [
+          { type: 'categoryTaxonomy' },
+        ]
+      }
+    ],
     ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null)
   }
 }

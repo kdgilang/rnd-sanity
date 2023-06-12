@@ -1,15 +1,13 @@
 import SectionModel from "@sanity/models/SectionModel"
-import classNames from "../helpers/classNames"
-import { BasePropsType } from "../types/BasePropsType"
-import SectionHeading from "./SectionHeading"
-import accordionComponent from "./sections/Accordion"
-import bannerComponent from "./sections/Banner"
-import carouselComponent from "./sections/Carousel"
-import embedComponent from "./sections/Embed"
-import mediaTileComponent from "./sections/MediaTile"
-import cardComponent from "./sections/Card"
-// import Service from "./sections/Service"
-// import Team from "./sections/Team"
+import classNames from "../../helpers/classNames"
+import { BasePropsType } from "../../types/BasePropsType"
+import SectionHeading from "../SectionHeading"
+import accordionComponent from "../sections/Accordion"
+import bannerComponent from "../sections/Banner"
+import carouselComponent from "../sections/Carousel"
+import embedComponent from "../sections/Embed"
+import mediaTileComponent from "../sections/MediaTile"
+import cardComponent from "../sections/Card"
 
 const Components: any = {
   accordionComponent,
@@ -18,7 +16,6 @@ const Components: any = {
   carouselComponent,
   embedComponent,
   mediaTileComponent,
-  // team: Team,
 }
 
 export type SectionPropsType = BasePropsType & {

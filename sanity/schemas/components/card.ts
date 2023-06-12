@@ -28,6 +28,7 @@ export const cardComponent = {
           type: 'reference',
           to: [
             { type: 'articleContent' },
+            { type: 'teamComponent' },
             { type: 'categoryTaxonomy' },
           ]
         }

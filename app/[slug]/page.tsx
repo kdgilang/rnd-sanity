@@ -1,6 +1,5 @@
-import Hero from 'app/components/Hero'
 import getPageBySlugService from '@sanity/services/getOneFlexibleService'
-import Section from 'app/components/Section'
+import Section from '@src/components/layouts/Section'
 import getSiteSettingsService from '@sanity/services/getSiteSettingService'
 import { notFound } from 'next/navigation'
 
@@ -11,7 +10,7 @@ import { client } from "@sanity/lib/client";
 
 import { getPreviewToken } from '@sanity/lib/serverPreview'
 import { PreviewSuspense } from '@components/PreviewSuspense'
-import PreviewPage from '@components/PreviewPage'
+import PreviewPage from '@src/components/layouts/PreviewPage'
 
 const query = groq`*[_type == "flexibleContent" && slug.current == $slug][0]{
   _id,

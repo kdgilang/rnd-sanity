@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation'
-import Section from 'app/components/Section'
+import Section from '@src/components/layouts/Section'
 import getRouteSettingService from '@services/getRouteSettingService'
 import getOneFlexibleService from '@services/getOneFlexibleService'
 import getSiteSettingsService from '@services/getSiteSettingService'
 import { getPreviewToken } from '@sanity/lib/serverPreview'
 import { PreviewSuspense } from '@components/PreviewSuspense'
-import PreviewPage from '@components/PreviewPage'
+import PreviewPage from '@src/components/layouts/PreviewPage'
 import Loading from './components/Loading'
 
 
