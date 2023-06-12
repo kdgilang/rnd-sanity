@@ -82,7 +82,7 @@
                     items: 4
                 }
             }
-        })
+        });
     }
 
     // ************************************
@@ -144,17 +144,17 @@
     // :: 6.0 Portfolio Button Active Code
     // ***********************************
     
-    $('.portfolio-menu button.btn').on('click', function () {
+    $(document).on('click', '.portfolio-menu button.btn', function () {
         $('.portfolio-menu button.btn').removeClass('active');
         $(this).addClass('active');
-    })
+    });
 
     // ********************************
     // :: 7.0 Search Button Active Code
     // ********************************
     $('.search-btn').on('click', function () {
         $('.search-form').toggleClass('search-form-active');
-    })
+    });
 
     // ************************
     // :: 8.0 Stick Active Code
