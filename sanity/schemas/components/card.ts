@@ -1,6 +1,6 @@
 import { ImNewspaper } from 'react-icons/im'
 import { Rule } from 'sanity'
-import {columns} from '../variables/columns'
+import { cardViews } from '../variables/views'
 
 export const cardComponent = {
   icon: ImNewspaper,
@@ -8,6 +8,16 @@ export const cardComponent = {
   type: 'document',
   title: 'Card',
   fields: [
+    {
+      name: 'view',
+      type: 'string',
+      title: 'View',
+      validation: (Rule: Rule) => Rule.required(),
+      options: {
+        list: cardViews.map(({title, value}) => ({title, value})),
+        layout: 'select',
+      },
+    },
     {
       name: 'cards',
       type: 'array',

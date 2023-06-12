@@ -2,12 +2,12 @@ import { Rule } from "sanity"
 import BasePropsModel from "../BasePropsModel"
 import {aligns} from "../variables/aligns"
 
-class TitleProps extends BasePropsModel { }
+class AlignProps extends BasePropsModel { }
 
-const alignField = (props?: TitleProps) => {
+const alignField = (props?: AlignProps) => {
   const {
     mandatory
-  } = props || new TitleProps()
+  } = props || new AlignProps()
 
   return {
     name: 'align',

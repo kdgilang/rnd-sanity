@@ -2,12 +2,12 @@
 import { Rule } from "sanity"
 import BasePropsModel from "../BasePropsModel"
 
-class DescriptionProps extends BasePropsModel { }
+class BodyProps extends BasePropsModel { }
 
-const bodyField = (props?: DescriptionProps) => {
+const bodyField = (props?: BodyProps) => {
   const {
     mandatory
-  } = props || new DescriptionProps()
+  } = props || new BodyProps()
 
   return {
     name: 'body',

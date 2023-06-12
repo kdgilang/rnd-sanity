@@ -1,12 +1,12 @@
 import { Rule } from "sanity"
 import BasePropsModel from "../BasePropsModel"
 
-class TitleProps extends BasePropsModel {}
+class IconProps extends BasePropsModel {}
 
-const iconField = (props?: TitleProps) => {
+const iconField = (props?: IconProps) => {
   const {
     mandatory
-  } = props || new TitleProps()
+  } = props || new IconProps()
   
   return {
     name: 'icon',
