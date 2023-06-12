@@ -14,7 +14,10 @@ export default function Embed({ data , className }: EmbedPropsType) {
   const { code } = data
 
   return (
-    code ? <div className={classNames(
+    code ? <div
+    data-wow-delay="300ms"
+    className={classNames(
+      "wow fadeIn",
       className || ""
     )} dangerouslySetInnerHTML={{ __html: code }}>
     </div> : null

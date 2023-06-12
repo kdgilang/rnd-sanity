@@ -65,7 +65,7 @@ export default function CustomAccordion({ data }: AccordionPropsType) {
     <>
       { accordionItems?.map((item: any) => (
         <Accordion
-          className="wow fadeInUp" data-wow-delay="300ms"
+          className="wow fadeIn" data-wow-delay="300ms"
           key={`accordion-item-${item?._key}`}
           expanded={expanded === `panel-${item?._key}`}
           onChange={handleChange(`panel-${item?._key}`)}>

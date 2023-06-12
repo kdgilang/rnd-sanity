@@ -1,15 +1,32 @@
+import IconBuilder from "@sanity/lib/icon";
 import { urlForImage } from "@sanity/lib/image";
 import classNames from "@src/helpers/classNames";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Card({ data }: any) {
-  const { _key, title, description, image, slug, delay } = data
+  const {
+    icon,
+    slug,
+    delay,
+    image,
+    title,
+    description
+  } = data
+
+  let Icon: any = null
+  if (icon?.name) {
+    Icon = IconBuilder(icon.name);
+  }
+
   return (
     <div
-      className="single_gallery_item wow fadeInUp"
+      className={classNames(
+        "single_gallery_item wow fadeInUp",
+        Icon ? "text-center" : ""
+      )}
       data-wow-delay={`${delay}ms`}>
-      <Link
+      { image && <Link
         href={urlForImage(image).url()}
         className={classNames(
           "portfolio-img",
@@ -20,9 +37,12 @@ export default function Card({ data }: any) {
             <div> + </div>
           </div>
         </div>
-      </Link>
+      </Link> }
+      { Icon && <span className="">
+        <Icon style={{ fontSize: 30 }} />
+      </span> }
       <div className="mt-3">
-        { title && <Link href={slug}>
+        { title && <Link href={slug} >
           <h3 className="h3">{title}</h3></Link> }
         { description && <p className="mb-0">{description}</p> }
       </div>

@@ -12,7 +12,9 @@ export const categoryTaxonomy = {
   type: 'document',
   title: 'Category',
   fields: [
-    iconField(),
+    iconField({
+      mandatory: true
+    }),
     titleField(),
     menuNameField(),
     slugField(),

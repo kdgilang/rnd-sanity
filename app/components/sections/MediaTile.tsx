@@ -23,12 +23,12 @@ export default function MediaTile({ data, className }: EmbedPropsType) {
       className || ""
     )}>
       <div className="col-12 col-lg-6">
-        <div className="about-us-content wow fadeInUp" data-wow-delay="200ms">
+        <div className="about-us-content wow fadeIn" data-wow-delay="200ms">
           <PortableText value={ body }  />
         </div>
       </div>
       <div className="col-12 col-lg-6">
-        <div className="about-video-area wow fadeInUp" data-wow-delay="300ms">
+        <div className="about-video-area wow fadeIn" data-wow-delay="300ms">
           <Image src={urlForImage(image).url()} height={100} width={150} alt="media cover" />
           { video_url && <div className="video-icon">
             <Link href={video_url} style={{ lineHeight: 1 }} className="video-play-btn" aria-label="play the video">
