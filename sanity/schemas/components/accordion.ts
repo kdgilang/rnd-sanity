@@ -1,6 +1,6 @@
 import { ImMenu } from 'react-icons/im'
 import { Rule } from 'sanity'
-import bodyField from '../fields/bodyField'
+import bodyField from '../fields/body'
 import titleField from '../fields/title'
 
 export const accordionComponent = {

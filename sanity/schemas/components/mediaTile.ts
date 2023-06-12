@@ -1,7 +1,7 @@
 import { ImPlay } from 'react-icons/im'
 import imageField from '../fields/image'
 import videoField from '../fields/video'
-import bodyField from '../fields/bodyField'
+import bodyField from '../fields/body'
 
 export const mediaTileComponent = {
   icon: ImPlay,

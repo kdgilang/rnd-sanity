@@ -4,7 +4,7 @@ import ctaFields from '../fields/cta'
 import metaFields from '../fields/meta'
 import { carouselSizes } from '../variables/sizes'
 import { carouselAnimations } from '../variables/animations'
-import alignField from '../fields/alignField'
+import alignField from '../fields/align'
 
 export const carouselComponent = {
   icon: ImImages,
