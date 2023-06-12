@@ -7,16 +7,16 @@ import bannerComponent from "./sections/Banner"
 import carouselComponent from "./sections/Carousel"
 import embedComponent from "./sections/Embed"
 import mediaTileComponent from "./sections/MediaTile"
-import cardComponent from "./sections/MediaTile"
+import cardComponent from "./sections/Card"
 // import Service from "./sections/Service"
 // import Team from "./sections/Team"
 
 const Components: any = {
   accordionComponent,
   bannerComponent,
+  cardComponent,
   carouselComponent,
   embedComponent,
-  cardComponent,
   mediaTileComponent,
   // team: Team,
 }

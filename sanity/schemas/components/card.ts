@@ -6,7 +6,7 @@ export const cardComponent = {
   icon: ImNewspaper,
   name: 'cardComponent',
   type: 'document',
-  title: 'Card Carousel',
+  title: 'Card',
   fields: [
     {
       name: 'cards',
@@ -16,7 +16,10 @@ export const cardComponent = {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'articleContent' }]
+          to: [
+            { type: 'articleContent' },
+            { type: 'categoryTaxonomy' },
+          ]
         }
       ]
     }

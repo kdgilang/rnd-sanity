@@ -1,6 +1,7 @@
 import { ImPlay } from 'react-icons/im'
 import imageField from '../fields/image'
 import videoField from '../fields/video'
+import bodyField from '../fields/bodyField'
 
 export const mediaTileComponent = {
   icon: ImPlay,
@@ -8,12 +9,9 @@ export const mediaTileComponent = {
   type: 'document',
   title: 'Media Tile',
   fields: [
-    {
-      name: 'body',
-      type: 'array',
-      title: 'Body',
-      of: [{ type: 'block' }]
-    },
+    bodyField({
+      mandatory: true
+    }),
     imageField({
       mandatory: true
     }),

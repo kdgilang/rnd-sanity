@@ -2,6 +2,7 @@ import { IoIosPaper } from "react-icons/io";
 import metaFields from "../fields/meta";
 import slugField from "../fields/slug";
 import menuNameField from "../fields/menuName";
+import bodyField from "../fields/bodyField";
 
 const article = {
   icon: IoIosPaper,
@@ -10,8 +11,11 @@ const article = {
   title: 'Article',
   fields: [
     ...metaFields(),
-    menuNameField(),
     slugField(),
+    menuNameField(),
+    bodyField({
+      mandatory: true
+    })
   ]
 }
 

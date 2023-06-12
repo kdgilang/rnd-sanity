@@ -1,19 +1,18 @@
+import { BasePropsType } from "@src/types/BasePropsType"
+import Card from "@components/Card"
 
-export default function Card() {
+export type CardPropsType = BasePropsType & {
+  data: any
+}
+
+export default function Cards({ data, className }: CardPropsType) {
+  const { cards } = data
   return(
-  <div className="card-carousel owl-theme">
-    <div className="item"><h4>1</h4></div>
-    <div className="item"><h4>2</h4></div>
-    <div className="item"><h4>3</h4></div>
-    <div className="item"><h4>4</h4></div>
-    <div className="item"><h4>5</h4></div>
-    <div className="item"><h4>6</h4></div>
-    <div className="item"><h4>7</h4></div>
-    <div className="item"><h4>8</h4></div>
-    <div className="item"><h4>9</h4></div>
-    <div className="item"><h4>10</h4></div>
-    <div className="item"><h4>11</h4></div>
-    <div className="item"><h4>12</h4></div>
+  <div className="card-carousel owl-carousel owl-theme">
+    { cards?.map((item: any, i: number) => {
+      item.delay = (i+1) * 180
+      return <Card key={item._key} data={item} />
+    }) }
   </div>
   )
 }

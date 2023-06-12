@@ -12,7 +12,8 @@ function getOneFlexibleService(slug: string): Promise<FlexibleContentModel> {
         cta{
           ...,
           link->{ menuName, slug, _type, _id }
-        }
+        },
+        cards[]->{ image, title, description, slug }
       },
     }
   }`;

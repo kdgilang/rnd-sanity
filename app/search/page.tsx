@@ -38,7 +38,7 @@ export default async function Page({ searchParams }: any) {
 
   return (
     <div className="container py-5">
-      <div className="section-padding">
+      <div className="py-5">
         <div className="row mb-5 justify-content-center">
           <div className="col-xs-8 col-md-6">
             <SearchForm />

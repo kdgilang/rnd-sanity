@@ -10,8 +10,8 @@ const flexible = {
   title: 'Flexible',
   fields: [
     ...metaFields(),
-    menuNameField(),
     slugField(),
+    menuNameField(),
     {
       name: 'sections',
       type: 'array',

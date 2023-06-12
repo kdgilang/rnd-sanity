@@ -1,5 +1,7 @@
 import { ImMenu } from 'react-icons/im'
 import { Rule } from 'sanity'
+import bodyField from '../fields/bodyField'
+import titleField from '../fields/title'
 
 export const accordionComponent = {
   icon: ImMenu,
@@ -35,16 +37,11 @@ export const accordionItem = {
   type: 'object',
   title: 'Item',
   fields: [
-    {
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-    },
-    {
-      name: 'body',
-      title: 'Title',
-      type: 'array',
-      of: [{type: 'block'}]
-    },
+    titleField({
+      mandatory: true
+    }),
+    bodyField({
+      mandatory: true
+    })
   ]
 }

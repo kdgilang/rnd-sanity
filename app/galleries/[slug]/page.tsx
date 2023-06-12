@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { slug: string }}) {
 //     <main>
 //       { title && <h1 className="sr-only">{ title }</h1> }
 //       <Hero data={hero} />
-//       <div className="container section-padding blog-details-text">
+//       <div className="container py-5 blog-details-text">
 //         <Carousel data={carousel} className="mb-5" />
 //         <div dangerouslySetInnerHTML={{ __html: body }}></div>
 //       </div>
