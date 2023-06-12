@@ -11,7 +11,7 @@ const bodyField = (props?: DescriptionProps) => {
 
   return {
     name: 'body',
-    title: 'Title',
+    title: 'Body',
     type: 'array',
     of: [{ type: 'block' }],
     ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null)
