@@ -32,7 +32,13 @@ const ctaFields = [
         title: 'Url',
         fieldset: 'cta',
         hidden: ({parent}: any) => !parent?.isExternal,
-        validation: (Rule: Rule) => Rule.required(),
+        validation: (Rule: Rule) => Rule.custom((val, ctx) => {
+          //@ts-ignore
+          if (ctx?.parent?.isExternal && !val) {
+            return 'Url is required.'
+          }
+          return true
+        }),
       },
       {
         name: 'link',
@@ -40,7 +46,13 @@ const ctaFields = [
         title: 'Select',
         fieldset: 'cta',
         hidden: ({parent}: any) => parent?.isExternal,
-        validation: (Rule: Rule) => Rule.required(),
+        validation: (Rule: Rule) => Rule.custom((val, ctx) => {
+          //@ts-ignore
+          if (!ctx?.parent?.isExternal && !val) {
+            return 'Reference is required.'
+          }
+          return true
+        }),
         to: [{ type: 'articleContent' }, { type: 'flexibleContent' }]
       },
       {
