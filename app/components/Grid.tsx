@@ -97,7 +97,7 @@ export default function Grid({ data, className, isAjax }: GridPropsType) {
             key={`grid-${item._id}`}
             href={isAjax ? `/cards/${item.slug.current}`: urlForImage(item.image).url()}
             className={classNames(
-              "col-12 col-sm-6 col-lg-3 alime-portfolio__item mb-30 wow fadeInUp",
+              "col-12 col-sm-6 col-lg-3 alime-portfolio__item mb-3 px-2 wow fadeInUp",
               isAjax ?  "" : `${slugs?.join(',')} portfolio-img`
             )}
             data-wow-delay={`${delay}ms`}>

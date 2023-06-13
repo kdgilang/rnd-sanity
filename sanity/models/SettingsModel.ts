@@ -1,15 +1,15 @@
 import RouteSettingModel from "./RouteSettingModel";
 import SisteSettingModel from "./SiteSettingModel";
-import { SocailMediaSettingModel } from "./SocialMediaSettingModel";
+import { NetworkSettingModel } from "./NetworkSettingModel";
 
 class SettingsModel {
   siteSetting: SisteSettingModel
-  socialMediaSetting: SocailMediaSettingModel
+  networkSetting: NetworkSettingModel
   routeSetting: RouteSettingModel
 
   constructor() {
     this.siteSetting = new SisteSettingModel()
-    this.socialMediaSetting = new SocailMediaSettingModel()
+    this.networkSetting = new NetworkSettingModel()
     this.routeSetting = new RouteSettingModel()
   }
 }

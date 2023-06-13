@@ -16,11 +16,13 @@ function getOneFlexibleService(slug: string): Promise<FlexibleContentModel> {
         cards[]->{
           _id,
           _type,
+          name,
           slug,
           icon,
           image,
           title,
           description,
+          networkItems,
           categories[]->{ menuName, slug, _type, _id }
         }
       },

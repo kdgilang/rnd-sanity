@@ -5,7 +5,7 @@ import IconBuilder from "@sanity/lib/icon";
 import SettingsModel from "@sanity/models/SettingsModel";
 
 export default function Footer({ settings }: { settings: SettingsModel }) {
-  const { siteSetting, socialMediaSetting } = settings
+  const { siteSetting, networkSetting } = settings
 
   const logo = urlForImage(siteSetting?.logo)
 
@@ -24,7 +24,7 @@ export default function Footer({ settings }: { settings: SettingsModel }) {
                 </a>
               </div>
               <div className="social-info">
-                { socialMediaSetting?.socialItems?.map(item => {
+                { networkSetting?.networkItems?.map(item => {
                   const Icon = IconBuilder(item.icon.name)
                   return (
                   <Link

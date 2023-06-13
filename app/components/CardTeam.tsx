@@ -1,14 +1,15 @@
+import IconBuilder from "@sanity/lib/icon";
 import { urlForImage } from "@sanity/lib/image";
 import classNames from "@src/helpers/classNames";
 import { BasePropsType } from "app/types/BasePropsType";
 import Image from "next/image";
 
-export type EmbedPropsType = BasePropsType & {
+export type CardTeamPropsType = BasePropsType & {
   data: any
 }
 
-export default function CardTeam({ data, className }: EmbedPropsType) {
-  const { name, title, image, delay } = data
+export default function CardTeam({ data, className }: CardTeamPropsType) {
+  const { name, title, image, delay, networkItems } = data
   return (
     <div className={classNames(
       "team-content-area text-center mb-30 wow fadeInUp",
@@ -17,10 +18,15 @@ export default function CardTeam({ data, className }: EmbedPropsType) {
       <div className="member-thumb">
         <Image src={urlForImage(image).size(200, 200).crop('center').url()} width={200} height={200} alt={name} />
       </div>
-      <h5>{ name }</h5>
+      <h5 className="text-capitalize">{ name }</h5>
       <span className="mt-5"><strong>{ title }</strong></span>
-      <div className="member-social-info">
-        {/* <a className="btn alime-btn btn-1 mt-10 wow fadeInBounce" data-wow-delay="500ms" href={item.link_url}>{ item.link_label }</a> */}
+      <div className="member-social-info mt-2">
+        {
+          networkItems?.map((item: any) => {
+            const Icon = IconBuilder(item.icon.name)
+            return <a key={item._key} href="#"><Icon /></a>
+          })
+        }
       </div>
     </div>
   )

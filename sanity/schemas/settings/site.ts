@@ -2,7 +2,7 @@ import { Rule } from "sanity"
 
 const siteSetting = {
   name: 'siteSetting',
-  type: 'document',
+  type: 'object',
   title: 'Site',
   fields: [
     {

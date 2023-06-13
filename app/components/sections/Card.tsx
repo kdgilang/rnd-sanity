@@ -20,13 +20,13 @@ export default function Cards({ data, className }: CardPropsType) {
       )}>
         { cards?.map((item: any, i: number) => {
           item.delay = (i+1) * 180
-          
-          if(item._type === 'teamComponent') {
-            return <div key={item._id} className="p-2">
-              <CardTeam data={item} />
-            </div>
-          } 
-          return <Card key={item._id} data={item} />
+            return (<div key={item._id} className="p-2">
+              {
+                item._type === 'teamComponent' ?
+                  <CardTeam data={item} className={item._type} /> :
+                  <Card key={item._id} data={item} className={item._type} />
+              }
+            </div>)
         }) }
       </div>
     )

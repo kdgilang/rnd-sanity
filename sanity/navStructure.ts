@@ -30,9 +30,9 @@ export const navStructure = (S: any) =>
                 .icon(IoIosMenu)
                 .child(S.document().schemaType('routeSetting').documentId('routeSetting')),
               S.listItem()
-                .title('Social Media')
+                .title('Networks')
                 .icon(IoIosGitNetwork)
-                .child(S.document().schemaType('socialMediaSetting').documentId('socialMediaSetting')),
+                .child(S.document().schemaType('networkSetting').documentId('networkSetting')),
             ])
         ),
       // We also need to remove the new singletons from the main list
@@ -40,7 +40,7 @@ export const navStructure = (S: any) =>
         (listItem: any) => ![
           'siteSetting',
           'routeSetting',
-          'socialMediaSetting',
+          'networkSetting',
         ].includes(listItem.getId())
       ),
     ])

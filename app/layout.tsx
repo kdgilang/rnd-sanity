@@ -1,31 +1,31 @@
 import './variable.css'
 import './style.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
 import Script from 'next/script'
-import getSiteSettingService from '../sanity/services/getSiteSettingService'
+import getSiteSettingService from '@services/getSiteSettingService'
 import { writeFile} from 'fs'
-import SectionHeading from './components/SectionHeading'
-import Embed from './components/sections/Embed'
-import Loading from './components/Loading'
-import getSocialMediaSettingService from '../sanity/services/getSocialMediaSettingService'
-import getRouteSettingService from '../sanity/services/getRouteSettingService'
+import SectionHeading from '@components/SectionHeading'
+import Embed from '@components/sections/Embed'
+import Loading from '@components/Loading'
+import getNetworkSettingService from '@services/getNetworkSettingService'
+import getRouteSettingService from '@services/getRouteSettingService'
 
 const getData = async () => {
   const [
     siteSetting,
     routeSetting,
-    socialMediaSetting
+    networkSetting
   ] = await Promise.all([
     getSiteSettingService(),
     getRouteSettingService(),
-    getSocialMediaSettingService(),
+    getNetworkSettingService(),
   ])
 
   return {
     siteSetting,
     routeSetting,
-    socialMediaSetting
+    networkSetting
   }
 }
 
@@ -38,7 +38,7 @@ export default async function RootLayout({
   const {
     siteSetting,
     routeSetting,
-    socialMediaSetting
+    networkSetting
    } = await getData()
 
   // const { primary_color, instagram_embed_code } = data
@@ -46,7 +46,7 @@ export default async function RootLayout({
 
   const settings = {
     siteSetting,
-    socialMediaSetting,
+    networkSetting,
     routeSetting
   }
 

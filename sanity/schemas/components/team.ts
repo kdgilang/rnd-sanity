@@ -1,7 +1,7 @@
 import { ImUser } from 'react-icons/im'
 import metaFields from '../fields/meta'
-import { Rule } from 'sanity'
-import bodyField from '../fields/body'
+import networkField from '../fields/network'
+import nameField from '../fields/name'
 
 export const teamComponent = {
   icon: ImUser,
@@ -10,12 +10,11 @@ export const teamComponent = {
   title: 'Team',
   fields: [
     ...metaFields(),
-    {
-      name: 'name',
-      type: 'string',
-      title: 'Name',
-      validation: (Rule: Rule) => Rule.required() 
-    },
-    bodyField()
+    nameField({
+      mandatory: true
+    }),
+    networkField({
+      mandatory: true
+    }),
   ]
 }

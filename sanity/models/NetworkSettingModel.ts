@@ -1,11 +1,11 @@
 import { BaseDocumentModel } from "./BaseModel"
   
-export class SocailMediaSettingModel extends BaseDocumentModel {
-  socialItems: SocialMediaModel[]
+export class NetworkSettingModel extends BaseDocumentModel {
+  networkItems: SocialMediaModel[]
   
   constructor() {
     super()
-    this.socialItems = new Array<SocialMediaModel>()
+    this.networkItems = new Array<SocialMediaModel>()
   }
 }
 

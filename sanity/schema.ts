@@ -2,7 +2,7 @@ import { type SchemaTypeDefinition } from 'sanity'
 import articleContent from './schemas/contents/article'
 import flexibleContent from './schemas/contents/flexible'
 import siteSetting from './schemas/settings/site'
-import socialMediaSetting from './schemas/settings/socialMedia'
+import networkSetting from './schemas/settings/network'
 import sectionField from './schemas/shared/section'
 import { accordionComponent, accordionItem } from './schemas/components/accordion'
 import { carouselComponent,  carouselItem } from './schemas/components/carousel'
@@ -20,7 +20,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     flexibleContent,
     categoryTaxonomy,
     siteSetting,
-    socialMediaSetting,
+    networkSetting,
     routeSetting,
     embedComponent,
     carouselItem,

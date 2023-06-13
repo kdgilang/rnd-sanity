@@ -1,10 +1,15 @@
 import IconBuilder from "@sanity/lib/icon";
 import { urlForImage } from "@sanity/lib/image";
 import classNames from "@src/helpers/classNames";
+import { BasePropsType } from "@src/types/BasePropsType";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Card({ data }: any) {
+export type CardPropsType = BasePropsType & {
+  data: any
+}
+
+export default function Card({ data, className }: CardPropsType) {
   const {
     icon,
     slug,
@@ -22,8 +27,9 @@ export default function Card({ data }: any) {
   return (
     <div
       className={classNames(
-        "wow fadeInUp",
-        Icon ? "text-center" : ""
+        "why-choose-us-content wow fadeInUp",
+        Icon ? "text-center" : "",
+        className || ""
       )}
       data-wow-delay={`${delay}ms`}>
       { image && <Link
@@ -38,12 +44,12 @@ export default function Card({ data }: any) {
           </div>
         </div>
       </Link> }
-      { Icon && <span className="">
+      { Icon && <span className="choose-us-icon">
         <Icon style={{ fontSize: 30 }} />
       </span> }
       <div className="mt-3">
-        { title && <Link href={slug} >
-          <h3 className="h3">{title}</h3></Link> }
+        { title && (<Link href={slug}>
+          <h3 className="h3">{title}</h3></Link>) }
         { description && <p className="mb-0">{description}</p> }
       </div>
     </div>

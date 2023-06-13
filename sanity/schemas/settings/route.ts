@@ -2,7 +2,7 @@ import { Rule } from "sanity"
 
 const routeSetting = {
   name: 'routeSetting',
-  type: 'document',
+  type: 'object',
   title: 'Route',
   fields: [
     {
