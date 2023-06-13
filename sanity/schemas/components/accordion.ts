@@ -2,6 +2,7 @@ import { ImMenu } from 'react-icons/im'
 import { Rule } from 'sanity'
 import bodyField from '../fields/body'
 import titleField from '../fields/title'
+import nameField from '../fields/name'
 
 export const accordionComponent = {
   icon: ImMenu,
@@ -9,6 +10,9 @@ export const accordionComponent = {
   type: 'document',
   title: 'Accordion',
   fields: [
+    nameField({
+      mandatory: true
+    }),
     {
       name: 'accordionItems',
       type: 'array',
@@ -17,19 +21,6 @@ export const accordionComponent = {
       validation: (Rule: Rule) => Rule.required()
     }
   ],
-  preview: {
-    select: {
-      title: 'accordionItems.0.title',
-      subtitle: '_type'
-    },
-    prepare(selection: any) {
-      const {title, subtitle} = selection
-
-      return {
-        title: `${title} - ${subtitle?.replace('Component', '')}`
-      }
-    }
-  }
 }
 
 export const accordionItem = {

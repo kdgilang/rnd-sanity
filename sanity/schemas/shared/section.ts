@@ -84,13 +84,15 @@ const sectionField = {
   ],
   preview: {
     select: {
-      title: 'component._type'
+      type: 'component._type',
+      title: 'component.title',
+      name: 'component.name',
     },
     prepare(selection: any) {
-      const {title} = selection
+      const {name, type, title} = selection
 
       return {
-        title: title?.replace('Component', '')
+        title: `${name ? name : title} (${type?.replace('Component', '')})`
       }
     }
   }

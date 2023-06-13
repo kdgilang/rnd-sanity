@@ -29,8 +29,10 @@ export default function Header({ settings }: HeaderPropsType) {
                   <Image src={ urlForImage(siteSetting.logo).url() } height={30} width={100} alt={siteSetting.name} />
                 </Link>
 
-                <div className="classy-navbar-toggler d-flex d-lg-none align-items-center">
-                  <span className="navbarToggler"><span></span><span></span><span></span></span>
+                <div className="d-flex d-lg-none align-items-center">
+                  <div className="classy-navbar-toggler">
+                    <span className="navbarToggler"><span></span><span></span><span></span></span>
+                  </div>
                   { pathName !== '/search' && <div className="search-icon ml-5" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }
                 </div>
 

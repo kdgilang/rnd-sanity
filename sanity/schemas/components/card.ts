@@ -1,6 +1,7 @@
 import { ImNewspaper } from 'react-icons/im'
 import { Rule } from 'sanity'
 import { cardViews } from '../variables/views'
+import nameField from '../fields/name'
 
 export const cardComponent = {
   icon: ImNewspaper,
@@ -8,6 +9,9 @@ export const cardComponent = {
   type: 'document',
   title: 'Card',
   fields: [
+    nameField({
+      mandatory: true
+    }),
     {
       name: 'view',
       type: 'string',

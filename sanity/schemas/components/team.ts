@@ -16,5 +16,10 @@ export const teamComponent = {
     networkField({
       mandatory: true
     }),
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'name'
+    }
+  }
 }

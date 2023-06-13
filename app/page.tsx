@@ -1,13 +1,10 @@
 import { notFound } from 'next/navigation'
 import Section from '@src/components/layouts/Section'
 import getRouteSettingService from '@services/getRouteSettingService'
-import getOneFlexibleService from '@services/getOneFlexibleService'
+import { getOneFlexibleService } from '@services/getOneFlexibleService'
 import getSiteSettingsService from '@services/getSiteSettingService'
 import { getPreviewToken } from '@sanity/lib/serverPreview'
-import { PreviewSuspense } from '@components/PreviewSuspense'
-import PreviewPage from '@src/components/layouts/PreviewPage'
-import Loading from './components/Loading'
-
+import PreviewFlexible from '@src/components/layouts/PreviewFlexible'
 
 const getData = async () => {
   const { homePage } = await getRouteSettingService()
@@ -22,7 +19,8 @@ const getData = async () => {
 
   return {
     content,
-    siteSetting
+    homePage,
+    siteSetting,
   }
 }
 
@@ -38,24 +36,18 @@ export async function generateMetadata() {
 export default async function Page() {
   const token = getPreviewToken()
 
-  const { content } = await getData()
+  const { content, homePage } = await getData()
 
   if (!content && !token) {
     notFound()
   }
 
   return token ? (
-    <>
-      <PreviewSuspense
-        fallback={<Loading />}
-      >
-          {/* <PreviewPage query={query}/> */}
-      </PreviewSuspense>
-    </>
+    <PreviewFlexible params={{ slug: homePage.slug.current }} />
   ) : (
-    <div>
+    <>
       { content?.title && <h1 className="sr-only">{ content?.title }</h1> }
       <Section sections={content.sections} />
-    </div>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import metaFields from '../fields/meta'
 import { carouselSizes } from '../variables/sizes'
 import { carouselAnimations } from '../variables/animations'
 import alignField from '../fields/align'
+import nameField from '../fields/name'
 
 export const carouselComponent = {
   icon: ImImages,
@@ -12,6 +13,9 @@ export const carouselComponent = {
   type: 'document',
   title: 'Carousel',
   fields: [
+    nameField({
+      mandatory: true
+    }),
     {
       name: 'animation',
       type: 'string',

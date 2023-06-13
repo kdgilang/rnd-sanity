@@ -819,6 +819,7 @@ input:required {
   margin-top: 50px; }
   .why-choose-us-content.articleContent {
     padding: 0;
+    margin-top: 0;
   } 
   .why-choose-us-content.articleContent .single-portfolio-content {
     overflow: hidden;

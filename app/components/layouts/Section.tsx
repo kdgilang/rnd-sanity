@@ -40,18 +40,16 @@ export default function Section({ sections, className }: SectionPropsType) {
           <div
             key={`section-${item._key}`}
             className={classNames(
+              item?.container !== "container" ? "px-0" : "",
               item?.container,
-              "px-0",
               marginY,
               paddingY,
               className || ""
             )} style={{ backgroundColor: color?.hex }}>
-              { title &&
-                <div className="row">
-                  <div className="col-12">
-                    <SectionHeading title={title} isCenter={true} />
-                  </div>
-                </div>
+
+              { title && (<div className="px-2 px-md-5">
+                  <SectionHeading title={title} isCenter={true} /> 
+                </div>)
               }
               <Component data={component} />
           </div>
