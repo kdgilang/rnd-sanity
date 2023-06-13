@@ -33,9 +33,9 @@ export default function Carousel({ data, className }: CarouselPropsType) {
                     <div className="welcome-text">
                       <h2 data-animation="fadeInDown" data-duration="300ms" data-delay="900ms">{ item.title }</h2>
                       <p data-animation="fadeInDown" data-duration="300ms" data-delay="500ms">{ item.description }</p>
-                      { item?.cta &&
+                      { item?.link &&
                         <div className="hero-btn-group" data-duration="300ms" data-animation="fadeInDown" data-delay="100ms">
-                          <Link href={item?.cta?.uri} className="btn alime-btn mb-3 mb-sm-0 mr-4">{ item?.cta?.label }</Link>
+                          <Link href={item?.link?.uri} className="btn alime-btn mb-3 mb-sm-0 mr-4">{ item?.link?.label }</Link>
                         </div>
                       }
                     </div>

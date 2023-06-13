@@ -4,7 +4,6 @@ import titleField from '../fields/title'
 import slugField from '../fields/slug'
 import descriptionField from '../fields/description'
 import iconField from '../fields/icon'
-import menuNameField from '../fields/menuName'
 
 export const categoryTaxonomy = {
   icon: ImPriceTags,
@@ -16,7 +15,6 @@ export const categoryTaxonomy = {
       mandatory: true
     }),
     titleField(),
-    menuNameField(),
     slugField(),
     descriptionField(),
   ]

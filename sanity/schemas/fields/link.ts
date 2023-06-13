@@ -1,17 +1,16 @@
 import { Rule } from "sanity";
 
-const ctaFields = [
+const linkField = () => [
   {
-    name: 'cta',
+    name: 'link',
     type: 'object',
-    title: 'CTA Link',
-    validation: (Rule: Rule) => Rule.required(),
+    title: 'Link',
     fieldsets: [
       {
-        name: 'cta',
+        name: 'link',
         title: '',
         options: {
-          collapsible: true, // Makes the whole fieldset collapsible
+          collapsible: true,
           collapsed: false,
           modal: {type: 'popover'}
         },
@@ -22,15 +21,15 @@ const ctaFields = [
         name: 'isExternal',
         type: 'boolean',
         title: 'External Link',
-        fieldset: 'cta',
+        fieldset: 'link',
         layout: 'checkbox',
-        validation: (Rule: Rule) => Rule.required(),
+        initialVaule: false,
       },
       {
         name: 'uri',
         type: 'url',
         title: 'Url',
-        fieldset: 'cta',
+        fieldset: 'link',
         hidden: ({parent}: any) => !parent?.isExternal,
         validation: (Rule: Rule) => Rule.custom((val, ctx) => {
           //@ts-ignore
@@ -41,10 +40,13 @@ const ctaFields = [
         }),
       },
       {
-        name: 'link',
+        name: 'ref',
         type: 'reference',
-        title: 'Select',
-        fieldset: 'cta',
+        title: 'Select Reference',
+        fieldset: 'link',
+        options: {
+          disableNew: true,
+        },
         hidden: ({parent}: any) => parent?.isExternal,
         validation: (Rule: Rule) => Rule.custom((val, ctx) => {
           //@ts-ignore
@@ -59,11 +61,14 @@ const ctaFields = [
         name: 'label',
         type: 'string',
         title: 'Label',
-        fieldset: 'cta',
+        fieldset: 'link',
         validation: (Rule: Rule) => Rule.required(),
       }
     ],
+    initialValue: {
+      isExternal: false,
+    }
   },
 ]
   
-export default ctaFields;
+export default linkField;

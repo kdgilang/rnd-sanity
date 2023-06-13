@@ -1,11 +1,12 @@
+import LinkModel from "./LinkModel";
 import MenuModel from "./MenuModel";
 
 class RouteSettingModel {
-  menu: MenuModel[]
+  menu: LinkModel[]
   homePage: MenuModel
 
   constructor() {
-    this.menu = new Array<MenuModel>()
+    this.menu = new Array<LinkModel>()
     this.homePage = new MenuModel()
   }
 }

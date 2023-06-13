@@ -3,8 +3,11 @@ import { client } from "@sanity/lib/client";
 import RouteSettingModel from '@sanity/models/RouteSettingModel';
 
 const query = groq`*[_type == "routeSetting"][0]{
-  homePage->{ menuName, slug, _type },
-  menu[]->{ menuName, slug, _type, _id }
+  homePage->{ slug, _type },
+  menu[]{
+    ...,
+    ref->{ slug, _type }
+  },
 }`;
 
 export default async function getRouteSettingService(): Promise<RouteSettingModel> {

@@ -1,25 +1,16 @@
 import type { Image, ImageCrop, ImageHotspot } from 'sanity'
+import { BaseRefModel } from './BaseModel'
 
 class ImageModel implements Image {
   [key: string]: unknown
   crop?: ImageCrop | undefined
   _type: string
-  asset?: AssetModel
+  asset?: BaseRefModel
   hotspot?: ImageHotspot | undefined
 
   constructor() {
     this._type = ''
-    this.asset = new AssetModel()
-  }
-}
-
-class AssetModel {
-  _ref: string
-  _type: string
-
-  constructor() {
-    this._ref = ''
-    this._type = ''
+    this.asset = new BaseRefModel()
   }
 }
 

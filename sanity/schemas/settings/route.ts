@@ -22,15 +22,8 @@ const routeSetting = {
       title: 'Menu',
       of: [
         {
-          type:'reference',
-          options: {
-            disableNew: true,
-          },
-          to: [
-            { type: 'flexibleContent' },
-            { type: 'articleContent' },
-            { type: 'categoryTaxonomy' },
-          ]
+          name: 'link',
+          type: 'link',
         }
       ],
     }

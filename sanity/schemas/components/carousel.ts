@@ -1,6 +1,6 @@
 import { ImImages } from 'react-icons/im'
 import { Rule } from "sanity"
-import ctaFields from '../fields/cta'
+import linkFields from '../fields/link'
 import metaFields from '../fields/meta'
 import { carouselSizes } from '../variables/sizes'
 import { carouselAnimations } from '../variables/animations'
@@ -55,6 +55,6 @@ export const carouselItem = {
   title: 'Item',
   fields: [
     ...metaFields(),
-    ...ctaFields
+    ...linkFields()
   ]
 }

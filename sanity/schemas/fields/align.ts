@@ -13,7 +13,7 @@ const alignField = (props?: AlignProps) => {
     name: 'align',
     type: 'string',
     title: 'Align',
-    validation: (Rule: Rule) => Rule.required(),
+    ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null),
     options: {
       list: aligns.map(({ title, value }) => ({ title, value })),
       layout: 'select',

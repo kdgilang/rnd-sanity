@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import classNames from '../helpers/classNames'
 import SettingsModel from '@sanity/models/SettingsModel'
 import { urlForImage } from '@sanity/lib/image'
+import { linkBuilder } from '@sanity/lib/link'
 
 export type HeaderPropsType = {
   settings: SettingsModel
@@ -46,14 +47,15 @@ export default function Header({ settings }: HeaderPropsType) {
                   <div className="classynav">
                     <ul id="nav">
                       {
-                        routeSetting?.menu?.map(item => (
-                          <li key={`menu-${item?._id}`}
+                        routeSetting?.menu?.map(item => {
+                          const {isCurrentPage, uri, target} = linkBuilder(item, pathName || '')
+                          return <li key={`menu-${item?._key}`}
                               className={classNames(
-                                pathName?.replace('/', '') === item.slug.current ? "active" : ""
+                                isCurrentPage ? "active" : ""
                               )}>
-                            <Link href={ item.slug.current }>{ item.menuName }</Link>
+                            <Link href={ uri } target={target}>{ item.label }</Link>
                           </li>
-                        ))
+                        })
                       }
                     </ul>
 

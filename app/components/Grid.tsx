@@ -73,7 +73,7 @@ export default function Grid({ data, className, isAjax }: GridPropsType) {
                   key={`cat-${item._id}`}
                   className="btn text-capitalize"
                   data-filter={`.${item?.slug.current?.toLowerCase()}`}
-                >{ item.menuName }</button>
+                >{ item.title }</button>
               ))}
             </div>
           </div>

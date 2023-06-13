@@ -9,9 +9,9 @@ export const queryOneFlexible = groq`*[_type == "flexibleContent" && slug.curren
     ...,
     component->{
       ...,
-      cta{
+      link{
         ...,
-        link->{ menuName, slug, _type, _id }
+        ref->{ slug, _type, _id }
       },
       cards[]->{
         _id,
@@ -23,7 +23,7 @@ export const queryOneFlexible = groq`*[_type == "flexibleContent" && slug.curren
         title,
         description,
         networkItems,
-        categories[]->{ menuName, slug, _type, _id }
+        categories[]->{ title, slug, _type, _id }
       }
     },
   }

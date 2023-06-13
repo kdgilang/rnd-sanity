@@ -1,5 +1,5 @@
 import { ImImage } from 'react-icons/im'
-import ctaFields from '../fields/cta'
+import linkFields from '../fields/link'
 import metaFields from '../fields/meta'
 import alignField from '../fields/align'
 
@@ -13,6 +13,6 @@ export const bannerComponent = {
     alignField({
       mandatory: true
     }),
-    ...ctaFields
+    ...linkFields()
   ]
 }

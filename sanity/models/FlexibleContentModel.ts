@@ -7,7 +7,6 @@ class FlexibleContentModel extends BaseDocumentModel {
   title: string
   slug: SlugModel
   description: string
-  menuName: string
   image: ImageModel
   sections: SectionModel[]
 
@@ -16,7 +15,6 @@ class FlexibleContentModel extends BaseDocumentModel {
     this.title = ''
     this.slug = new SlugModel()
     this.description = ''
-    this.menuName = ''
     this.image = new ImageModel()
     this.sections = new Array<SectionModel>()
   }

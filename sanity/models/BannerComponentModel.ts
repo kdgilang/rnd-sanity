@@ -1,12 +1,12 @@
 import { BaseDocumentModel } from "./BaseModel"
-import CtaModel from "./CtaModel"
+import LinkModel from "./LinkModel"
 import ImageModel from "./ImageModel"
 
 class BannerComponentModel extends BaseDocumentModel {
   title: string
   image: ImageModel
   descirption: string
-  cta: CtaModel
+  link: LinkModel
 
   constructor() {
     super()
@@ -14,6 +14,6 @@ class BannerComponentModel extends BaseDocumentModel {
     this.title = ''
     this.descirption = ''
     this.image = new ImageModel()
-    this.cta = new CtaModel()
+    this.link = new LinkModel()
   }
 }

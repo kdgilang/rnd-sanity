@@ -5,7 +5,6 @@ import {
   projectId,
   useCdn,
 } from '@sanity/env'
-import { resolveHref } from '@sanity/lib/links'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import type { PageConfig } from 'next/types'
 import { createClient } from 'next-sanity'
@@ -66,11 +65,6 @@ export default async function preview(
     }
     previewData.token = token
   }
-
-  const href = resolveHref(
-    req.query.documentType as string,
-    req.query.slug as string
-  )
 
   const redirect = `${req.query?.redirect || ''}`
 

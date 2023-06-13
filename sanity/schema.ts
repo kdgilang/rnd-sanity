@@ -13,6 +13,7 @@ import { teamComponent } from './schemas/components/team'
 import { mediaTileComponent } from './schemas/components/mediaTile'
 import { categoryTaxonomy } from './schemas/taxonomies/category'
 import routeSetting from './schemas/settings/route'
+import linkField from './schemas/fields/link'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -28,6 +29,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     accordionItem,
     accordionComponent,
     sectionField,
+    ...linkField(),
     cardComponent,
     bannerComponent,
     teamComponent,
