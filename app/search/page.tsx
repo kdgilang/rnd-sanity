@@ -1,40 +1,28 @@
 import { Suspense } from "react";
 import SearchForm from "app/components/SearchForm";
-import CardList from "@app/components/ListTile";
 import Skeleton from "app/components/Skeleton";
-import { BasePropsType } from "../types/BasePropsType";
-
+import { getSearchService } from "@services/getSearchService";
+import getSiteSettingsService from "@services/getSiteSettingService";
+import SearchResult from "@app/components/SearchResult";
 
 const getData = async (keyword: string) => {
-//   const data = await getSearchService(keyword)
+  const data = await getSearchService(keyword)
 
-//   return data
+  return data
 }
 
-// export async function generateMetadata({ params }: { params: { slug: string }}) {
-//   const { site_name } = await getSiteSettingsService()
+export async function generateMetadata({ params }: { params: { slug: string }}) {
+  const { name } = await getSiteSettingsService()
 
-//   return {
-//     title: `${ site_name } | Search`,
-//     description: `Search page of ${ site_name }`,
-//   };
-// }
-
-type ResultType = BasePropsType & {
-  keyword: string
+  return {
+    title: `${ name } | Search`,
+    description: `Search page of ${ name }`,
+  };
 }
 
-// async function Result({ keyword }: ResultType) {
-//   const data = await getData(keyword)
-  
-//   return (
-//     <>
-//     { data?.length ? <CardList data={data} /> : <p>No items found.</p>}
-//     </>
-//   )
-// }
 
-export default async function Page({ searchParams }: any) {
+
+export default async function Page({ searchParams }: { searchParams: { keyword: string }}) {
 
   return (
     <div className="container py-5">
@@ -47,8 +35,7 @@ export default async function Page({ searchParams }: any) {
         <h1 className="heading mb-5">Search{searchParams?.keyword ? ` "${searchParams?.keyword}"` : ""}</h1>
 
         <Suspense fallback={<Loading />}>
-          {/* @ts-ignore */}
-          {/* <Result keyword={ searchParams?.keyword } /> */}
+          <SearchResult keyword={ searchParams?.keyword } />
         </Suspense>
       </div>
     </div>

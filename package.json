@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.8",
     "@mui/material": "^5.12.2",
     "@portabletext/react": "^3.0.2",
+    "@sanity/code-input": "^4.1.1",
     "@sanity/color-input": "^3.1.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.12.0",

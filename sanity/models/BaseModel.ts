@@ -1,4 +1,5 @@
 import type { SanityDocument } from "@sanity/client";
+import ImageModel from "./ImageModel";
 
 export class BaseDocumentModel implements SanityDocument {
   _id: string
@@ -6,6 +7,9 @@ export class BaseDocumentModel implements SanityDocument {
   _type: string
   _createdAt: string
   _updatedAt: string
+  image: ImageModel
+  title: string
+  description: string
 
   constructor() {
     this._id = ''
@@ -13,6 +17,9 @@ export class BaseDocumentModel implements SanityDocument {
     this._type = ''
     this._createdAt = ''
     this._updatedAt = ''
+    this.image = new ImageModel()
+    this.title = ''
+    this.description = ''
   }
 }
 
