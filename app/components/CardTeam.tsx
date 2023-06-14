@@ -1,6 +1,6 @@
 import IconBuilder from "@sanity/lib/icon";
 import { urlForImage } from "@sanity/lib/image";
-import classNames from "@src/helpers/classNames";
+import classNames from "@app/helpers/classNames";
 import { BasePropsType } from "app/types/BasePropsType";
 import Image from "next/image";
 

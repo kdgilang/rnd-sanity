@@ -46,6 +46,14 @@
                     $(this).removeClass('animated ' + anim_name).css('opacity', '0');
                 });
             });
+
+            $(this).on('translated.owl.carousel', function () {
+                var layer = welcomeSlider.find('.owl-item.active').find("[data-animation]");
+                layer.each(function () {
+                    var anim_name = $(this).data('animation');
+                    $(this).addClass('animated ' + anim_name).css('opacity', '1');
+                });
+            });
         });
 
         $("[data-delay]").each(function () {
@@ -58,16 +66,8 @@
             $(this).css('animation-duration', anim_dur);
         });
 
-        welcomeSlider.on('translated.owl.carousel', function () {
-            var layer = welcomeSlider.find('.owl-item.active').find("[data-animation]");
-            layer.each(function () {
-                var anim_name = $(this).data('animation');
-                $(this).addClass('animated ' + anim_name).css('opacity', '1');
-            });
-        });
-
         $('.card-carousel').owlCarousel({
-            loop: true,
+            // loop: true,
             margin: 10,
             nav: true,
             autoplay: true,

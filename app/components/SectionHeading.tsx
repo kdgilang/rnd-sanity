@@ -10,7 +10,7 @@ export default function SectionHeading({ title, content, isCenter, className }: 
     <>
     { (title || content) &&
       <div className={classNames(
-        "section-heading",
+        "section-heading mb-5",
         isCenter ? "text-center" : "text-left", 
         className || ""
       )}>

@@ -53,6 +53,7 @@ const sectionField = {
         { type: 'cardComponent', },
         { type: 'bannerComponent', },
         { type: 'mediaTileComponent', },
+        { type: 'richTextComponent', },
       ],
       // components: {
       //   preview: {

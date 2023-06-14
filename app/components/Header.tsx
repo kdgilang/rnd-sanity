@@ -21,7 +21,7 @@ export default function Header({ settings }: HeaderPropsType) {
     <>
       { pathName !== '/search' && <ModalSearch /> }
       <header className="header-area">
-        <div className="main-header-area">
+        <div className="main-header-area bg-black">
           <div className="classy-nav-container breakpoint-off">
             <div className="container">
               <nav className="classy-navbar justify-content-between" id="alimeNav">
@@ -34,7 +34,14 @@ export default function Header({ settings }: HeaderPropsType) {
                   <div className="classy-navbar-toggler">
                     <span className="navbarToggler"><span></span><span></span><span></span></span>
                   </div>
-                  { pathName !== '/search' && <div className="search-icon ml-5" data-toggle="modal" data-target="#searchModal"><i className="fa fa-search"></i></div> }
+                  { pathName !== '/search' && (
+                    <div
+                      className="search-icon ml-5"
+                      data-toggle="modal"
+                      data-target="#searchModal">
+                        <i className="fa fa-search"></i>
+                    </div>
+                  ) }
                 </div>
 
                 <div className="classy-menu">

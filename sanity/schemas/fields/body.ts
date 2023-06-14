@@ -13,7 +13,10 @@ const bodyField = (props?: BodyProps) => {
     name: 'body',
     title: 'Body',
     type: 'array',
-    of: [{ type: 'block' }],
+    of: [
+      { type: 'block' },
+      { type: 'image' },
+    ],
     ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null)
   }
 }

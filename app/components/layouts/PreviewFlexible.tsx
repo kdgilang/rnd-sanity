@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePreview } from "@sanity/lib/preview";
 import { PreviewSuspense } from "@components/PreviewSuspense";
 import Section from "@components/layouts/Section";
-import { queryOneFlexible } from "@services/getOneFlexibleService";
+import { queryFlexibleBySlug } from "@services/getFlexibleBySlugService";
 import Loading from '@components/Loading';
 
 
 export default function PreviewFlexible({ params }: { params?: { slug: string }  }) {
-  const data = usePreview(null, queryOneFlexible, params);
+  const data = usePreview(null, queryFlexibleBySlug, params);
 
   return (
     <>

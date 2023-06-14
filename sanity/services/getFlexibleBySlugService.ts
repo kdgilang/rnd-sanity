@@ -1,9 +1,8 @@
 import { groq } from 'next-sanity';
 import { client } from "@sanity/lib/client";
 import FlexibleContentModel from '@sanity/models/FlexibleContentModel';
-import { usePreview } from '@sanity/lib/preview';
 
-export const queryOneFlexible = groq`*[_type == "flexibleContent" && slug.current == $slug][0]{
+export const queryFlexibleBySlug = groq`*[_type == "flexibleContent" && slug.current == $slug][0]{
   ...,
   sections[]{
     ...,
@@ -12,6 +11,13 @@ export const queryOneFlexible = groq`*[_type == "flexibleContent" && slug.curren
       link{
         ...,
         ref->{ slug, _type, _id }
+      },
+      carouselItems[]{
+        ...,
+        link{
+          ...,
+          ref->{ slug, _type, _id }
+        }
       },
       cards[]->{
         _id,
@@ -29,9 +35,9 @@ export const queryOneFlexible = groq`*[_type == "flexibleContent" && slug.curren
   }
 }`;
 
-export function getOneFlexibleService(slug: string): Promise<FlexibleContentModel> {
+export function getFlexibleBySlugService(slug: string): Promise<FlexibleContentModel> {
 
   const queryParams = { slug };
 
-  return client.fetch(queryOneFlexible, queryParams);
+  return client.fetch(queryFlexibleBySlug, queryParams);
 }

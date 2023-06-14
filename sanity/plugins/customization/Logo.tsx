@@ -3,7 +3,7 @@ import { definePlugin } from 'sanity'
 // This custom component will be declared at the root configuration level
 export function CustomLogo(props: any) {
   return (
-    <div>
+    <div style={{border: '3px solid blue'}}>
       {props.renderDefault({ ...props, title: props.title.toUpperCase() })}
     </div>
   )
@@ -16,7 +16,8 @@ export const logoPlugin = definePlugin({
     components: {
       logo: (props) => (
         <div style={{border: '3px solid hotpink'}}>
-          {props.renderDefault({...props, title: 'Bullseye'})}
+          {/* @ts-ignore */}
+          {props.renderDefault({...props, title: 'Purala'})}
         </div>
       ),
     },

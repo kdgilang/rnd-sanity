@@ -1,9 +1,12 @@
-import {getFlexibleBySlugService} from '@services/getFlexibleBySlugService'
-import Section from '@app/components/layouts/Section'
 import getSiteSettingsService from '@sanity/services/getSiteSettingService'
 import { notFound } from 'next/navigation'
 import { getPreviewToken } from '@sanity/lib/serverPreview'
-import PreviewFlexible from '@app/components/layouts/PreviewFlexible'
+import PreviewFlexible from '@components/layouts/PreviewFlexible'
+import Banner from '@components/sections/Banner'
+import { getArticleBySlugService } from '@services/getArticleBySlugService'
+import { aligns } from '@sanity/schemas/variables/aligns'
+import '@app/helpers/toStringDate'
+import PortableBlock from "@app/components/PortableBlock";
 
 const getData = async (slug: string) => {
   const [
@@ -11,7 +14,7 @@ const getData = async (slug: string) => {
     content
   ] = await Promise.all([
     getSiteSettingsService(),
-    getFlexibleBySlugService(slug)
+    getArticleBySlugService(slug)
   ])
 
   return {
@@ -37,12 +40,26 @@ export default async function Page({ params }: { params: { slug: string }}) {
     notFound()
   }
 
+  const bannerData = {
+    title: content.title,
+    description: content._createdAt?.toStringDate(),
+    image: content.image,
+    align: aligns[0].value
+  }
+
   return token ? (
     <PreviewFlexible params={params} />
   ) : (
     <>
-      { content?.title && <h1 className="sr-only">{ content?.title }</h1> }
-      <Section sections={content.sections} />
+      <Banner data={bannerData} />
+      <div className="container blog-details-text">
+        <div className="alert alert-secondary my-5" role="alert">
+          { content.description }
+        </div>
+        <div className="my-5">
+          <PortableBlock value={content.body} />
+        </div>
+      </div>
     </>
   );
 }

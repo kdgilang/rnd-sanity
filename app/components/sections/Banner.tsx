@@ -1,4 +1,5 @@
 import { urlForImage } from "@sanity/lib/image"
+import { linkBuilder } from "@sanity/lib/link"
 import classNames from "app/helpers/classNames"
 import { BasePropsType } from "app/types/BasePropsType"
 import Link from "next/link"
@@ -8,7 +9,9 @@ export type ImagePropsType = BasePropsType & {
 }
 
 export default function Banner({ data, className }: ImagePropsType) {
-  const { image, title, description, align } = data
+  const { image, title, description, align, link } = data
+  const { uri, target } = linkBuilder(link)
+
   return (
     <div className={classNames(
       "breadcrumb-area bg-img bg-overlay jarallax",
@@ -25,9 +28,9 @@ export default function Banner({ data, className }: ImagePropsType) {
           <div className="col-xs-12 col-md-7">
             <h2 className="text-primary text-capitalize wow fadeInUp" data-wow-delay="100ms">{ title }</h2>
             <p className="text-white wow fadeInDown" data-wow-delay="300ms">{ description }</p>
-            <div className="hero-btn-group wow fadeInDown" data-wow-delay="500ms">
-              <Link href="/" className="btn alime-btn mt-3">test</Link>
-            </div>
+            { link && <div className="hero-btn-group wow fadeInDown" data-wow-delay="500ms">
+              <Link href={uri} target={target} className="btn alime-btn mt-3">{link.label}</Link>
+            </div> }
           </div>
         </div>
       </div>

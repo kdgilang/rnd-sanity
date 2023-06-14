@@ -14,6 +14,7 @@ import { mediaTileComponent } from './schemas/components/mediaTile'
 import { categoryTaxonomy } from './schemas/taxonomies/category'
 import routeSetting from './schemas/settings/route'
 import linkField from './schemas/fields/link'
+import { richTextComponent } from './schemas/components/richText'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -34,5 +35,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     bannerComponent,
     teamComponent,
     mediaTileComponent,
+    richTextComponent
   ],
 }

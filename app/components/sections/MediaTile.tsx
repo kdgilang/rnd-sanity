@@ -1,9 +1,9 @@
-import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@sanity/lib/image";
 import classNames from "app/helpers/classNames";
 import { BasePropsType } from "app/types/BasePropsType";
 import Image from "next/image";
 import Link from "next/link";
+import PortableBlock from "@app/components/PortableBlock";
 
 type EmbedDataType = {
   body: any
@@ -24,7 +24,7 @@ export default function MediaTile({ data, className }: EmbedPropsType) {
     )}>
       <div className="col-12 col-lg-6">
         <div className="about-us-content wow fadeIn" data-wow-delay="200ms">
-          <PortableText value={ body }  />
+          <PortableBlock value={ body }  />
         </div>
       </div>
       <div className="col-12 col-lg-6">

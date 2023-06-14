@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
-import Section from '@src/components/layouts/Section'
+import Section from '@app/components/layouts/Section'
 import getRouteSettingService from '@services/getRouteSettingService'
-import { getOneFlexibleService } from '@services/getOneFlexibleService'
+import { getFlexibleBySlugService } from '@services/getFlexibleBySlugService'
 import getSiteSettingsService from '@services/getSiteSettingService'
 import { getPreviewToken } from '@sanity/lib/serverPreview'
-import PreviewFlexible from '@src/components/layouts/PreviewFlexible'
+import PreviewFlexible from '@app/components/layouts/PreviewFlexible'
 
 const getData = async () => {
   const { homePage } = await getRouteSettingService()
@@ -14,7 +14,7 @@ const getData = async () => {
     content
   ] = await Promise.all([
     getSiteSettingsService(),
-    getOneFlexibleService(homePage.slug.current)
+    getFlexibleBySlugService(homePage.slug.current)
   ])
 
   return {

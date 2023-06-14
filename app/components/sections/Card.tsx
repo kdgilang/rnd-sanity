@@ -1,8 +1,8 @@
-import { BasePropsType } from "@src/types/BasePropsType"
+import { BasePropsType } from "@app/types/BasePropsType"
 import Card from "@components/Card"
 import Grid from "@components/Grid"
 import CardTeam from "@components/CardTeam"
-import classNames from "@src/helpers/classNames"
+import classNames from "@app/helpers/classNames"
 
 export type CardPropsType = BasePropsType & {
   data: any

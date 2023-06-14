@@ -21,12 +21,17 @@
       }
     ],
     "paths": {
-      "@src/*": ["app/*"],
+      "@app/*": ["app/*"],
       "@components/*": ["app/components/*"],
       "@services/*": ["sanity/services/*"],
       "@sanity/*": ["sanity/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "eslintConfig": {
+    "rules": {
+      "import/no-unresolved": [2, { "ignore": ["^(all|part):"] }]
+    }
+  },
 }

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import SearchForm from "app/components/SearchForm";
-import CardList from "app/components/CardList";
+import CardList from "@app/components/ListTile";
 import Skeleton from "app/components/Skeleton";
 import { BasePropsType } from "../types/BasePropsType";
 

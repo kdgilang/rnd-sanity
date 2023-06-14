@@ -9,12 +9,14 @@ import MuiAccordionSummary, {
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { BasePropsType } from 'app/types/BasePropsType';
-import {PortableText} from '@portabletext/react';
+import PortableBlock from "@app/components/PortableBlock";
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
+  boxShadow: '0 0 2px rgba(0, 0, 0, 0.2)',
+  marginBottom: 5,
+  borderRadius: 5,
   '&:not(:last-child)': {
     borderBottom: 0,
   },
@@ -72,7 +74,7 @@ export default function CustomAccordion({ data }: AccordionPropsType) {
             <Typography fontSize={20}>{ item?.title }</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <PortableText value={ item?.body }  />
+            <PortableBlock value={ item?.body }  />
           </AccordionDetails>
         </Accordion>
       )) }
