@@ -1,17 +1,11 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import SearchForm from "app/components/SearchForm";
 import Skeleton from "app/components/Skeleton";
-import { getSearchService } from "@services/getSearchService";
 import getSiteSettingsService from "@services/getSiteSettingService";
-import SearchResult from "@app/components/SearchResult";
+//@ts-ignore
+const SearchResult = lazy(() => import('@app/components/SearchResult'))
 
-const getData = async (keyword: string) => {
-  const data = await getSearchService(keyword)
-
-  return data
-}
-
-export async function generateMetadata({ params }: { params: { slug: string }}) {
+export async function generateMetadata() {
   const { name } = await getSiteSettingsService()
 
   return {
@@ -20,10 +14,7 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
   };
 }
 
-
-
 export default async function Page({ searchParams }: { searchParams: { keyword: string }}) {
-
   return (
     <div className="container py-5">
       <div className="py-5">

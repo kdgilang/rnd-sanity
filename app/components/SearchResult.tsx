@@ -1,8 +1,6 @@
 'use client'
-import ListTile from "@app/components/ListTile";
-import { BaseDocumentModel } from "@sanity/models/BaseModel";
-import { getSearchService } from "@services/getSearchService";
-import { useEffect, useState } from "react";
+import ListTile from "@app/components/ListTile"
+import { getSearchService } from "@services/getSearchService"
 
 const getData = async (keyword: string) => {
   const data = await getSearchService(keyword)
@@ -10,21 +8,12 @@ const getData = async (keyword: string) => {
   return data
 }
 
-export default function SearchResult({ keyword }: any) {
-  const [data, setData] = useState<BaseDocumentModel[]>()
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await getData(keyword)
-      setData(data)
-    }
-
-    fetchData();
-  }, [keyword])
+export default async function SearchResult({ keyword }: any) {
+  const data = await getData(keyword)
 
   return (
     <>
-    { data?.length ? <ListTile data={data} /> : <p>No items found.</p>}
+      {data?.length ? <ListTile data={data} /> : <p>No items found.</p>}
     </>
   )
 }
