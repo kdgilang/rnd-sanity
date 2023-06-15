@@ -29,3 +29,11 @@ export const linkBuilder = (link: LinkModel, pathName: string = '') => {
 
   return res
 }
+
+export const internalLinkBuilder = (slug: string, type: string): string => {
+  if( !slug || !type) {
+    return ''
+  }
+
+  return `${contentPaths[type]}/${slug}`
+}

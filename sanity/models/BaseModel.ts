@@ -1,5 +1,6 @@
 import type { SanityDocument } from "@sanity/client";
 import ImageModel from "./ImageModel";
+import { SlugModel } from "./SlugModel";
 
 export class BaseDocumentModel implements SanityDocument {
   _id: string
@@ -9,6 +10,7 @@ export class BaseDocumentModel implements SanityDocument {
   _updatedAt: string
   image: ImageModel
   title: string
+  slug: SlugModel
   description: string
 
   constructor() {
@@ -20,6 +22,7 @@ export class BaseDocumentModel implements SanityDocument {
     this.image = new ImageModel()
     this.title = ''
     this.description = ''
+    this.slug = new SlugModel()
   }
 }
 
