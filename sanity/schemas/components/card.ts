@@ -2,6 +2,7 @@ import { ImNewspaper } from 'react-icons/im'
 import { Rule } from 'sanity'
 import { cardViews } from '../variables/views'
 import nameField from '../fields/name'
+import linkFields from '../fields/link'
 
 export const cardComponent = {
   icon: ImNewspaper,
@@ -38,6 +39,7 @@ export const cardComponent = {
           ]
         }
       ]
-    }
+    },
+    ...linkFields({})
   ]
 }

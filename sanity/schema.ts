@@ -15,9 +15,11 @@ import { categoryTaxonomy } from './schemas/taxonomies/category'
 import routeSetting from './schemas/settings/route'
 import linkField from './schemas/fields/link'
 import { richTextComponent } from './schemas/components/richText'
+import { collectionComponent } from './schemas/components/collection'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    ...linkField(),
     articleContent,
     flexibleContent,
     categoryTaxonomy,
@@ -30,11 +32,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     accordionItem,
     accordionComponent,
     sectionField,
-    ...linkField(),
     cardComponent,
     bannerComponent,
     teamComponent,
     mediaTileComponent,
-    richTextComponent
+    richTextComponent,
+    collectionComponent,
   ],
 }
