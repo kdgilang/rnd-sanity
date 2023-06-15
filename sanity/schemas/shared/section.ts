@@ -73,7 +73,6 @@ const sectionField = {
       //   if (column < 1) {
       //     return 'Please set column.'
       //   }
-      //   console.log(context.document)
         
       //   return true
       // })

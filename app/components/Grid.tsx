@@ -1,6 +1,7 @@
 'use client'
 
 import { urlForImage } from "@sanity/lib/image";
+import { linkBuilder } from "@sanity/lib/link";
 import classNames from "app/helpers/classNames";
 // import getcardsService from "@sanity/services/getcardsService";
 import { BasePropsType } from "app/types/BasePropsType";
@@ -10,17 +11,22 @@ import { useEffect, useState } from "react";
 
 export type GridPropsType = BasePropsType & {
   isAjax?: boolean
-  data: any[]
+  data: any
 }
 
 export default function Grid({ data, className, isAjax }: GridPropsType) {
+  const { link } = data
+  const resCards = data.cards
+
+  const { uri, target } = linkBuilder(link)
+  
   let delay = 0
 
   const loadPerPage = 10
 
   const [categories, setCategories] = useState<any[]>([])
 
-  const [cards, setCards] = useState(data)
+  const [cards, setCards] = useState(resCards)
 
   const [isFullyLoaded, setIsFullyLoaded] = useState(false)
 
@@ -46,9 +52,9 @@ export default function Grid({ data, className, isAjax }: GridPropsType) {
     if (isBusy) return
     setIsBusy(true)
     // const data = await getcardsService(10)
-    if (data) {
-      setCardsLength(data?.length)
-      const slicescards = data?.slice(cards?.length, data?.length)
+    if (resCards) {
+      setCardsLength(resCards?.length)
+      const slicescards = resCards?.slice(cards?.length, resCards?.length)
 
       setCards((prevcards: any) => [
         ...prevcards,
@@ -117,7 +123,7 @@ export default function Grid({ data, className, isAjax }: GridPropsType) {
         <div className="col-12 text-center wow fadeInUp" data-wow-delay={`${delay + 200}ms`}>
           { isBusy && <div className="loader mx-auto mb-4 wow fadeIn"></div> }
           { isAjax ? (!isFullyLoaded && <button className="btn alime-btn btn-2 mt-15" onClick={handleLoadMore}>Load More</button>) :
-            <Link href="/cards" className="btn alime-btn btn-2 mt-15">View More</Link>
+            ( uri && <Link href={uri} target={target} className="btn alime-btn btn-2 mt-15">{link?.label}</Link> )
           }
         </div>
       </div>

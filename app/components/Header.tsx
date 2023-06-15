@@ -36,7 +36,7 @@ export default function Header({ settings }: HeaderPropsType) {
                   </div>
                   { pathName !== '/search' && (
                     <div
-                      className="search-icon ml-5"
+                      className="search-icon ml-5 btn-modal"
                       data-toggle="modal"
                       data-target="#searchModal">
                         <i className="fa fa-search"></i>
@@ -67,7 +67,7 @@ export default function Header({ settings }: HeaderPropsType) {
                     </ul>
 
                     { pathName !== '/search' &&
-                      <div className="search-icon d-none d-lg-inline ml-4" data-toggle="modal" data-target="#searchModal">
+                      <div className="search-icon d-none d-lg-inline ml-4 btn-modal" data-toggle="modal" data-target="#searchModal">
                         <i className="fa fa-search"></i>
                       </div>
                     }

@@ -8,7 +8,7 @@ export const contentPaths: any = {
 export const linkBuilder = (link: LinkModel, pathName: string = '') => {
   let res = { uri: '', isCurrentPage: false, target: '_self' }
   
-  if (!link) {
+  if (!link?.uri && !link?.ref) {
     return res;
   }
 

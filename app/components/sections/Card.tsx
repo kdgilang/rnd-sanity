@@ -32,7 +32,7 @@ export default function Cards({ data, className }: CardPropsType) {
     )
   } else {
     return (
-     <Grid data={cards} />
+     <Grid data={data} />
     )
   }
 }

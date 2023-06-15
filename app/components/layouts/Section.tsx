@@ -8,7 +8,8 @@ import carouselComponent from "@components/sections/Carousel"
 import embedComponent from "@components/sections/Embed"
 import mediaTileComponent from "@components/sections/MediaTile"
 import cardComponent from "@components/sections/Card"
-import richTextComponent from "@app/components/sections/RichText"
+import richTextComponent from "@components/sections/RichText"
+import collectionComponent from "@components/sections/Collection"
 
 const Components: any = {
   accordionComponent,
@@ -18,6 +19,7 @@ const Components: any = {
   embedComponent,
   mediaTileComponent,
   richTextComponent,
+  collectionComponent,
 }
 
 export type SectionPropsType = BasePropsType & {

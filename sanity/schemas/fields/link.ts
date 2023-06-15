@@ -23,6 +23,7 @@ const linkFields = (props?: LinkProps) => {
       name: 'link',
       type: 'object',
       title: 'Link',
+      ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null),
       fieldsets: [
         {
           name: 'link',
@@ -51,7 +52,7 @@ const linkFields = (props?: LinkProps) => {
           hidden: ({parent}: any) => !parent?.isExternal,
           validation: (Rule: Rule) => Rule.custom((val, ctx) => {
             //@ts-ignore
-            if (ctx?.parent?.isExternal && !val) {
+            if (ctx?.parent?.isExternal && !val && mandatory) {
               return 'Url is required.'
             }
             return true
@@ -68,7 +69,7 @@ const linkFields = (props?: LinkProps) => {
           hidden: ({parent}: any) => parent?.isExternal,
           validation: (Rule: Rule) => Rule.custom((val, ctx) => {
             //@ts-ignore
-            if (!ctx?.parent?.isExternal && !val) {
+            if (!ctx?.parent?.isExternal && !val && mandatory) {
               return 'Reference is required.'
             }
             return true
@@ -80,7 +81,7 @@ const linkFields = (props?: LinkProps) => {
           type: 'string',
           title: 'Label',
           fieldset: 'link',
-          validation: (Rule: Rule) => Rule.required(),
+          ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null)
         }
       ],
       initialValue: {

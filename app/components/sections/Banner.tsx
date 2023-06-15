@@ -25,10 +25,10 @@ export default function Banner({ data, className }: ImagePropsType) {
             "row h-100 align-items-center"
           )
         }>
-          <div className="col-xs-12 col-md-7">
+          <div className="col-xs-12 col-md-7 col-lg-6">
             <h2 className="text-primary text-capitalize wow fadeInUp" data-wow-delay="100ms">{ title }</h2>
-            <p className="text-white wow fadeInDown" data-wow-delay="300ms">{ description }</p>
-            { link && <div className="hero-btn-group wow fadeInDown" data-wow-delay="500ms">
+            <p className="text-white wow fadeInUp" data-wow-delay="300ms">{ description }</p>
+            { uri && <div className="hero-btn-group wow fadeInDown" data-wow-delay="500ms">
               <Link href={uri} target={target} className="btn alime-btn mt-3">{link.label}</Link>
             </div> }
           </div>

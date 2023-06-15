@@ -64,15 +64,11 @@ export default async function RootLayout({
           </main>
         <Footer settings={settings} />
 
-        <Script src="/js/jquery.min.js"  />
+        <Script src="/js/jquery.min.js" defer />
 
-        <Script src="/js/popper.min.js"  />
+        <Script src="/js/alime.bundle.js" defer/>
 
-        <Script src="/js/bootstrap.min.js"  />
-
-        <Script src="/js/alime.bundle.js"  />
-
-        <Script src="/js/default-assets/active.js"  />
+        <Script src="/js/default-assets/active.js" async />
       </body>
     </html>
   )

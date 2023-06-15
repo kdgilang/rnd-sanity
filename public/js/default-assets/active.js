@@ -119,13 +119,6 @@
         $(this).addClass('active');
     });
 
-    // ********************************
-    // :: 7.0 Search Button Active Code
-    // ********************************
-    $('.search-btn').on('click', function () {
-        $('.search-form').toggleClass('search-form-active');
-    });
-
     // ************************
     // :: 8.0 Stick Active Code
     // ************************
@@ -155,13 +148,6 @@
                 tNext: 'Next'
             }
         });
-    }
-
-    // **************************
-    // :: 10.0 Tooltip Active Code
-    // **************************
-    if ($.fn.tooltip) {
-        $('[data-toggle="tooltip"]').tooltip();
     }
 
     // ***********************
@@ -196,5 +182,23 @@
     $('a[href="#"]').on('click', function ($) {
         $.preventDefault();
     });
+
+    $('.btn-modal').on('click', function (e) {
+        e.preventDefault();
+        var target = $($(this).data('target'));
+        target.fadeIn(200);
+        setTimeout(function() {
+            target.addClass('show');
+        }, 200);
+    });
+
+    $('.btn-close-modal').on('click', function (e) {
+        e.preventDefault();
+
+        $(this).parents(".modal")
+            .fadeOut(100)
+                .removeClass('show')
+            
+    })
 
 })(jQuery);

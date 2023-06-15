@@ -17,6 +17,11 @@ export default function ModalSearch() {
       <div className="modal fade" id="searchModal" tabIndex={-1} role="dialog" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
+                <button
+                  aria-label="close search modal"
+                  className="btn fa fa-close btn-close-modal d-block text-white position-absolute"
+                  style={{ fontSize: 30, right: 10, top: -40 }}>
+                </button>
                   <div className="modal-body">
                     <form onSubmit={(e) => handleSubmit(e)} method="get">
                       <input

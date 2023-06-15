@@ -29,7 +29,11 @@ export const queryFlexibleBySlug = groq`*[_type == "flexibleContent" && slug.cur
         title,
         description,
         networkItems,
-        categories[]->{ title, slug, _type, _id }
+        categories[]->{ title, slug, _type, _id },
+        link{
+          ...,
+          ref->{ slug, _type, _id }
+        }
       }
     },
   }

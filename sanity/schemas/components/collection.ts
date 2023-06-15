@@ -26,6 +26,7 @@ export const collectionComponent = {
       name: 'limit',
       type: 'number',
       title: 'Limit',
+      initialValue: 10,
       validation: (Rule: Rule) => Rule.required(),
     },
   ]
