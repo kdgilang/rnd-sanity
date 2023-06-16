@@ -2,67 +2,40 @@
 
 import { urlForImage } from "@sanity/lib/image";
 import { linkBuilder } from "@sanity/lib/link";
+import { BaseDocumentModel } from "@sanity/models/BaseModel";
+import LinkModel from "@sanity/models/LinkModel";
 import classNames from "app/helpers/classNames";
-// import getcardsService from "@sanity/services/getcardsService";
 import { BasePropsType } from "app/types/BasePropsType";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Card from "./Card";
 
 export type GridPropsType = BasePropsType & {
   isAjax?: boolean
-  data: any
+  items: BaseDocumentModel[]
+  link?: LinkModel
 }
 
-export default function Grid({ data, className, isAjax }: GridPropsType) {
-  const { link } = data
-  const resCards = data.cards
+export default function Grid({ items, className, isAjax, link }: GridPropsType) {
 
   const { uri, target } = linkBuilder(link)
   
   let delay = 0
 
-  const loadPerPage = 10
-
   const [categories, setCategories] = useState<any[]>([])
 
-  const [cards, setCards] = useState(resCards)
-
-  const [isFullyLoaded, setIsFullyLoaded] = useState(false)
-
-  const [cardsLength, setCardsLength] = useState(0)
-
-  const [isBusy, setIsBusy] = useState(false)
+  const [cards, setCards] = useState(items)
 
   useEffect(() => {
+    setCards(items)
+
     setCategories(() => 
-      cards?.map((item: any) => 
+      items?.map((item: any) => 
         item.categories?.map((cat: any) => cat)
       ).flat()
     )
-  }, [cards])
-
-  useEffect(() => {
-    if (cardsLength === cards?.length || cardsLength < loadPerPage) {
-      setIsFullyLoaded(true)
-    }
-  }, [cards, cardsLength])
-
-  const handleLoadMore = async () => {
-    if (isBusy) return
-    setIsBusy(true)
-    // const data = await getcardsService(10)
-    if (resCards) {
-      setCardsLength(resCards?.length)
-      const slicescards = resCards?.slice(cards?.length, resCards?.length)
-
-      setCards((prevcards: any) => [
-        ...prevcards,
-        ...slicescards
-      ])
-    }
-    setIsBusy(false)
-  }
+  }, [items])
 
   return (
     <div className={classNames(
@@ -87,46 +60,35 @@ export default function Grid({ data, className, isAjax }: GridPropsType) {
       </div> }
 
       <div className={classNames(
-        "row",
+        "carousel-card row",
         isAjax ? "" : "alime-portfolio"
       )}>
         { cards?.map((item: any, i: number) => {
-          delay = i * 150
+          item.delay = (i+1) * 180
 
           let slugs = [];
 
           if (!isAjax) {
             slugs = item?.categories?.map((c: any) => c.slug?.current?.toLowerCase())
+            item.title = item.description = ''
           }
 
-          return <Link
+          return <div
             key={`grid-${item._id}`}
-            href={isAjax ? `/cards/${item.slug.current}`: urlForImage(item.image).url()}
             className={classNames(
-              "col-12 col-sm-6 col-lg-3 alime-portfolio__item mb-3 px-md-2 wow fadeInUp",
-              isAjax ?  "" : `${slugs?.join(',')} portfolio-img`
-            )}
-            data-wow-delay={`${delay}ms`}>
-            <div className="single-portfolio-content">
-              <Image src={urlForImage(item.image).size(680, 480).url()} width={680} height={480} alt={item.title} />
-              <div className="hover-content">
-                <div>
-                  { isAjax ? <span className="fa fa-link"></span> : '+' }
-                </div>
-              </div>
+              isAjax ?  "" : `${slugs?.join(',')} portfolio-img`,
+              "col-12 col-sm-6 col-lg-3 alime-portfolio__item mb-3 px-md-2 invisible",
+            )}>
+              <Card data={item} />
             </div>
-          </Link>
         })}
       </div>
 
-      <div className="row mt-4">
+      { uri && <div className="row mt-4">
         <div className="col-12 text-center wow fadeInUp" data-wow-delay={`${delay + 200}ms`}>
-          { isBusy && <div className="loader mx-auto mb-4 wow fadeIn"></div> }
-          { isAjax ? (!isFullyLoaded && <button className="btn alime-btn btn-2 mt-15" onClick={handleLoadMore}>Load More</button>) :
-            ( uri && <Link href={uri} target={target} className="btn alime-btn btn-2 mt-15">{link?.label}</Link> )
-          }
+          <Link href={uri} target={target} className="btn alime-btn btn-2 mt-15">{link?.label}</Link>
         </div>
-      </div>
+      </div> }
     </div>
   )
 }

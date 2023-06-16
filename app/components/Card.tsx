@@ -11,6 +11,7 @@ export type CardPropsType = BasePropsType & {
 
 export default function Card({ data, className }: CardPropsType) {
   const {
+    _type,
     icon,
     slug,
     delay,
@@ -27,8 +28,10 @@ export default function Card({ data, className }: CardPropsType) {
   return (
     <div
       className={classNames(
+        _type,
         "why-choose-us-content wow fadeInUp",
         Icon ? "text-center" : "",
+        (title || description) ? "with-text" : "no-text",
         className || ""
       )}
       data-wow-delay={`${delay}ms`}>
@@ -47,11 +50,11 @@ export default function Card({ data, className }: CardPropsType) {
       { Icon && <span className="choose-us-icon">
         <Icon style={{ fontSize: 30 }} />
       </span> }
-      <div className="mt-3">
+      { (title || description) && <div className="mt-3">
         { title && (<Link href={slug}>
           <h3 className="h3">{title}</h3></Link>) }
         { description && <p className="mb-0">{description}</p> }
-      </div>
+      </div> }
     </div>
   )
 }

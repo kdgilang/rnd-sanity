@@ -92,6 +92,7 @@
     // *********************************
     if ($.fn.imagesLoaded) {
         $('.alime-portfolio').imagesLoaded(function () {
+                
             // filter items on button click
             $('.portfolio-menu').on('click', 'button', function () {
                 var filterValue = $(this).attr('data-filter');
@@ -99,6 +100,7 @@
                     filter: filterValue
                 });
             });
+
             // init Isotope
             var $grid = $('.alime-portfolio').isotope({
                 itemSelector: '.alime-portfolio__item',

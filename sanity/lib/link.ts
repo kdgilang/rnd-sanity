@@ -5,7 +5,7 @@ export const contentPaths: any = {
   articleContent: '/articles'
 }
 
-export const linkBuilder = (link: LinkModel, pathName: string = '') => {
+export const linkBuilder = (link?: LinkModel, currentPathName: string = '') => {
   let res = { uri: '', isCurrentPage: false, target: '_self' }
   
   if (!link?.uri && !link?.ref) {
@@ -22,7 +22,7 @@ export const linkBuilder = (link: LinkModel, pathName: string = '') => {
 
     res.uri += `/${link?.ref?.slug?.current}`
 
-    if (pathName === res.uri) {
+    if (currentPathName === res.uri) {
       res.isCurrentPage = true
     }
   }

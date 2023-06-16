@@ -9,9 +9,10 @@ export type CardTeamPropsType = BasePropsType & {
 }
 
 export default function CardTeam({ data, className }: CardTeamPropsType) {
-  const { name, title, image, delay, networkItems } = data
+  const { _type, name, title, image, delay, networkItems } = data
   return (
     <div className={classNames(
+      _type,
       "team-content-area text-center mb-30 wow fadeInUp",
       className || ""
     )} data-wow-delay={`${delay}ms`}>

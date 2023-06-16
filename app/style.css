@@ -819,7 +819,7 @@ input:required {
     padding: 0;
     margin-top: 0;
   } 
-  .why-choose-us-content.articleContent .single-portfolio-content {
+  .why-choose-us-content.articleContent.with-text .single-portfolio-content {
     overflow: hidden;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

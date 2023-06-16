@@ -9,7 +9,7 @@ export type CardPropsType = BasePropsType & {
 }
 
 export default function Cards({ data, className }: CardPropsType) {
-  const { cards, view } = data
+  const { cards, view, link } = data
 
   if (view === 'carousel') {
     return(
@@ -23,8 +23,8 @@ export default function Cards({ data, className }: CardPropsType) {
             return (<div key={item._id} className="p-2">
               {
                 item._type === 'teamComponent' ?
-                  <CardTeam data={item} className={item._type} /> :
-                  <Card key={item._id} data={item} className={item._type} />
+                  <CardTeam data={item} /> :
+                  <Card key={item._id} data={item} />
               }
             </div>)
         }) }
@@ -32,7 +32,7 @@ export default function Cards({ data, className }: CardPropsType) {
     )
   } else {
     return (
-     <Grid data={data} />
+     <Grid items={cards} link={link} />
     )
   }
 }
