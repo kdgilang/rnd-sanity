@@ -4,6 +4,7 @@ import classNames from "src/app/helpers/classNames";
 import { BasePropsType } from "src/app/types/BasePropsType";
 import Image from "next/image";
 import Link from "next/link";
+import { internalLinkBuilder } from "@sanity/lib/link";
 
 export type CardPropsType = BasePropsType & {
   data: any
@@ -51,7 +52,7 @@ export default function Card({ data, className }: CardPropsType) {
         <Icon style={{ fontSize: 30 }} />
       </span> }
       { (title || description) && <div className="mt-3">
-        { title && (<Link href={slug}>
+        { title && (<Link href={internalLinkBuilder(slug?.current, _type)}>
           <h3 className="h3">{title}</h3></Link>) }
         { description && <p className="mb-0">{description}</p> }
       </div> }

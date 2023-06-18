@@ -1,12 +1,12 @@
 import getSiteSettingsService from '@sanity/services/getSiteSettingService'
 import { notFound } from 'next/navigation'
 import { getPreviewToken } from '@sanity/lib/serverPreview'
-import PreviewFlexible from 'src/app/components/layouts/PreviewFlexible'
 import Banner from 'src/app/components/sections/Banner'
 import { getArticleBySlugService } from '@services/getArticleBySlugService'
 import { aligns } from '@sanity/schemas/variables/aligns'
 import 'src/app/helpers/toStringDate'
 import PortableBlock from "src/app/components/PortableBlock";
+import PreviewArticle from '@app/components/layouts/PreviewArticle'
 
 const getData = async (slug: string) => {
   const [
@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: { slug: string }}) {
   }
 
   return token ? (
-    <PreviewFlexible params={params} />
+    <PreviewArticle params={params} />
   ) : (
     <>
       <Banner data={bannerData} />

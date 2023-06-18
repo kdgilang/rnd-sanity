@@ -12,11 +12,13 @@ type SkeletonPropsType = BasePropsType & {
 export default function Skeleton({ containerClassName, className, count, height}: SkeletonPropsType) {
   return <BaseSkeleton 
     containerClassName={classNames(
-      "w-100 h-100 position-relative d-block",
+      height ? "" : "h-100",
+      "w-100 position-relative d-block",
       containerClassName || "",
     )}
     className={classNames(
-      "w-100 h-100 object-fit-cover d-block",
+      height ? "" : "h-100",
+      "w-100 object-fit-cover d-block",
       className || ""
     )}
     highlightColor="#EFEFEF"

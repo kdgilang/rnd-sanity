@@ -25,10 +25,10 @@ export default function Header({ settings }: HeaderPropsType) {
           <div className="classy-nav-container breakpoint-off">
             <div className="container">
               <nav className="classy-navbar justify-content-between" id="alimeNav">
-
+                { siteSetting?.logo &&
                 <Link className="nav-brand" href="/" aria-label="go home">
-                  <Image src={ urlForImage(siteSetting.logo).url() } height={30} width={100} alt={siteSetting.name} />
-                </Link>
+                  <Image src={ urlForImage(siteSetting.logo).size(256, 150).crop('center').url() } height={30} width={100} alt={siteSetting.name} />
+                </Link> }
 
                 <div className="d-flex d-lg-none align-items-center">
                   <div className="classy-navbar-toggler">

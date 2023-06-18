@@ -16,7 +16,7 @@ export default function PreviewFlexible({ params }: { params?: { slug: string } 
       <PreviewSuspense fallback={<Loading />}>
         <Section sections={data?.sections} />
         <Link
-          className="bg-blue-500 p-6 text-white font-bold fixed bottom-0 right-0"
+          className="fixed-top w-100 text-center bg-gray text-primary"
           href="/api/exit-preview"
         >
           Exit Preview

@@ -19,9 +19,9 @@ export default function Footer({ settings }: { settings: SettingsModel }) {
                 <p>{ siteSetting?.description }</p>
               </div>
               <div className="footer-logo">
-                <a href="#">
-                  <Image src={ logo.url() } height={100} width={100} alt={ siteSetting?.name } />
-                </a>
+                { siteSetting?.logo && <Link href="/" aria-label="Go home">
+                  <Image src={ urlForImage(siteSetting.logo).size(256, 150).crop('center').url() } height={100} width={100} alt={ siteSetting?.name } />
+                </Link> }
               </div>
               <div className="social-info">
                 { networkSetting?.networkItems?.map(item => {
