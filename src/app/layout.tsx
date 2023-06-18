@@ -63,7 +63,7 @@ export default async function RootLayout({
 
         <Script src="/js/alime.bundle.js" defer />
 
-        <Script src="/js/default-assets/active.js" async />
+        <Script strategy="lazyOnload" src="/js/default-assets/active.js" async />
       </body>
     </html>
   )

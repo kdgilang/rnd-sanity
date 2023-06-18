@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePreview } from "@sanity/lib/preview";
+import "@app/helpers/toStringDate";
 import { PreviewSuspense } from "src/app/components/PreviewSuspense";
 import Loading from 'src/app/components/Loading';
 import Banner from "../sections/Banner";

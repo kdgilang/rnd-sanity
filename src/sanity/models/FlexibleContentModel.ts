@@ -1,7 +1,7 @@
-import { BaseDocumentModel } from "./BaseModel";
+import { BaseContentModel } from "./BaseModel";
 import SectionModel from "./SectionModel";
 
-class FlexibleContentModel extends BaseDocumentModel {
+class FlexibleContentModel extends BaseContentModel {
   sections: SectionModel[]
 
   constructor() {

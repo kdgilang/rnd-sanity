@@ -2,15 +2,6 @@
     'use strict';
 
     var alime_window = $(window);
-
-    // ****************************
-    // :: 1.0 Preloader Active Code
-    // ****************************
-
-        $('#preloader').fadeOut('1000', function () {
-            $(this).remove();
-        });
-
     // ****************************
     // :: 2.0 ClassyNav Active Code
     // ****************************

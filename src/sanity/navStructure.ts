@@ -36,6 +36,7 @@ export const navStructure = (S: any) =>
           'embedComponent',
           'mediaTileComponent',
           'richTextComponent',
+          'inquiryComponent',
         ].includes(listItem.getId())
       ),
 
@@ -91,6 +92,10 @@ export const navStructure = (S: any) =>
                 .title('Rich Text')
                 .icon(ImFontSize)
                 .child(S.documentTypeList('richTextComponent')),
+              S.listItem()
+                  .title('Inquiry Form')
+                  .icon(ImFontSize)
+                  .child(S.documentTypeList('inquiryComponent')),
             ])
         ),
 

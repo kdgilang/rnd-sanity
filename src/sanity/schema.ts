@@ -16,6 +16,8 @@ import routeSetting from './schemas/settings/route'
 import linkField from './schemas/fields/link'
 import { richTextComponent } from './schemas/components/richText'
 import { collectionComponent } from './schemas/components/collection'
+import { inquiryComponent } from './schemas/components/inquiry'
+import inquiry from './schemas/miscellaneous/inquiry'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -23,6 +25,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     articleContent,
     flexibleContent,
     categoryTaxonomy,
+    inquiry,
     siteSetting,
     networkSetting,
     routeSetting,
@@ -35,6 +38,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     cardComponent,
     bannerComponent,
     teamComponent,
+    inquiryComponent,
     mediaTileComponent,
     richTextComponent,
     collectionComponent,

@@ -1,15 +1,16 @@
 import SectionModel from "@sanity/models/SectionModel"
-import classNames from "src/app/helpers/classNames"
-import { BasePropsType } from "src/app/types/BasePropsType"
-import SectionHeading from "src/app/components/SectionHeading"
-import accordionComponent from "src/app/components/sections/Accordion"
-import bannerComponent from "src/app/components/sections/Banner"
-import carouselComponent from "src/app/components/sections/Carousel"
-import embedComponent from "src/app/components/sections/Embed"
-import mediaTileComponent from "src/app/components/sections/MediaTile"
-import cardComponent from "src/app/components/sections/Card"
-import richTextComponent from "src/app/components/sections/RichText"
-import collectionComponent from "src/app/components/sections/Collection"
+import classNames from "@app/helpers/classNames"
+import { BasePropsType } from "@app/types/BasePropsType"
+import SectionHeading from "@components/SectionHeading"
+import accordionComponent from "@components/sections/Accordion"
+import bannerComponent from "@components/sections/Banner"
+import carouselComponent from "@components/sections/Carousel"
+import embedComponent from "@components/sections/Embed"
+import mediaTileComponent from "@components/sections/MediaTile"
+import cardComponent from "@components/sections/Card"
+import richTextComponent from "@components/sections/RichText"
+import collectionComponent from "@components/sections/Collection"
+import inquiryComponent from "@components/sections/Inquiry"
 
 const Components: any = {
   accordionComponent,
@@ -20,6 +21,7 @@ const Components: any = {
   mediaTileComponent,
   richTextComponent,
   collectionComponent,
+  inquiryComponent,
 }
 
 export type SectionPropsType = BasePropsType & {

@@ -10,7 +10,7 @@ import { navStructure } from '@sanity/navStructure'
 import {defaultDocumentNode} from '@sanity/defaultDocumentNode'
 import {colorInput} from '@sanity/color-input'
 import { iconPicker } from 'sanity-plugin-icon-picker'
-import {codeInput} from '@sanity/code-input'
+// import {codeInput} from '@sanity/code-input'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from '@sanity/env'
@@ -39,7 +39,7 @@ export default defineConfig({
     logoPlugin(),
     colorInput(),
     iconPicker(),
-    codeInput(),
+    // codeInput(),
     vercelDeployTool(),
   ],
 })

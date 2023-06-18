@@ -32,7 +32,7 @@ export default function PortableBlock({ value }: RichTextPropsType) {
     components={
     {
       types: {
-        image: ImageComponent
+        image: ImageComponent,
       }
     }
   }/>

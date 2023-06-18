@@ -8,10 +8,6 @@ export class BaseDocumentModel implements SanityDocument {
   _type: string
   _createdAt: string
   _updatedAt: string
-  image: ImageModel
-  title: string
-  slug: SlugModel
-  description: string
 
   constructor() {
     this._id = ''
@@ -19,6 +15,17 @@ export class BaseDocumentModel implements SanityDocument {
     this._type = ''
     this._createdAt = ''
     this._updatedAt = ''
+  }
+}
+
+export class BaseContentModel extends BaseDocumentModel {
+  image: ImageModel
+  title: string
+  slug: SlugModel
+  description: string
+
+  constructor() {
+    super()
     this.image = new ImageModel()
     this.title = ''
     this.description = ''

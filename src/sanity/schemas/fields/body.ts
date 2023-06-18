@@ -16,7 +16,7 @@ const bodyField = (props?: BodyProps) => {
     of: [
       { type: 'block' },
       { type: 'image' },
-      { type: 'code' },
+      // { type: 'code' },
     ],
     ...(mandatory ? { validation: (Rule: Rule) => Rule.required() } : null)
   }

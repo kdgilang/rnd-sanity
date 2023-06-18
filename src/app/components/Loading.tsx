@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { BasePropsType } from '../types/BasePropsType'
 
 type LoadingType = BasePropsType & {
@@ -6,7 +7,13 @@ type LoadingType = BasePropsType & {
 }
 
 export default function Loading({ color }: LoadingType) {
-  return <div id="preloader">
+  const [hide, setHide] = useState(false)
+  
+  useEffect(() => {
+    setHide(true)
+  },[])
+
+  return !hide ? <div id="preloader">
     <div className="loader"></div>
-  </div>
+  </div> : <></>
 }

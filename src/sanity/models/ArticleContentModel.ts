@@ -1,11 +1,8 @@
 import { TypedObject } from "sanity";
-import { BaseDocumentModel } from "./BaseModel";
-import ImageModel from "./ImageModel";
-import { SlugModel } from "./SlugModel";
+import { BaseContentModel } from "./BaseModel";
 
-class ArticleContentModel extends BaseDocumentModel {
+class ArticleContentModel extends BaseContentModel {
   body: TypedObject | TypedObject[]
-
 
   constructor() {
     super()

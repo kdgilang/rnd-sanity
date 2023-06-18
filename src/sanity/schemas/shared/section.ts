@@ -55,6 +55,7 @@ const sectionField = {
         { type: 'embedComponent', },
         { type: 'mediaTileComponent', },
         { type: 'richTextComponent', },
+        { type: 'inquiryComponent', },
       ],
       // components: {
       //   preview: {
