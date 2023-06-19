@@ -58,8 +58,7 @@ export default function Grid({ items, className, isAjax, link }: GridPropsType) 
       </div> }
 
       <div className={classNames(
-        "carousel-card row",
-        isAjax ? "" : "alime-portfolio"
+        "alime-portfolio row"
       )}>
         { cards?.map((item: any, i: number) => {
           item.delay = (i+1) * 180
@@ -74,7 +73,7 @@ export default function Grid({ items, className, isAjax, link }: GridPropsType) 
           return <div
             key={`grid-${item._id}`}
             className={classNames(
-              isAjax ?  "" : `${slugs?.join(',')} portfolio-img`,
+              isAjax ?  "" : `${slugs?.join(',')}`,
               "col-12 col-sm-6 col-lg-3 alime-portfolio__item mb-3 px-md-2 invisible",
             )}>
               <Card data={item} />

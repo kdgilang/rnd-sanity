@@ -38,9 +38,7 @@ export default function Card({ data, className }: CardPropsType) {
       data-wow-delay={`${delay}ms`}>
       { image && <Link
         href={urlForImage(image).url()}
-        className={classNames(
-          "portfolio-img",
-        )}>
+        className="portfolio-img">
         <div className="single-portfolio-content">
           <Image src={urlForImage(image).size(640, 480).url()} width={200} height={150} alt={title} />
           <div className="hover-content">
