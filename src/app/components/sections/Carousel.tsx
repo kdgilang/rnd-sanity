@@ -1,8 +1,12 @@
+'use client'
 import { urlForImage } from "@sanity/lib/image"
 import { linkBuilder } from "@sanity/lib/link"
 import classNames from "src/app/helpers/classNames"
 import { BasePropsType } from "src/app/types/BasePropsType"
 import Link from "next/link"
+import "slick-carousel/slick/slick.css";
+import Slider from "react-slick";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
 
 export type CarouselPropsType = BasePropsType & {
   data: any
@@ -10,17 +14,29 @@ export type CarouselPropsType = BasePropsType & {
 
 export default function Carousel({ data, className }: CarouselPropsType) {
   const { align, size, animation, carouselItems } = data
+
+  const settings = {
+    autoplay: true,
+    infinite: true,
+    speed: 500,
+    fade: animation === 'fade',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: <button className="nav-carousel nav-carousel-prev"><AiOutlineArrowLeft/></button>,
+    nextArrow: <button className="nav-carousel nav-carousel-next"><AiOutlineArrowRight/></button>
+  };
+
   return (
     <div className={classNames(
       "welcome-area",
       className || ""
     )}>
-      <div className="welcome-slides owl-carousel" data-type={animation}>
+      <Slider className="carousel" {...settings}>
         {
           carouselItems?.map((item: any) => {
             const { uri, target } = linkBuilder(item?.link)
             return <div
-              key={`item-${item._key}`}
+            key={`item-${item._key}`}><div
               className={classNames(
                 size,
                 "single-welcome-slide bg-img bg-overlay jarallax"
@@ -33,22 +49,16 @@ export default function Carousel({ data, className }: CarouselPropsType) {
                 )}>
                   <div className="col-12 col-lg-8 col-xl-6">
                     <div className="welcome-text">
-                      <h2 
-                        data-animation="fadeInDown"
-                        data-duration="300ms"
-                        data-delay="900ms"
+                      <h2
+                        className="wow fadeInDown" data-wow-delay="100ms"
                       >{ item.title }</h2>
                       <p
-                        data-animation="fadeInDown"
-                        data-duration="300ms"
-                        data-delay="500ms"
+                        className="wow fadeInDown" data-wow-delay="300ms"
                       >{ item.description }</p>
                       { item?.link &&
                         <div
-                          className="hero-btn-group"
-                          data-duration="300ms"
-                          data-animation="fadeInDown"
-                          data-delay="100ms">
+                          className="wow fadeInDown" data-wow-delay="500ms"
+                        >
                           <Link
                             href={uri}
                             target={target}
@@ -62,9 +72,10 @@ export default function Carousel({ data, className }: CarouselPropsType) {
                 </div>
               </div>
             </div>
+            </div>
           })
         }
-      </div>
+      </Slider>
     </div>
   )
 }

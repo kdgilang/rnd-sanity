@@ -10,6 +10,8 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { BasePropsType } from 'src/app/types/BasePropsType';
 import PortableBlock from "src/app/components/PortableBlock";
+import { FaAngleDown } from 'react-icons/fa';
+
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -27,7 +29,7 @@ const Accordion = styled((props: AccordionProps) => (
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
-    expandIcon={<span className="fa fa-angle-down"></span>}
+    expandIcon={<FaAngleDown style={{fontSize: 24}} />}
     {...props}
   />
 ))(({ theme }) => ({

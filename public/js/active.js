@@ -11,74 +11,6 @@
     }
 
     // *********************************
-    // :: 3.0 Welcome Slides Active Code
-    // *********************************
-
-    if ($.fn.owlCarousel) {
-        var welcomeSlider = $('.welcome-slides');
-
-        welcomeSlider.each(function() {
-            var animate = $(this).data('type');
-            $(this).owlCarousel({
-                items: 1,
-                animateOut: animate === 'fade' ? 'fadeOut' : false,
-                loop: true,
-                autoplay: true,
-                smartSpeed: 1000,
-                autoplayTimeout: 10000,
-                nav: true,
-                navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')]
-            });
-
-            $(this).on('translate.owl.carousel', function () {
-                var layer = $("[data-animation]");
-                layer.each(function () {
-                    var anim_name = $(this).data('animation');
-                    $(this).removeClass('animated ' + anim_name).css('opacity', '0');
-                });
-            });
-
-            $(this).on('translated.owl.carousel', function () {
-                var layer = welcomeSlider.find('.owl-item.active').find("[data-animation]");
-                layer.each(function () {
-                    var anim_name = $(this).data('animation');
-                    $(this).addClass('animated ' + anim_name).css('opacity', '1');
-                });
-            });
-        });
-
-        $("[data-delay]").each(function () {
-            var anim_del = $(this).data('delay');
-            $(this).css('animation-delay', anim_del);
-        });
-
-        $("[data-duration]").each(function () {
-            var anim_dur = $(this).data('duration');
-            $(this).css('animation-duration', anim_dur);
-        });
-
-        $('.card-carousel').owlCarousel({
-            // loop: true,
-            margin: 10,
-            nav: true,
-            autoplay: true,
-            navText: [('<i class="fa fa-angle-left"></i>'), ('<i class="fa fa-angle-right"></i>')],
-            responsive:{
-                0:{
-                    items: 1
-                },
-                600:{
-                    items: 2
-                },
-                1000:{
-                    items: 4
-                }
-            }
-        });
-    }
-
-
-    // *********************************
     // :: 5.0 Masonary Gallery Active Code
     // *********************************
     if ($.fn.imagesLoaded) {
@@ -165,7 +97,7 @@
     if ($.fn.scrollUp) {
         alime_window.scrollUp({
             scrollSpeed: 1000,
-            scrollText: '<i class="fa fa-angle-up"</i>'
+            scrollText: '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="#ffffff" d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/></svg>'
         });
     }
 

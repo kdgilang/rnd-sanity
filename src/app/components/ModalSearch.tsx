@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import { FormEvent, useState } from "react"
+import { FaWindowClose } from "react-icons/fa"
 
 export default function ModalSearch() {
   const router = useRouter()
@@ -19,8 +20,9 @@ export default function ModalSearch() {
               <div className="modal-content">
                 <button
                   aria-label="close search modal"
-                  className="btn fa fa-close btn-close-modal d-block text-white position-absolute"
-                  style={{ fontSize: 30, right: 10, top: -40 }}>
+                  className="btn btn-close-modal d-block text-white position-absolute"
+                  style={{ fontSize: 30, right: 10, top: -50 }}>
+                    <FaWindowClose />
                 </button>
                   <div className="modal-body">
                     <form onSubmit={(e) => handleSubmit(e)} method="get">

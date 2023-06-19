@@ -4,6 +4,7 @@ import { BasePropsType } from "src/app/types/BasePropsType";
 import Image from "next/image";
 import Link from "next/link";
 import PortableBlock from "src/app/components/PortableBlock";
+import { FaPlay } from 'react-icons/fa';
 
 type EmbedDataType = {
   body: any
@@ -32,7 +33,7 @@ export default function MediaTile({ data, className }: EmbedPropsType) {
           <Image src={urlForImage(image).url()} height={100} width={150} alt="media cover" />
           { videoUrl && <div className="video-icon">
             <Link href={videoUrl} style={{ lineHeight: 1 }} className="video-play-btn" aria-label="play the video">
-              <i className="fa fa-play" style={{ lineHeight: '50px', fontSize: '22px'}} aria-hidden="true"></i>
+              <FaPlay style={{ lineHeight: '50px', fontSize: 22}} aria-hidden="true" />
             </Link>
           </div>}
         </div>

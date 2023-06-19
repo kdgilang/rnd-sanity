@@ -35,9 +35,7 @@ Last Update: Feb 22, 2019
 @import url(assets/css/bootstrap.min.css);
 @import url(assets/css/animate.css);
 @import url(assets/css/default-assets/classy-nav.css);
-@import url(assets/css/owl.carousel.min.css);
 @import url(assets/css/magnific-popup.css);
-@import url(assets/css/font-awesome.min.css);
 /* :: 01.0 Reboot CSS */
 * {
   margin: 0;
@@ -538,12 +536,11 @@ input:required {
   z-index: 1; }
 
 
-.owl-carousel {
+.carousel {
   position: relative;
   z-index: 1;
   overflow: hidden; }
-  .owl-carousel .owl-prev,
-  .owl-carousel .owl-next {
+  .carousel .slick-arrow {
     width: 40px;
     height: 40px;
     display: flex;
@@ -553,7 +550,7 @@ input:required {
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     line-height: 1;
     top: 50%;
@@ -563,34 +560,34 @@ input:required {
     text-align: center;
     color: #ffffff;
     font-size: 30px; }
-    .owl-carousel .owl-prev:hover, .owl-carousel .owl-prev:focus,
-    .owl-carousel .owl-next:hover,
-    .owl-carousel .owl-next:focus {
+    .carousel .slick-prev:hover, .carousel .slick-prev:focus,
+    .carousel .slick-next:hover,
+    .carousel .slick-next:focus {
       background-color: var(--primary-color); }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .owl-carousel .owl-prev,
-      .owl-carousel .owl-next {
+      .carousel .slick-prev {
         left: 30px; } }
     @media only screen and (max-width: 767px) {
-      .owl-carousel .owl-prev,
-      .owl-carousel .owl-next {
+      .carousel .slick-prev,
+      .carousel .slick-next {
         width: 40px;
         left: 15px;
         height: 40px;
         font-size: 18px;
         line-height: 44px; } }
-  .owl-carousel .owl-next {
+  .carousel .slick-next {
     left: auto;
     right: 70px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .owl-carousel .owl-next {
+      .carousel .slick-next {
         right: 30px; } }
     @media only screen and (max-width: 767px) {
-      .owl-carousel .owl-next {
+      .carousel .slick-next {
         right: 15px; } }
 
-.welcome-slides .owl-prev,
-.welcome-slides .owl-next {
+.carousel .slick-arrow {
+  border: none;
+  cursor: pointer;
   width: 66px;
   height: 66px;
 }
@@ -631,6 +628,22 @@ input:required {
       .single-welcome-slide .welcome-text .hero-mail-contact:hover, .single-welcome-slide .welcome-text .hero-mail-contact:focus {
         color: var(--primary-color); }
 
+.breadcrumb-area {
+  position: relative;
+  z-index: 1;
+  height: 370px; }
+  @media only screen and (max-width: 767px) {
+    .breadcrumb-area {
+      height: 240px; } }
+  .breadcrumb-area .page-title {
+    color: #ffffff;
+    font-size: 36px; }
+    @media only screen and (max-width: 767px) {
+      .breadcrumb-area .page-title {
+        font-size: 24px; } }
+
+        .breadcrumb-area .single-image-content .page-title { color: #333 }
+        .breadcrumb-area .single-image-content p { color: #333; margin-bottom: 0; }
 /* :: 9.0 Footer CSS */
 .footer-content {
   padding: 20px 0; }
@@ -869,95 +882,6 @@ input:required {
     .why-choose-us-content:focus p {
       color: #ffffff; }
 
-/* :: 12.0 Breadcrumb CSS */
-.breadcrumb-area {
-  position: relative;
-  z-index: 1;
-  height: 370px; }
-  @media only screen and (max-width: 767px) {
-    .breadcrumb-area {
-      height: 240px; } }
-  .breadcrumb-area .page-title {
-    color: #ffffff;
-    font-size: 36px; }
-    @media only screen and (max-width: 767px) {
-      .breadcrumb-area .page-title {
-        font-size: 24px; } }
-
-        .breadcrumb-area .single-image-content .page-title { color: #333 }
-        .breadcrumb-area .single-image-content p { color: #333; margin-bottom: 0; }
-
-.breadcrumb-content {
-  position: relative;
-  z-index: 1;
-  margin-top: 70px; }
-  .breadcrumb-content .breadcrumb {
-    padding: 0;
-    background-color: transparent;
-    margin-bottom: 0; }
-    .breadcrumb-content .breadcrumb .breadcrumb-item {
-      color: var(--primary-color);
-      font-weight: 400;
-      font-size: 16px; }
-      .breadcrumb-content .breadcrumb .breadcrumb-item a {
-        font-size: 16px;
-        color: #ffffff;
-        font-weight: 400; }
-        .breadcrumb-content .breadcrumb .breadcrumb-item a:hover, .breadcrumb-content .breadcrumb .breadcrumb-item a:focus {
-          color: var(--primary-color); }
-    .breadcrumb-content .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-      content: '\f105';
-      color: #ffffff;
-      font-family: "FontAwesome"; }
-
-.breadcrumb-area.blog {
-  height: 550px; }
-  .breadcrumb-area.blog .breadcrumb-content .post-catagory {
-    padding: 2px 15px;
-    border-radius: 2px;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #ffffff;
-    background-color: var(--primary-color);
-    font-weight: 500;
-    margin-bottom: 15px; }
-    .breadcrumb-area.blog .breadcrumb-content .post-catagory:hover, .breadcrumb-area.blog .breadcrumb-content .post-catagory:focus {
-      font-weight: 500;
-      background-color: #000000; }
-  .breadcrumb-area.blog .breadcrumb-content .page-title {
-    display: block;
-    font-size: 48px;
-    margin-bottom: 20px; }
-    @media only screen and (max-width: 767px) {
-      .breadcrumb-area.blog .breadcrumb-content .page-title {
-        font-size: 30px; } }
-  .breadcrumb-area.blog .breadcrumb-content .post-meta {
-    position: relative;
-    z-index: 1;
-    margin-bottom: 5px; }
-    .breadcrumb-area.blog .breadcrumb-content .post-meta a {
-      position: relative;
-      z-index: 1;
-      font-size: 16px;
-      color: #ffffff;
-      font-weight: 500;
-      margin-right: 21px; }
-      @media only screen and (max-width: 767px) {
-        .breadcrumb-area.blog .breadcrumb-content .post-meta a {
-          font-size: 13px; } }
-      .breadcrumb-area.blog .breadcrumb-content .post-meta a::after {
-        content: '|';
-        position: absolute;
-        top: 0;
-        right: -11px;
-        z-index: 1; }
-      .breadcrumb-area.blog .breadcrumb-content .post-meta a:last-child::after {
-        display: none; }
-      .breadcrumb-area.blog .breadcrumb-content .post-meta a:hover, .breadcrumb-area.blog .breadcrumb-content .post-meta a:focus {
-        color: var(--primary-color); }
-        .breadcrumb-area.blog .breadcrumb-content .post-meta a:hover::after, .breadcrumb-area.blog .breadcrumb-content .post-meta a:focus::after {
-          color: #ffffff; }
-
 /* :: 13.0 Blog CSS */
 .blog-details-text {
   position: relative;
@@ -1167,37 +1091,29 @@ blockquote {
     .single-portfolio-content:hover .hover-content div, .single-portfolio-content:focus .hover-content div {
       margin-top: -26px; }
 
-/* :: 16.0 Contact CSS */
-.alime-contact-form .form-control {
-  -webkit-transition-duration: 500ms;
-  -o-transition-duration: 500ms;
-  transition-duration: 500ms;
-  width: 100%;
-  height: 50px;
-  padding: 0 20px;
-  border-radius: 2px;
-  color: #afb4bf;
-  font-size: 14px;
-  border: 1px solid #ebebeb; }
-  .alime-contact-form .form-control:focus {
-    box-shadow: none;
-    border-color: var(--primary-color); }
-.alime-contact-form textarea.form-control {
-  height: 120px;
-  padding: 20px; }
-
-.contact-area .contact-title {
-  font-size: 56px; }
-  @media only screen and (max-width: 767px) {
-    .contact-area .contact-title {
-      font-size: 30px; } }
-.contact-area .contact-info p {
-  font-size: 14px;
-  margin-bottom: 5px; }
-.contact-area .contact-info a {
-  font-size: 16px; }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .contact-area .contact-info a {
-      font-size: 14px; } }
+.welcome-text h2,
+.welcome-text p,
+.welcome-text a {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.4s ease-in-out;
+}
+.welcome-text h2 {
+  transition-delay: 0.5s;
+}
+.welcome-text p {
+  transition-delay: 1s;
+}
+.welcome-text a {
+  transition-delay: 1.5s;
+}
+.slick-active .welcome-text h2,
+.slick-active .welcome-text p,
+.slick-active .welcome-text a {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -8,6 +8,7 @@ import classNames from '../helpers/classNames'
 import SettingsModel from '@sanity/models/SettingsModel'
 import { urlForImage } from '@sanity/lib/image'
 import { linkBuilder } from '@sanity/lib/link'
+import { FaSearch } from 'react-icons/fa'
 
 export type HeaderPropsType = {
   settings: SettingsModel
@@ -39,7 +40,7 @@ export default function Header({ settings }: HeaderPropsType) {
                       className="search-icon ml-5 btn-modal"
                       data-toggle="modal"
                       data-target="#searchModal">
-                        <i className="fa fa-search"></i>
+                        <FaSearch style={{fontSize: 22, cursor: 'pointer'}} />
                     </div>
                   ) }
                 </div>
@@ -68,7 +69,7 @@ export default function Header({ settings }: HeaderPropsType) {
 
                     { pathName !== '/search' &&
                       <div className="search-icon d-none d-lg-inline ml-4 btn-modal" data-toggle="modal" data-target="#searchModal">
-                        <i className="fa fa-search"></i>
+                        <FaSearch style={{fontSize: 22, cursor: 'pointer'}} />
                       </div>
                     }
                   </div>
