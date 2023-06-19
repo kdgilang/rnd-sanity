@@ -46,18 +46,20 @@ export default function Section({ sections, className }: SectionPropsType) {
           <div
             key={`section-${item._key}`}
             className={classNames(
-              item?.container !== "container" ? "px-0" : "",
-              item?.container,
               marginY,
               paddingY,
               className || ""
             )} style={{ backgroundColor: color?.hex }}>
-
-              { title && (<div className="px-2 px-md-5">
-                  <SectionHeading title={title} isCenter={true} /> 
-                </div>)
-              }
-              <Component data={component} />
+              <div className={classNames(
+                item?.container,
+                item?.container !== "container" ? "px-0" : "",
+              )}>
+                { title && (<div className="px-2 px-md-5">
+                    <SectionHeading title={title} isCenter={true} /> 
+                  </div>)
+                }
+                <Component data={component} />
+              </div>
           </div>
         )
       })}

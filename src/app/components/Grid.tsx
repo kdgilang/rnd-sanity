@@ -28,10 +28,13 @@ export default function Grid({ items, className, isAjax, link }: GridPropsType) 
   useEffect(() => {
     setCards(items)
 
+    const cats = items?.map(item => 
+      item.categories?.map((cat: any) => cat)
+    ).flat()
+
     setCategories(() => 
-      items?.map(item => 
-        item.categories?.map((cat: any) => cat)
-      ).flat()
+    [...new Map(cats.map(item =>
+      [item['_id'], item])).values()]
     )
   }, [items])
 
