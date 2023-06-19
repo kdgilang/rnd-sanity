@@ -2,7 +2,8 @@ import LinkModel from '@sanity/models/LinkModel'
 
 export const contentPaths: any = {
   flexibleContent: '',
-  articleContent: '/articles'
+  articleContent: '/articles',
+  categoryTaxonomy: '/categories'
 }
 
 export const linkBuilder = (link?: LinkModel, currentPathName: string = '') => {

@@ -40,9 +40,10 @@ export default async function Page({ params }: { params: { slug: string }}) {
     notFound()
   }
 
+  const description = `${content._createdAt?.toStringDate()} - ${content.categories?.[0]?.title}`
   const bannerData = {
     title: content.title,
-    description: content._createdAt?.toStringDate(),
+    description,
     image: content.image,
     align: aligns[0].value
   }

@@ -10,7 +10,8 @@ export const queryArticleBySlug = groq`*[_type == "articleContent" && slug.curre
       ...,
       asset->
     }
-  }
+  },
+  categories[]->{ title, slug, _type, _id }
 }`;
 
 export function getArticleBySlugService(slug: string): Promise<ArticleContentModel> {

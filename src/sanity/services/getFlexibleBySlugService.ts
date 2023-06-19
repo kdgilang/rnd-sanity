@@ -36,6 +36,7 @@ export const queryFlexibleBySlug = groq`*[_type == "flexibleContent" && slug.cur
         }
       }
     },
+    categories[]->{ title, slug, _type, _id }
   }
 }`;
 
