@@ -5,7 +5,7 @@ import Grid from "src/app/components/Grid"
 import classNames from "src/app/helpers/classNames"
 import { getContentsByFilterService } from "@services/getContentsByFilterService"
 import { useEffect, useState } from "react"
-import { BaseDocumentModel } from "@sanity/models/BaseModel"
+import { BaseContentModel } from "@sanity/models/BaseModel"
 import Skeleton from "../Skeleton"
 
 export type CollectionPropsType = BasePropsType & {
@@ -15,7 +15,7 @@ export type CollectionPropsType = BasePropsType & {
 export default function Collection({ data, className }: CollectionPropsType) {
   const { limit, type, } = data
 
-  const [cards, setCards] = useState<BaseDocumentModel[]>(new Array<BaseDocumentModel>())
+  const [cards, setCards] = useState<BaseContentModel[]>(new Array<BaseContentModel>())
   const [isFirstLoad, setIsFirstLoad] = useState(true)
 
   useEffect(() => {

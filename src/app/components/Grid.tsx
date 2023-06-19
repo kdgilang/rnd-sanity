@@ -1,19 +1,17 @@
 'use client'
 
-import { urlForImage } from "@sanity/lib/image";
 import { linkBuilder } from "@sanity/lib/link";
-import { BaseDocumentModel } from "@sanity/models/BaseModel";
+import { BaseContentModel } from "@sanity/models/BaseModel";
 import LinkModel from "@sanity/models/LinkModel";
 import classNames from "src/app/helpers/classNames";
 import { BasePropsType } from "src/app/types/BasePropsType";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Card from "./Card";
 
 export type GridPropsType = BasePropsType & {
   isAjax?: boolean
-  items: BaseDocumentModel[]
+  items: BaseContentModel[]
   link?: LinkModel
 }
 
@@ -31,7 +29,7 @@ export default function Grid({ items, className, isAjax, link }: GridPropsType) 
     setCards(items)
 
     setCategories(() => 
-      items?.map((item: any) => 
+      items?.map(item => 
         item.categories?.map((cat: any) => cat)
       ).flat()
     )

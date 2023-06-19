@@ -17,3 +17,5 @@ class BannerComponentModel extends BaseDocumentModel {
     this.link = new LinkModel()
   }
 }
+
+export default BannerComponentModel

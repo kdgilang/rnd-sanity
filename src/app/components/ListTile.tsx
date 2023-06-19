@@ -3,13 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BasePropsType } from "../types/BasePropsType";
-import { BaseDocumentModel } from "@sanity/models/BaseModel";
+import { BaseContentModel } from "@sanity/models/BaseModel";
 import { urlForImage } from "@sanity/lib/image";
 import "src/app/helpers/toStringDate"
 import { internalLinkBuilder } from "@sanity/lib/link";
 
 type ListTileType = BasePropsType & {
-  data: BaseDocumentModel[]
+  data: BaseContentModel[]
 }
 
 export default function ListTile({ data }: ListTileType) {

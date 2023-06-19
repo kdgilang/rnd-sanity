@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 import { client } from "@sanity/lib/client";
-import { BaseDocumentModel } from '@sanity/models/BaseModel';
+import { BaseContentModel } from '@sanity/models/BaseModel';
 
 export const queryFilter = groq`*[_type == $type][$index...$limit]{
   _id,
@@ -14,7 +14,7 @@ export const queryFilter = groq`*[_type == $type][$index...$limit]{
 }`;
 
 export function getContentsByFilterService({ limit, type, index = 0 }: 
-    { limit: number, type: string, index?: number }): Promise<BaseDocumentModel[]> {
+    { limit: number, type: string, index?: number }): Promise<BaseContentModel[]> {
 
   const queryParams = { index, limit, type };
 

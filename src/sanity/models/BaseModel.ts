@@ -1,6 +1,7 @@
 import type { SanityDocument } from "@sanity/client";
 import ImageModel from "./ImageModel";
 import { SlugModel } from "./SlugModel";
+import CategoryModel from "./CategoryModel";
 
 export class BaseDocumentModel implements SanityDocument {
   _id: string
@@ -23,6 +24,7 @@ export class BaseContentModel extends BaseDocumentModel {
   title: string
   slug: SlugModel
   description: string
+  categories: CategoryModel[]
 
   constructor() {
     super()
@@ -30,6 +32,7 @@ export class BaseContentModel extends BaseDocumentModel {
     this.title = ''
     this.description = ''
     this.slug = new SlugModel()
+    this.categories = new Array<CategoryModel>()
   }
 }
 

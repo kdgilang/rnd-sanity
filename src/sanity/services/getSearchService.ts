@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 import { client } from "@sanity/lib/client";
-import { BaseDocumentModel } from '@sanity/models/BaseModel';
+import { BaseContentModel, BaseDocumentModel } from '@sanity/models/BaseModel';
 
 export const querySearch = groq`*[(_type == "articleContent" || _type == "flexibleContent") && [lower(title), lower(description), lower(pt::text(body))] match $keyword][]{
   _id,
@@ -12,7 +12,7 @@ export const querySearch = groq`*[(_type == "articleContent" || _type == "flexib
   description
 }`;
 
-export function getSearchService(keyword: string = ""): Promise<BaseDocumentModel[]> {
+export function getSearchService(keyword: string = ""): Promise<BaseContentModel[]> {
   const queryParams = { keyword };
 
   return client.fetch(querySearch, queryParams);
