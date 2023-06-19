@@ -4,14 +4,14 @@ import { SlugModel } from "./SlugModel"
 export default class CategoryModel extends BaseDocumentModel {
   title: string
   icon: any
-  descirption: string
+  description: string
   slug: SlugModel
 
   constructor() {
     super()
 
     this.title = ''
-    this.descirption = ''
+    this.description = ''
     this.icon = ''
     this.slug = new SlugModel()
   }

@@ -59,11 +59,11 @@ export default async function RootLayout({
           </main>
         <Footer settings={settings} />
 
-        <Script src="/js/jquery.min.js" defer />
+        <Script strategy="afterInteractive" src="/js/jquery.min.js" defer />
 
-        <Script src="/js/alime.bundle.js" defer />
+        <Script strategy="afterInteractive" src="/js/alime.bundle.js" defer />
 
-        <Script strategy="lazyOnload" src="/js/default-assets/active.js" async />
+        <Script strategy="afterInteractive" src="/js/active.js" async />
       </body>
     </html>
   )

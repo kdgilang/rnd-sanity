@@ -9,7 +9,8 @@ export const queryCategory = groq`*[(_type == "articleContent" || _type == "flex
   slug,
   image,
   title,
-  description
+  description,
+  categories[]->{ title, slug, _type, _id }
 }`;
 
 export function getContentsByCategorySlug(slug: string = ""): Promise<BaseContentModel[]> {
