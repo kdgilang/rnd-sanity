@@ -29,7 +29,7 @@ export async function generateMetadata() {
 
   return {
     title: `${siteSetting?.name} | ${content.title}`,
-    description: content.description,
+    description: content?.description,
   };
 }
 
