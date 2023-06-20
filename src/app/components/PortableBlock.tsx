@@ -9,7 +9,7 @@ const ImageComponent = ({ value }: any) => {
   const {width, height} = getImageDimensions(value)
   return (
     <Image
-      src={urlForImage(value).width(800).fit('max').auto('format').url()}
+      src={urlForImage(value).width(800).fit('max').auto('format').toString()}
       alt={value.alt || ' '}
       loading="lazy"
       width={width}

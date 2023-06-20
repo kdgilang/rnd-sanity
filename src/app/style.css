@@ -848,6 +848,10 @@ input:required {
   .why-choose-us-content.articleContent > .mt-3 {
     padding: 0 20px 20px;
   }
+  .why-choose-us-content > .mt-3 > div {
+    height: 122px;
+    overflow: hidden;
+  }
   .why-choose-us-content .choose-us-icon {
     -webkit-transition-duration: 800ms;
     -o-transition-duration: 800ms;

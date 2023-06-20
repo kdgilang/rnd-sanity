@@ -6,11 +6,11 @@ import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import { CustomLogo, logoPlugin } from '@sanity/plugins/customization/Logo'
+import {media, mediaAssetSource} from 'sanity-plugin-media'
 import { navStructure } from '@sanity/navStructure'
 import {defaultDocumentNode} from '@sanity/defaultDocumentNode'
 import {colorInput} from '@sanity/color-input'
 import { iconPicker } from 'sanity-plugin-icon-picker'
-// import {codeInput} from '@sanity/code-input'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from '@sanity/env'
@@ -37,11 +37,20 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
     logoPlugin(),
+    media(),
     colorInput(),
     iconPicker(),
     // codeInput(),
     vercelDeployTool(),
   ],
+  // form: {
+  //   // Don't use this plugin when selecting files only (but allow all other enabled asset sources)
+  //   file: {
+  //     assetSources: previousAssetSources => {
+  //       return previousAssetSources.filter(assetSource => assetSource !== mediaAssetSource)
+  //     }
+  //   }
+  // },
 })
 
 

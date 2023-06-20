@@ -68,10 +68,10 @@ export default function Card({ data, className }: CardPropsType) {
           className="category py-1 px-2 position-absolute bg-primary end-0">
           { category.title }
         </Link> }
-        { image && <Link
-          href={urlForImage(image).url()}
+        { image?._id && <Link
+          href={urlForImage(image).toString()}
           className="portfolio-img">
-            <Image src={urlForImage(image).size(640, 480).url()} width={200} height={150} alt={title} />
+            <Image src={urlForImage(image).size(640, 480).toString()} width={200} height={150} alt={title} />
             <div className="hover-content">
               <div> + </div>
             </div>
@@ -81,9 +81,12 @@ export default function Card({ data, className }: CardPropsType) {
         <Icon style={{ fontSize: 30 }} />
       </span> }
       { (title || description) && <div className="mt-3">
-        { title && (<Link href={internalLinkBuilder(slug?.current, _type)}>
-          <h3 className="h3">{title}</h3></Link>) }
-        { description && <p className="mb-0">{description}</p> }
+        <div>
+          <Link href={internalLinkBuilder(slug?.current, _type)}>
+            <h3 className="h3 text-truncate">{title}</h3>
+            { description && <p className="mb-0">{description}</p> }
+          </Link>
+        </div>
       </div> }
     </div>
   )

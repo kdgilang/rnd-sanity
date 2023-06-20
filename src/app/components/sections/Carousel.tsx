@@ -35,13 +35,17 @@ export default function Carousel({ data, className }: CarouselPropsType) {
         {
           carouselItems?.map((item: any) => {
             const { uri, target } = linkBuilder(item?.link)
+
+            const imageUrl = item?.image._id ? urlForImage(item?.image).toString() : ''
+
             return <div
-            key={`item-${item._key}`}><div
-              className={classNames(
+              key={`item-${item._key}`}>
+              <div
+                className={classNames(
                 size,
                 "single-welcome-slide bg-img bg-overlay jarallax"
               )}
-              style={{ backgroundImage: `url(${urlForImage(item?.image).url()})` }}>
+              style={{ backgroundImage: `url(${imageUrl})` }}>
               <div className="container h-100">
                 <div className={classNames(
                   align,

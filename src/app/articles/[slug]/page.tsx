@@ -7,7 +7,6 @@ import { aligns } from '@sanity/schemas/variables/aligns'
 import 'src/app/helpers/toStringDate'
 import PortableBlock from "src/app/components/PortableBlock";
 import PreviewArticle from '@app/components/layouts/PreviewArticle'
-import Script from 'next/script'
 
 const getData = async (slug: string) => {
   const [
@@ -36,8 +35,6 @@ export async function generateMetadata({ params }: { params: { slug: string }}) 
 export default async function Page({ params }: { params: { slug: string }}) {
   const token = getPreviewToken()
   const { content } = await getData(params.slug)
-
-  console.log(content)
 
   if (!content && !token) {
     notFound()

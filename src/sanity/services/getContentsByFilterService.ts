@@ -7,7 +7,15 @@ export const queryFilter = groq`*[_type == $type][$index...$limit]{
   _type,
   _createdAt,
   slug,
-  image,
+  "image": image.asset->{
+    _id,
+    url,
+    _type,
+    title,
+    altText,
+    description,
+    "tags": opt.media.tags[]->name.current
+  },
   title,
   description,
   categories[]->{ title, slug, _type, _id }

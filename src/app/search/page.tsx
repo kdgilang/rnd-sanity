@@ -23,7 +23,7 @@ export default async function Page({ searchParams }: { searchParams: { keyword: 
             <SearchForm />
           </div>
         </div>
-        <h1 className="heading mb-5">Search{searchParams?.keyword ? ` "${searchParams?.keyword}"` : ""}</h1>
+        <h1 className="heading mb-5">Search{searchParams?.keyword ? ` for "${searchParams?.keyword}"` : ""}</h1>
 
         <Suspense fallback={<Loading />}>
           <SearchResult keyword={ searchParams?.keyword } />

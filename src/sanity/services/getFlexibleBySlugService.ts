@@ -4,16 +4,43 @@ import FlexibleContentModel from '@sanity/models/FlexibleContentModel';
 
 export const queryFlexibleBySlug = groq`*[_type == "flexibleContent" && slug.current == $slug][0]{
   ...,
+  "image": image.asset->{
+    _id,
+    url,
+    _type,
+    title,
+    altText,
+    description,
+    "tags": opt.media.tags[]->name.current
+  },
   sections[]{
     ...,
     component->{
       ...,
+      "image": image.asset->{
+        _id,
+        url,
+        _type,
+        title,
+        altText,
+        description,
+        "tags": opt.media.tags[]->name.current
+      },
       link{
         ...,
         ref->{ slug, _type, _id }
       },
       carouselItems[]{
         ...,
+        "image": image.asset->{
+          _id,
+          url,
+          _type,
+          title,
+          altText,
+          description,
+          "tags": opt.media.tags[]->name.current
+        },
         link{
           ...,
           ref->{ slug, _type, _id }
@@ -25,7 +52,15 @@ export const queryFlexibleBySlug = groq`*[_type == "flexibleContent" && slug.cur
         name,
         slug,
         icon,
-        image,
+        "image": image.asset->{
+          _id,
+          url,
+          _type,
+          title,
+          altText,
+          description,
+          "tags": opt.media.tags[]->name.current
+        },
         title,
         description,
         networkItems,

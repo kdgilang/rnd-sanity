@@ -17,7 +17,7 @@ export default function CardTeam({ data, className }: CardTeamPropsType) {
       className || ""
     )} data-wow-delay={`${delay}ms`}>
       <div className="member-thumb">
-        <Image src={urlForImage(image).size(200, 200).crop('center').url()} width={200} height={200} alt={name} />
+        <Image src={urlForImage(image).size(200, 200).crop('center').toString()} width={200} height={200} alt={name} />
       </div>
       <h5 className="text-capitalize">{ name }</h5>
       <span className="mt-5"><strong>{ title }</strong></span>

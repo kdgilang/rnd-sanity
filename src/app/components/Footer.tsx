@@ -20,7 +20,7 @@ export default function Footer({ settings }: { settings: SettingsModel }) {
               </div>
               <div className="footer-logo">
                 { siteSetting?.logo && <Link href="/" aria-label="Go home">
-                  <Image src={ urlForImage(siteSetting.logo).size(256, 150).crop('center').url() } height={100} width={100} alt={ siteSetting?.name } />
+                  <Image src={ urlForImage(siteSetting.logo).size(256, 150).crop('center').toString() } height={100} width={100} alt={ siteSetting?.name } />
                 </Link> }
               </div>
               <div className="social-info">

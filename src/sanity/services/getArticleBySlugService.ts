@@ -4,6 +4,15 @@ import ArticleContentModel from '@sanity/models/ArticleContentModel';
 
 export const queryArticleBySlug = groq`*[_type == "articleContent" && slug.current == $slug][0]{
   ...,
+  "image": image.asset->{
+    _id,
+    url,
+    _type,
+    title,
+    altText,
+    description,
+    "tags": opt.media.tags[]->name.current
+  },
   body[]{
     ...,
     _type == "image" => {

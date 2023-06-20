@@ -11,13 +11,14 @@ export type ImagePropsType = BasePropsType & {
 export default function Banner({ data, className }: ImagePropsType) {
   const { image, title, description, align, link } = data
   const { uri, target } = linkBuilder(link)
+  const imageUrl = image._id ? urlForImage(image).toString() : ''
 
   return (
     <div className={classNames(
       "breadcrumb-area bg-img bg-overlay jarallax",
       className || ""
     )}
-    style={{backgroundImage: `url(${urlForImage(image).url()})`}}>
+    style={{backgroundImage: `url(${imageUrl})`}}>
       <div className="container h-100">
         <div className={
           classNames(

@@ -18,11 +18,12 @@ export default function ListTile({ data }: ListTileType) {
     <div className="row">
       { data?.map(item => {
         const dateString = item?._createdAt?.toStringDate()
+        const imageUrl = item.image._id ? urlForImage(item.image).size(680, 480).toString() : ''
         return <div key={item._id} className="col-12 col-xl-6">
           <Link href={internalLinkBuilder(item.slug.current, item._type)} className="card mb-3">
             <div className="row no-gutters">
               <div className="col-md-4">
-              <Image src={urlForImage(item.image).size(680, 480).url()} className="card-img" alt={item.title} width={200} height={150} />
+              { imageUrl && <Image src={imageUrl} className="card-img" alt={item.title} width={200} height={150} /> }
               </div>
               <div className="col-md-8">
                 <div className="card-body">
