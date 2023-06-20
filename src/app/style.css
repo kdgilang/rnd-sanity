@@ -81,6 +81,11 @@ a:hover {
   color: #625b66;
 }
 
+.nav-brand img {
+  height: 100%;
+  width: auto;
+}
+
 li {
   list-style: none; }
 

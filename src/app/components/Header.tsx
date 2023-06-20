@@ -27,7 +27,7 @@ export default function Header({ settings }: HeaderPropsType) {
             <div className="container">
               <nav className="classy-navbar justify-content-between" id="alimeNav">
                 { siteSetting?.logo &&
-                <Link className="nav-brand" href="/" aria-label="go home">
+                <Link className="nav-brand py-2 h-100 d-block" href="/" aria-label="go home">
                   <Image src={ urlForImage(siteSetting.logo).size(256, 150).crop('center').toString() } height={30} width={100} alt={siteSetting.name} />
                 </Link> }
 
