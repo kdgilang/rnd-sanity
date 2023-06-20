@@ -37,6 +37,8 @@ export default async function Page({ params }: { params: { slug: string }}) {
   const token = getPreviewToken()
   const { content } = await getData(params.slug)
 
+  console.log(content)
+
   if (!content && !token) {
     notFound()
   }

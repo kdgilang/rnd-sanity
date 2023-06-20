@@ -63,16 +63,6 @@
         $('.video-play-btn').magnificPopup({
             type: 'iframe'
         });
-        $('.portfolio-img').magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true,
-                preload: [0, 2],
-                navigateByImgClick: true,
-                tPrev: 'Previous',
-                tNext: 'Next'
-            }
-        });
     }
 
     // ***********************

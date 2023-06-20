@@ -837,6 +837,14 @@ input:required {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   } 
+  .why-choose-us-content .category {
+    border-bottom-left-radius: 10px;
+    right: 0;
+    z-index: 12;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
   .why-choose-us-content.articleContent > .mt-3 {
     padding: 0 20px 20px;
   }
