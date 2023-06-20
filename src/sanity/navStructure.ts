@@ -1,3 +1,4 @@
+import { FaEnvelope } from "react-icons/fa";
 import {
   ImEmbed,
   ImFontSize,
@@ -24,6 +25,7 @@ export const navStructure = (S: any) =>
       // Remove the new singletons from the main list
       ...S.documentTypeListItems().filter(
         (listItem: any) => ![
+          'media.tag',
           'siteSetting',
           'routeSetting',
           'networkSetting',
@@ -94,7 +96,7 @@ export const navStructure = (S: any) =>
                 .child(S.documentTypeList('richTextComponent')),
               S.listItem()
                   .title('Inquiry Form')
-                  .icon(ImFontSize)
+                  .icon(FaEnvelope)
                   .child(S.documentTypeList('inquiryComponent')),
             ])
         ),
